@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --beam-color: rgba(255, 255, 255, 0.1);
+    --text-primary: rgba(255, 255, 255, 0.95);
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --text-tertiary: rgba(255, 255, 255, 0.5);
+    --border-color: rgba(255, 255, 255, 0.1);
+  }
+
+
+  html {
+    scroll-behavior: smooth;
+    @apply antialiased;
+  }
+
+  body {
+    @apply bg-black text-white;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  h1 {
+    @apply text-6xl md:text-7xl lg:text-8xl leading-[0.9];
+  }
+
+  h2 {
+    @apply text-4xl md:text-5xl lg:text-6xl leading-[1.1];
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+  }
+
+  p {
+    @apply text-lg md:text-xl text-white/80 leading-relaxed;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-white hover:bg-gray-100 text-black font-medium py-4 px-8 rounded-full transition-all duration-300 inline-flex items-center gap-2;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent hover:bg-white/10 text-white font-medium py-4 px-8 rounded-full border border-white/20 transition-all duration-300 inline-flex items-center gap-2;
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32 lg:py-40 px-6 md:px-8 lg:px-12;
+  }
+
+  .container-max {
+    @apply max-w-[1400px] mx-auto;
+  }
+
+  .grid-container {
+    @apply grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8;
+  }
+
+  .beam-separator {
+    @apply h-px bg-gradient-to-r from-transparent via-white/20 to-transparent;
+  }
+
+  .vertical-text {
+    @apply writing-mode-vertical-rl text-sm uppercase tracking-[0.2em] text-white/50;
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-sm bg-white/5 border border-white/10 rounded-2xl;
+  }
+
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+
+  .writing-mode-vertical-rl {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+}

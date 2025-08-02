@@ -1,0 +1,26 @@
+{
+    "workbench.startupEditor": "none",
+    "workbench.editor.enablePreview": false,
+    "files.autoSave": "onFocusChange",
+    "editor.wordWrap": "on",
+    "editor.rulers": [80, 120],
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "emmet.includeLanguages": {
+        "markdown": "html"
+    },
+    "markdown.preview.breaks": true,
+    "markdown.preview.fontSize": 14,
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.cwd": "${workspaceFolder}",
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+        "*.html": "${capture}.css, ${capture}.js, ${capture}.md",
+        "*.js": "${capture}.css, ${capture}.md",
+        "*.css": "${capture}.md",
+        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
+        "README.md": "readme.md, README, readme, *.md"
+    }
+} 
