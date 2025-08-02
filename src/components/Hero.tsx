@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { ArrowRight, Sparkles } from 'lucide-react'
+import Image from 'next/image'
 
 export default function Hero() {
   return (
@@ -17,6 +18,22 @@ export default function Hero() {
             className="col-span-12 lg:col-span-10 lg:col-start-2"
           >
             <div className="text-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className="mb-12"
+              >
+                <Image
+                  src="/Diabol_Logo_White-01.png"
+                  alt="DiabolAI Logo"
+                  width={200}
+                  height={80}
+                  className="mx-auto"
+                  priority
+                />
+              </motion.div>
+
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
