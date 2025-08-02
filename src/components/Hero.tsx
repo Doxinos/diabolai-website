@@ -25,7 +25,7 @@ export default function Hero() {
                 className="mb-12"
               >
                 <Image
-                  src="/Diabol_Logo_White-01.png"
+                  src="/logos/Diabol_Logo_White-01.png"
                   alt="DiabolAI Logo"
                   width={200}
                   height={80}
