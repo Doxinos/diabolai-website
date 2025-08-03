@@ -1,24 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Remove deprecated appDir option
-  // experimental: {
-  //   appDir: true,
-  // },
-
-  // Asset configuration
-  images: {
-    domains: ['localhost'],
-    formats: ['image/webp', 'image/avif'],
+  experimental: {
+    appDir: true,
   },
-
-  // Public folder configuration
-  async rewrites() {
-    return [
-      {
-        source: '/assets/:path*',
-        destination: '/public/:path*',
-      },
-    ]
+  images: {
+    domains: [],
   },
 }
 

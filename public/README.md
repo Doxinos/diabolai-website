@@ -1,71 +1,25 @@
-# Public Assets for DiabolAI Website
+# Public Directory
 
-This folder contains all public assets for the DiabolAI website.
+This directory contains static assets that will be served directly by Next.js.
 
-## Folder Structure
+## Structure
 
-```
-public/
-├── images/     # General images, screenshots, backgrounds
-├── logos/      # Company logos, brand assets
-├── icons/      # UI icons, favicons, small graphics
-└── README.md   # This file
-```
+- `favicon.ico` - Website favicon
+- `robots.txt` - Search engine crawling instructions
+- `sitemap.xml` - Site structure for search engines
+- `images/` - Image assets
+- `icons/` - Icon assets
+- `fonts/` - Custom font files (if any)
 
 ## Usage
 
-### In Next.js Components
-```jsx
-// Images
-<img src="/images/hero-bg.jpg" alt="Hero Background" />
+Files in this directory are accessible at the root URL of your site. For example:
+- `public/logo.png` → `https://yoursite.com/logo.png`
+- `public/images/hero.jpg` → `https://yoursite.com/images/hero.jpg`
 
-// Logos
-<img src="/logos/diabolai-logo.png" alt="DiabolAI Logo" />
+## Best Practices
 
-// Icons
-<img src="/icons/arrow-right.svg" alt="Arrow Right" />
-```
-
-### In CSS/Tailwind
-```css
-/* Background images */
-.hero-section {
-  background-image: url('/images/hero-bg.jpg');
-}
-```
-
-## Asset Guidelines
-
-### Images
-- **Formats**: JPG, PNG, WebP, AVIF
-- **Optimization**: Compress images before adding
-- **Naming**: Use kebab-case (e.g., `hero-background.jpg`)
-
-### Logos
-- **Formats**: SVG (preferred), PNG
-- **Versions**: Include different sizes and color variants
-- **Naming**: Include size/color info (e.g., `logo-white-32px.svg`)
-
-### Icons
-- **Formats**: SVG (preferred), PNG
-- **Style**: Consistent design system
-- **Naming**: Descriptive names (e.g., `arrow-right.svg`)
-
-## Firecrawl Integration
-
-This folder structure works with Firecrawl MCP for:
-- **Asset crawling** and optimization
-- **SEO image optimization**
-- **Automatic image processing**
-- **CDN integration** (when deployed)
-
-## Deployment
-
-Assets in this folder will be:
-- **Automatically optimized** by Next.js
-- **Served from CDN** in production
-- **Cached efficiently** for performance
-
----
-
-*Last updated: January 2025*
+1. Use descriptive file names
+2. Optimize images before adding them
+3. Consider using Next.js Image component for better performance
+4. Keep file sizes reasonable for fast loading
