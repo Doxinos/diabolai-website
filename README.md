@@ -1,89 +1,71 @@
-# DiabolAI Website Project
+# New Project
 
-**Project:** Cold Email Campaign Landing Page  
-**Domain:** diabolai.com  
-**Deadline:** Mid-August 2024  
-**Status:** 🔥 URGENT - Development needed
+This is a [Next.js](https://nextjs.org/) project bootstrapped with modern tooling.
 
-## 📁 Project Structure
+## Getting Started
 
-```
-diabolai-website/
-├── README.md              # This file - project overview
-├── src/                   # Source code and assets
-│   ├── index.html         # Landing page HTML
-│   ├── styles/            # CSS files
-│   ├── scripts/           # JavaScript files
-│   └── images/            # Image assets
-├── docs/                  # Documentation
-│   ├── seo-analysis.md    # SEO research and findings
-│   ├── design-specs.md    # Design specifications
-│   └── content-plan.md    # Content strategy
-├── assets/                # External assets
-│   ├── brand/             # Brand assets
-│   ├── mockups/           # Design mockups
-│   └── references/        # Reference materials
-└── notes/                 # Project notes and ideas
-    ├── daily-notes.md     # Daily progress notes
-    ├── ideas.md           # Ideas and concepts
-    └── todo.md            # Task list
+First, install the dependencies:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
 ```
 
-## 🎯 Project Goals
+Then, run the development server:
 
-### Primary Objective
-Create a high-converting landing page for diabolai.com to support cold email campaign launching mid-August.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-### Success Metrics
-- Landing page live by August 15th
-- Mobile-optimized design
-- Contact form integration
-- Fast loading (<3 seconds)
-- Professional AI services presentation
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## 🛠️ Technology Stack
+You can start editing the page by modifying `src/app/page.tsx`. The page auto-updates as you edit the file.
 
-- **Platform:** Framer
-- **Design:** Freepik for visuals
-- **Hosting:** Siteground (existing)
-- **Domain:** diabolai.com
-- **Analytics:** Google Analytics
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## 📋 Current Tasks
+## Learn More
 
-### This Week (August 1-7)
-- [ ] Set up Framer account
-- [ ] Choose landing page template
-- [ ] Customize content for AI services
-- [ ] Add contact form
-- [ ] Test on mobile/desktop
+To learn more about Next.js, take a look at the following resources:
 
-### Next Week (August 8-14)
-- [ ] Final testing and optimization
-- [ ] Set up analytics tracking
-- [ ] Launch landing page
-- [ ] Prepare for cold email campaign
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## 🔗 Related Resources
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-- **SEO Analysis:** [Context File](../../project-contexts/seo_analysis_20250801_113144.md)
-- **Project Index:** [PROJECT_INDEX.md](../../project-contexts/PROJECT_INDEX.md)
-- **Business Context:** Swedish IT consulting → Global AI services
+## Deploy on Vercel
 
-## 📝 Notes
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-### Key Insights from SEO Analysis
-- diabol.se has PageRank 349 (strong domain authority)
-- AI content implemented March 2024 (4 months old)
-- High-value keywords: "AI automation" (22,200 searches), "AI consulting" (18,100 searches)
-- Market opportunity: +83% growth in AI automation searches
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-### Design Considerations
-- Target audience: SMBs in US, Europe, English-speaking Asia
-- Focus: AI implementation and automation services
-- Tone: Professional, tech-forward, solution-oriented
-- Colors: AI/tech color scheme (blues, purples, modern)
+## Project Structure
 
----
-*Project created: 2025-08-01*
-*Last updated: 2025-08-01* 
+```
+src/
+├── app/                 # Next.js 13+ app directory
+│   ├── globals.css     # Global styles
+│   ├── layout.tsx      # Root layout
+│   └── page.tsx        # Home page
+├── components/         # Reusable components
+├── lib/               # Utility functions
+└── types/             # TypeScript type definitions
+```
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run type-check` - Run TypeScript type checking 
