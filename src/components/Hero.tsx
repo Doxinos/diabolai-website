@@ -3,18 +3,20 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import Image from 'next/image'
-import { PopupWidget } from 'react-calendly'
-import { useState } from 'react'
 
 export default function Hero() {
-  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false)
-
-  const openCalendly = () => setIsCalendlyOpen(true)
+  const openCalendly = () => {
+    if (typeof window !== 'undefined' && window.Calendly) {
+      window.Calendly.initPopupWidget({
+        url: 'https://calendly.com/peter-diabol/30min'
+      })
+    }
+  }
   
   return (
     <section className="min-h-screen relative flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-gray-900"></div>
-      
+
       <div className="container-max relative z-10">
         <div className="grid-container">
           <motion.div
@@ -58,7 +60,7 @@ export default function Hero() {
               </h1>
 
               <p className="max-w-2xl mx-auto mb-12">
-                Unleash the power of custom AI automation to scale your revenue, 
+                Unleash the power of custom AI automation to scale your revenue,
                 increase leads by 50%, and save 80% of your time.
               </p>
 
@@ -87,7 +89,7 @@ export default function Hero() {
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent"></div>
-      
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -104,17 +106,6 @@ export default function Hero() {
           </svg>
         </motion.div>
       </motion.div>
-
-      {/* Calendly Popup Widget */}
-      <PopupWidget
-        url="https://calendly.com/peter-diabol/30min"
-        rootElement={typeof window !== 'undefined' ? document.getElementById('__next') || document.body : null}
-        text="Book Free Demo"
-        textColor="#ffffff"
-        color="#000000"
-        isOpen={isCalendlyOpen}
-        onModalClose={() => setIsCalendlyOpen(false)}
-      />
     </section>
   )
 }

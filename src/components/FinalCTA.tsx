@@ -2,23 +2,25 @@
 
 import { motion } from 'framer-motion'
 import { ArrowRight, Download, Sparkles } from 'lucide-react'
-import { PopupWidget } from 'react-calendly'
-import { useState } from 'react'
 
 export default function FinalCTA() {
-  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false)
-
-  const openCalendly = () => setIsCalendlyOpen(true)
+  const openCalendly = () => {
+    if (typeof window !== 'undefined' && window.Calendly) {
+      window.Calendly.initPopupWidget({
+        url: 'https://calendly.com/peter-diabol/30min'
+      })
+    }
+  }
   
   return (
     <section className="section-padding relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black"></div>
-      
+
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
       </div>
-      
+
       <div className="container-max relative z-10">
         <div className="grid-container">
           <motion.div
@@ -99,17 +101,6 @@ export default function FinalCTA() {
           </motion.div>
         </div>
       </div>
-
-      {/* Calendly Popup Widget */}
-      <PopupWidget
-        url="https://calendly.com/peter-diabol/30min"
-        rootElement={typeof window !== 'undefined' ? document.getElementById('__next') || document.body : null}
-        text="Start Your Free Demo"
-        textColor="#ffffff"
-        color="#000000"
-        isOpen={isCalendlyOpen}
-        onModalClose={() => setIsCalendlyOpen(false)}
-      />
     </section>
   )
 }

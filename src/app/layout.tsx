@@ -24,9 +24,36 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+      </head>
       <body className={inter.className}>
         {children}
         <SpeedInsights />
+        
+        <script 
+          src="https://assets.calendly.com/assets/external/widget.js" 
+          type="text/javascript" 
+          async
+        ></script>
+        <script 
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.onload = function() { 
+                if (window.Calendly) {
+                  Calendly.initBadgeWidget({ 
+                    url: 'https://calendly.com/peter-diabol/30min', 
+                    text: 'Book Free Demo', 
+                    color: '#000000', 
+                    textColor: '#ffffff', 
+                    branding: false 
+                  }); 
+                }
+              }
+            `
+          }}
+        />
       </body>
     </html>
   )
