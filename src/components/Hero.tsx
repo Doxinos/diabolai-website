@@ -3,8 +3,14 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import Image from 'next/image'
+import { PopupWidget } from 'react-calendly'
+import { useState } from 'react'
 
 export default function Hero() {
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false)
+
+  const openCalendly = () => setIsCalendlyOpen(true)
+  
   return (
     <section className="min-h-screen relative flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-gray-900"></div>
@@ -61,6 +67,7 @@ export default function Hero() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="btn-primary"
+                  onClick={openCalendly}
                 >
                   Book Free Demo
                   <ArrowRight className="w-5 h-5" />
@@ -97,6 +104,17 @@ export default function Hero() {
           </svg>
         </motion.div>
       </motion.div>
+
+      {/* Calendly Popup Widget */}
+      <PopupWidget
+        url="https://calendly.com/peter-diabol/30min"
+        rootElement={typeof window !== 'undefined' ? document.getElementById('__next') || document.body : null}
+        text="Book Free Demo"
+        textColor="#ffffff"
+        color="#000000"
+        isOpen={isCalendlyOpen}
+        onModalClose={() => setIsCalendlyOpen(false)}
+      />
     </section>
   )
 }

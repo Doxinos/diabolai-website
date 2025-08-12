@@ -2,8 +2,14 @@
 
 import { motion } from 'framer-motion'
 import { ArrowRight, Download, Sparkles } from 'lucide-react'
+import { PopupWidget } from 'react-calendly'
+import { useState } from 'react'
 
 export default function FinalCTA() {
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false)
+
+  const openCalendly = () => setIsCalendlyOpen(true)
+  
   return (
     <section className="section-padding relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black"></div>
@@ -48,6 +54,7 @@ export default function FinalCTA() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="btn-primary"
+                onClick={openCalendly}
               >
                 Start Your Free Demo
                 <ArrowRight className="w-5 h-5" />
@@ -92,6 +99,17 @@ export default function FinalCTA() {
           </motion.div>
         </div>
       </div>
+
+      {/* Calendly Popup Widget */}
+      <PopupWidget
+        url="https://calendly.com/peter-diabol/30min"
+        rootElement={typeof window !== 'undefined' ? document.getElementById('__next') || document.body : null}
+        text="Start Your Free Demo"
+        textColor="#ffffff"
+        color="#000000"
+        isOpen={isCalendlyOpen}
+        onModalClose={() => setIsCalendlyOpen(false)}
+      />
     </section>
   )
 }
