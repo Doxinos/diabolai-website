@@ -6,7 +6,7 @@ import { Star } from 'lucide-react'
 const testimonials = [
   {
     name: 'Stefan Berg',
-    role: 'Transcom AB',
+    role: 'CTO, Transcom AB',
     content: 'A great DevOps partnership with Diabol AB',
     rating: 5
   },
@@ -95,7 +95,7 @@ export default function SocialProof() {
                     "{testimonial.content}"
                   </p>
                   <div className="border-t border-white/10 pt-4">
-                    <div className="font-semibold">{testimonial.name}</div>
+                    <div className="font-semibold text-white">{testimonial.name}</div>
                     <div className="text-sm text-white/60">{testimonial.role}</div>
                   </div>
                 </motion.div>

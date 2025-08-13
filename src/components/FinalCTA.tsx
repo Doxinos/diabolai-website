@@ -32,8 +32,8 @@ export default function FinalCTA() {
           >
             <div className="mb-8"></div>
 
-            <h2 className="mb-6">
-              <span className="block text-white/90">Ready to</span>
+            <h2 className="mb-6 text-white">
+              <span className="block">Ready to</span>
               <span className="block bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
                 10x Your Business?
               </span>
