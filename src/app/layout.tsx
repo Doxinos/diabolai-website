@@ -36,24 +36,7 @@ export default function RootLayout({
           type="text/javascript"
           async
         ></script>
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.onload = function() {
-                if (window.Calendly) {
-                  Calendly.initBadgeWidget({
-                    url: 'https://calendly.com/peter-diabol/30min',
-                    text: 'Book Free Demo',
-                    color: '#000000',
-                    textColor: '#ffffff',
-                    branding: false
-                  });
-                }
-              }
-            `
-          }}
-        />
+
       </body>
     </html>
   )

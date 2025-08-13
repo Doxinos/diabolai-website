@@ -21,6 +21,8 @@ export default function Hero() {
         muted
         loop
         playsInline
+        preload="auto"
+        disablePictureInPicture
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source src="/Video_Diabol_AI_Agent_talking_to_Customer.mp4" type="video/mp4" />
