@@ -11,19 +11,12 @@ export default function WhyUs() {
             <h2 className="mb-4">Why us</h2>
           </div>
 
-          {[{
-            title: 'Fast to launch',
-            desc: 'Live in weeks, not months'
-          }, {
-            title: 'No-code backbone',
-            desc: 'Make, n8n, Zapier, GoHighLevel'
-          }, {
-            title: 'Enterprise-grade reliability',
-            desc: 'DevOps-DNA in delivery'
-          }, {
-            title: 'Focused ROI',
-            desc: 'More meetings, better conversion, less manual work'
-          }].map((item, idx) => (
+          {[
+            { title: 'Fast to launch', desc: 'Live in weeks, not months' },
+            { title: 'No-code backbone', desc: 'Make, n8n, Zapier, GoHighLevel' },
+            { title: 'Enterprise-grade reliability', desc: 'DevOps DNA from 10+ years delivering at Spotify/Klarna/PayPal/King' },
+            { title: 'Focused ROI', desc: 'More meetings, better conversion, less manual work' },
+          ].map((item, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, y: 20 }}

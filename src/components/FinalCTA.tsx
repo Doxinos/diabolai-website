@@ -40,7 +40,7 @@ export default function FinalCTA() {
               <span className="text-sm uppercase tracking-wider">Limited Time Offer</span>
             </motion.div>
 
-            <h2 className="mb-6">Ready to let your AI voice agent take the calls?</h2>
+            <h2 className="mb-6 text-white">Ready to let your AI voice agent take the calls?</h2>
 
             <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto text-white/80">
               Join 50+ businesses already using our AI agents to dominate their market

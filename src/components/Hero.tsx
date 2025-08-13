@@ -58,11 +58,9 @@ export default function Hero() {
                 <span>King</span>
               </div>
 
-              <h1 className="mb-6">
-                <span className="block">AI Voice Agents that</span>
-                <span className="block bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-                  Book, Qualify & Follow Up — Automatically
-                </span>
+              <h1 className="mb-6 text-white">
+                <span className="block">AI Voice Agents that Book, Qualify</span>
+                <span className="block">& Follow Up — Automatically</span>
               </h1>
 
               <p className="max-w-2xl mx-auto mb-12">
