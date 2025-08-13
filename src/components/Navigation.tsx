@@ -14,7 +14,7 @@ export default function Navigation() {
   }, [])
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur bg-black/40 border-b border-white/10">
+    <header className="sticky top-0 z-50">
       <nav className="container-max flex items-center justify-between px-6 md:px-8 h-16">
         <Link href="#hero" className="flex items-center gap-3">
           <Image src="/logos/Diabol_Logo_White-01.png" alt="DiabolAI" width={120} height={40} />

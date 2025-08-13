@@ -51,7 +51,7 @@ export default function Hero() {
                 <Sparkles className="w-4 h-4" />
                 <span className="text-sm uppercase tracking-wider">AI-Powered Innovation</span>
               </motion.div>
-              <div className="flex items-center justify-center gap-6 opacity-60 mb-6 text-sm">
+              <div className="flex items-center justify-center gap-6 opacity-60 mt-10 text-sm">
                 <span>Spotify</span>
                 <span>Klarna</span>
                 <span>PayPal</span>
