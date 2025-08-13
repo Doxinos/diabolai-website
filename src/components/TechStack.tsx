@@ -4,33 +4,33 @@ import { motion } from 'framer-motion'
 
 const techStack = [
   // Core AI Voice Platforms (custom text for specialty platforms)
-  { name: 'Vapi', category: 'AI Voice', logo: null },
-  { name: 'Retell', category: 'AI Voice', logo: null },
-  { name: 'ElevenLabs', category: 'AI Voice', logo: null },
-  { name: 'OpenAI', category: 'AI', logo: '/logos/tech/openai.svg' },
-
+  { name: 'Vapi', category: 'AI Voice', logo: null, color: 'from-blue-500 to-blue-600' },
+  { name: 'Retell', category: 'AI Voice', logo: null, color: 'from-purple-500 to-purple-600' },
+  { name: 'ElevenLabs', category: 'AI Voice', logo: null, color: 'from-green-500 to-green-600' },
+  { name: 'OpenAI', category: 'AI', logo: '/logos/tech/openai.svg', color: 'from-emerald-500 to-emerald-600' },
+  
   // Supporting AI Tools
-  { name: 'Claude', category: 'AI', logo: '/logos/tech/anthropic.svg' },
-  { name: 'Whisper', category: 'AI', logo: null },
-  { name: 'Google', category: 'Cloud AI', logo: '/logos/tech/google.svg' },
-  { name: 'Microsoft', category: 'Azure AI', logo: '/logos/tech/microsoft.svg' },
-
+  { name: 'Claude', category: 'AI', logo: '/logos/tech/anthropic.svg', color: 'from-orange-500 to-orange-600' },
+  { name: 'Whisper', category: 'AI', logo: null, color: 'from-indigo-500 to-indigo-600' },
+  { name: 'Google', category: 'Cloud AI', logo: '/logos/tech/google.svg', color: 'from-blue-500 to-red-500' },
+  { name: 'Microsoft', category: 'Azure AI', logo: '/logos/tech/microsoft.svg', color: 'from-blue-600 to-blue-700' },
+  
   // Automation & Integration
-  { name: 'Make', category: 'Automation', logo: '/logos/tech/make.svg' },
-  { name: 'Zapier', category: 'Integration', logo: '/logos/tech/zapier.svg' },
-  { name: 'n8n', category: 'Automation', logo: null },
-
+  { name: 'Make', category: 'Automation', logo: '/logos/tech/make.svg', color: 'from-purple-600 to-purple-700' },
+  { name: 'Zapier', category: 'Integration', logo: '/logos/tech/zapier.svg', color: 'from-orange-500 to-orange-600' },
+  { name: 'n8n', category: 'Automation', logo: null, color: 'from-pink-500 to-pink-600' },
+  
   // CRM & Business Tools
-  { name: 'HubSpot', category: 'CRM', logo: '/logos/tech/hubspot.svg' },
-  { name: 'ClickUp', category: 'Project Management', logo: null },
-  { name: 'Calendly', category: 'Scheduling', logo: '/logos/tech/calendly.svg' },
-  { name: 'GoHighLevel', category: 'All-in-One', logo: null },
+  { name: 'HubSpot', category: 'CRM', logo: '/logos/tech/hubspot.svg', color: 'from-orange-500 to-red-500' },
+  { name: 'ClickUp', category: 'Project Management', logo: null, color: 'from-pink-500 to-purple-500' },
+  { name: 'Calendly', category: 'Scheduling', logo: '/logos/tech/calendly.svg', color: 'from-blue-500 to-blue-600' },
+  { name: 'GoHighLevel', category: 'All-in-One', logo: null, color: 'from-green-500 to-blue-500' },
 
   // Communication & Infrastructure
-  { name: 'Twilio', category: 'Communication', logo: '/logos/tech/twilio.svg' },
+  { name: 'Twilio', category: 'Communication', logo: '/logos/tech/twilio.svg', color: 'from-red-500 to-red-600' },
   
   // Development & Infrastructure
-  { name: 'GitHub', category: 'Development', logo: '/logos/tech/github.svg' }
+  { name: 'GitHub', category: 'Development', logo: '/logos/tech/github.svg', color: 'from-gray-700 to-gray-800' }
 ]
 
 // Duplicate the array for seamless loop
@@ -87,27 +87,34 @@ export default function TechStack() {
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="w-24 h-24 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center group-hover:bg-white/10 transition-all duration-300">
+                                    <div className="w-24 h-24 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center group-hover:scale-105 transition-all duration-300 relative overflow-hidden">
+                    {/* Colored gradient background on hover */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${tool.color} opacity-0 group-hover:opacity-20 transition-opacity duration-300`}></div>
+                    
                     {tool.logo ? (
-                      /* Real SVG Logo */
-                      <div className="text-center">
-                                                <img 
-                          src={tool.logo} 
-                          alt={`${tool.name} logo`}
-                          className="w-12 h-12 mx-auto opacity-80 group-hover:opacity-100 transition-opacity"
-                        />
-                        <div className="text-white/50 text-xs mt-1">
+                      /* Real SVG Logo with color styling */
+                      <div className="text-center relative z-10">
+                        <div className={`w-12 h-12 mx-auto rounded-lg bg-gradient-to-br ${tool.color} p-2 flex items-center justify-center`}>
+                          <img 
+                            src={tool.logo} 
+                            alt={`${tool.name} logo`}
+                            className="w-full h-full filter brightness-0 invert"
+                          />
+                        </div>
+                        <div className="text-white/70 text-xs mt-1 font-medium">
                           {tool.name}
                         </div>
                       </div>
                     ) : (
-                      /* Styled text for specialty platforms */
-                      <div className="text-center">
-                        <div className="text-white text-sm font-semibold leading-tight">
-                          {tool.name}
+                      /* Styled text for specialty platforms with gradient background */
+                      <div className="text-center relative z-10">
+                        <div className={`w-12 h-12 mx-auto rounded-lg bg-gradient-to-br ${tool.color} flex items-center justify-center mb-1`}>
+                          <div className="text-white text-xs font-bold">
+                            {tool.name.substring(0, 2).toUpperCase()}
+                          </div>
                         </div>
-                        <div className="text-white/50 text-xs mt-1">
-                          {tool.category}
+                        <div className="text-white text-xs font-medium leading-tight">
+                          {tool.name}
                         </div>
                       </div>
                     )}
