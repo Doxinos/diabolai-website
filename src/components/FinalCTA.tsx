@@ -13,7 +13,7 @@ export default function FinalCTA() {
   }
 
   return (
-    <section id="contact" className="section-padding relative overflow-hidden">
+    <section className="section-padding relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black"></div>
 
       <div className="absolute inset-0">
@@ -40,7 +40,12 @@ export default function FinalCTA() {
               <span className="text-sm uppercase tracking-wider">Limited Time Offer</span>
             </motion.div>
 
-            <h2 className="mb-6">Ready to let your AI voice agent take the calls?</h2>
+            <h2 className="mb-6">
+              <span className="block">Ready to</span>
+              <span className="block bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                10x Your Business?
+              </span>
+            </h2>
 
             <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto text-white/80">
               Join 50+ businesses already using our AI agents to dominate their market
@@ -53,7 +58,7 @@ export default function FinalCTA() {
                 className="btn-primary"
                 onClick={openCalendly}
               >
-                Book Your Demo Today
+                Start Your Free Demo
                 <ArrowRight className="w-5 h-5" />
               </motion.button>
 
@@ -89,8 +94,9 @@ export default function FinalCTA() {
             </div>
 
             <div className="pt-8 border-t border-white/10">
-              <p className="text-sm text-white/50">Avg. setup time: 1–3 weeks • Cancel anytime</p>
-              <p className="text-sm text-white/50 mt-2">Contact: support@diabolai.com</p>
+              <p className="text-sm text-white/50">
+                No credit card required • Free consultation • 30-day money-back guarantee
+              </p>
             </div>
           </motion.div>
         </div>
