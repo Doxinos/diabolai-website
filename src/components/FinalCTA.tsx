@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Download, Sparkles } from 'lucide-react'
+import { ArrowRight, Sparkles } from 'lucide-react'
 
 export default function FinalCTA() {
   const openCalendly = () => {
@@ -41,7 +41,7 @@ export default function FinalCTA() {
             </motion.div>
 
             <h2 className="mb-6">
-              <span className="block text-white">Ready to</span>
+              <span className="block text-white/90">Ready to</span>
               <span className="block bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
                 10x Your Business?
               </span>
@@ -51,7 +51,7 @@ export default function FinalCTA() {
               Join 50+ businesses already using our AI agents to dominate their market
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+            <div className="flex justify-center mb-16">
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -60,15 +60,6 @@ export default function FinalCTA() {
               >
                 Start Your Free Demo
                 <ArrowRight className="w-5 h-5" />
-              </motion.button>
-
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="btn-secondary"
-              >
-                Download Case Study
-                <Download className="w-5 h-5" />
               </motion.button>
             </div>
 
