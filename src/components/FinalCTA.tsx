@@ -11,7 +11,7 @@ export default function FinalCTA() {
       })
     }
   }
-  
+
   return (
     <section className="section-padding relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black"></div>
