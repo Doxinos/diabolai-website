@@ -49,7 +49,7 @@ export default function SolutionOverview() {
             </span>
 
             <h2 className="mb-6">
-              <span className="block">AI Solutions That</span>
+              <span className="block text-white">AI Solutions That</span>
               <span className="block bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
                 Actually Work
               </span>

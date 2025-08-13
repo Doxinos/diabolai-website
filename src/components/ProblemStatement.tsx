@@ -34,7 +34,7 @@ export default function ProblemStatement() {
   return (
     <section className="section-padding relative">
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black"></div>
-      
+
       <div className="container-max relative z-10">
         <div className="grid-container">
           <motion.div
@@ -45,7 +45,7 @@ export default function ProblemStatement() {
             className="col-span-12 text-center mb-20"
           >
             <h2 className="mb-6">
-              <span className="block">The Cost of</span>
+              <span className="block text-white">The Cost of</span>
               <span className="block text-red-400">Manual Processes</span>
             </h2>
             <p className="max-w-3xl mx-auto">
@@ -66,15 +66,15 @@ export default function ProblemStatement() {
                 <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-6">
                   <point.icon className="w-7 h-7 text-white" />
                 </div>
-                
+
                 <div className="text-3xl font-bold text-red-400 mb-4">
                   {point.metric}
                 </div>
-                
-                <h3 className="text-xl font-semibold mb-3">
+
+                <h3 className="text-xl font-semibold mb-3 text-white">
                   {point.title}
                 </h3>
-                
+
                 <p className="text-white/60">
                   {point.description}
                 </p>

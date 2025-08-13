@@ -46,7 +46,7 @@ export default function HowItWorks() {
             </span>
 
             <h2 className="mb-6">
-              <span className="block">Get Started in</span>
+              <span className="block text-white">Get Started in</span>
               <span className="block bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                 3 Simple Steps
               </span>
@@ -80,7 +80,7 @@ export default function HowItWorks() {
                     </div>
                   </div>
 
-                  <h3 className="text-2xl font-semibold mb-4">
+                  <h3 className="text-2xl font-semibold mb-4 text-white">
                     {step.title}
                   </h3>
 

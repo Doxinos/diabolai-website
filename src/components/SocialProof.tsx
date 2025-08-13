@@ -46,7 +46,7 @@ export default function SocialProof() {
             className="col-span-12 text-center mb-20"
           >
             <h2 className="mb-6">
-              <span className="block">Trusted by</span>
+              <span className="block text-white">Trusted by</span>
               <span className="block bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
                 Growing Businesses
               </span>

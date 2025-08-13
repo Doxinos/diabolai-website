@@ -41,7 +41,7 @@ export default function FinalCTA() {
             </motion.div>
 
             <h2 className="mb-6">
-              <span className="block">Ready to</span>
+              <span className="block text-white">Ready to</span>
               <span className="block bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
                 10x Your Business?
               </span>
