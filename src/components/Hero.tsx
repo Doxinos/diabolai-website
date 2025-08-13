@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 
 export default function Hero() {
@@ -42,15 +42,7 @@ export default function Hero() {
                 />
               </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/5 mb-8"
-              >
-                <Sparkles className="w-4 h-4" />
-                <span className="text-sm uppercase tracking-wider">AI-Powered Innovation</span>
-              </motion.div>
+              <div className="mb-8"></div>
 
               <h1 className="mb-4 text-6xl md:text-7xl lg:text-8xl font-bold leading-tight">
                 <span className="block bg-gradient-to-r from-gray-300 via-white to-gray-400 bg-clip-text text-transparent">

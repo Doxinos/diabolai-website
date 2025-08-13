@@ -1,0 +1,290 @@
+
+
+# Voice AI Landing Page - Product Requirements Document
+
+## Project Overview
+
+Create a premium voice AI business landing page with integrated Vapi voice chat widget, featuring modern design, smooth animations, and seamless voice interaction capabilities.
+
+## Environment Variables Setup
+
+The app uses environment variables to keep configuration flexible and secure. All variables in Vite must be prefixed with `VITE_` to be accessible in your React code.
+
+**Required Environment Variables:**
+
+-   `VITE_VAPI_ASSISTANT_ID` - Your Vapi assistant ID
+-   `VITE_VAPI_PUBLIC_API_KEY` - Your Vapi public API key
+-   `VITE_GOOGLE_CALENDAR_URL` - Your Google Calendar booking URL
+-   `VITE_AGENT_NAME` - Name of your AI agent (e.g., "Coach")
+
+## Technical Stack
+
+-   **Frontend**: React 18 + TypeScript + Vite
+-   **Styling**: Tailwind CSS + Framer Motion animations
+-   **UI Components**: shadcn/ui component library
+-   **Voice Integration**: Vapi AI voice widget
+-   **Booking Integration**: Google Calendar scheduling
+
+## Key Features & Implementation Steps
+
+### 1. Project Setup & Dependencies
+
+**Required packages:**
+
+-   `framer-motion` - For smooth animations and transitions
+-   `lucide-react` - For consistent iconography
+-   `react-router-dom` - For navigation (if multi-page)
+-   All shadcn/ui dependencies (pre-installed in Lovable)
+
+### 2. Core Components Structure
+
+#### Navigation Component (`src/components/Navbar.tsx`)
+
+**Features:**
+
+-   Fixed position with scroll-based backdrop blur effect
+-   Animated logo with gradient styling
+-   Responsive navigation menu
+-   Integrated "Book a Call" CTA button
+-   Smooth fade-in animation on load
+
+#### Hero Section (`src/components/ui/shape-landing-hero.tsx`)
+
+**Features:**
+
+-   Animated geometric shapes with floating effects
+-   Gradient text effects and backdrop blur
+-   Staggered animation entrance
+-   Responsive typography scaling
+-   Integrated booking CTA (Book a Demo) - Only one button
+
+#### Supporting Components
+
+-   `AudioWaveform.tsx` - Visual audio representation
+-   `ServiceCard.tsx` - Animated service feature cards
+-   `Footer.tsx` - Standard footer with branding
+
+### 3. Vapi Voice Integration Setup
+
+#### Environment Variables in Code
+
+**Create a config file (`src/config/vapi.ts`):**
+
+```typescript
+export const vapiConfig = {
+  assistantId: import.meta.env.VITE_VAPI_ASSISTANT_ID,
+  publicApiKey: import.meta.env.VITE_VAPI_PUBLIC_API_KEY,
+  agentName: import.meta.env.VITE_AGENT_NAME || 'Coach',
+  buttonConfig: {
+    position: "bottom-right",
+    offset: "40px",
+    width: "50px",
+    height: "50px",
+    idle: {
+      color: "rgb(20, 184, 166)", // Match theme color
+      type: "pill",
+      title: `Talk with ${import.meta.env.VITE_AGENT_NAME || 'Coach'}`,
+      subtitle: "Talk with us",
+      icon: "https://unpkg.com/lucide-static@0.321.0/icons/phone.svg"
+    }
+  }
+};
+
+```
+
+#### React Component Integration (`src/components/VapiWidget.tsx`)
+
+```typescript
+import { useEffect } from 'react';
+import { vapiConfig } from '../config/vapi';
+
+declare global {
+  interface Window {
+    vapiSDK: any;
+  }
+}
+
+export const VapiWidget = () => {
+  useEffect(() => {
+    // Load Vapi SDK
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js';
+    script.defer = true;
+    script.async = true;
+    
+    script.onload = () => {
+      if (window.vapiSDK) {
+        window.vapiSDK.run({
+          apiKey: vapiConfig.publicApiKey,
+          assistant: vapiConfig.assistantId,
+          config: vapiConfig.buttonConfig,
+        });
+      }
+    };
+    
+    document.head.appendChild(script);
+    
+    // Position fix for Vapi button
+    const fixVapiButton = () => {
+      const vapiBtn = document.querySelector('.vapi-btn') as HTMLElement;
+      if (vapiBtn) {
+        vapiBtn.style.position = 'fixed';
+        vapiBtn.style.zIndex = '9999';
+        clearInterval(checkExist);
+      }
+    };
+    
+    const checkExist = setInterval(fixVapiButton, 100);
+    
+    return () => {
+      clearInterval(checkExist);
+      document.head.removeChild(script);
+    };
+  }, []);
+  
+  return null; // This component doesn't render anything
+};
+
+```
+
+### 4. Google Calendar Integration
+
+#### Calendar Component (`src/components/CalendarBooking.tsx`)
+
+```typescript
+import { Button } from '@/components/ui/button';
+
+interface CalendarBookingProps {
+  className?: string;
+  label?: string;
+}
+
+export const CalendarBooking = ({ 
+  className = '', 
+  label = 'Book a Call' 
+}: CalendarBookingProps) => {
+  const handleBooking = () => {
+    const calendarUrl = import.meta.env.VITE_GOOGLE_CALENDAR_URL;
+    if (calendarUrl) {
+      window.open(calendarUrl, '_blank');
+    }
+  };
+  
+  return (
+    <Button 
+      onClick={handleBooking}
+      className={`bg-teal-500 hover:bg-teal-600 text-white ${className}`}
+    >
+      {label}
+    </Button>
+  );
+};
+
+```
+
+### 5. Design System & Styling
+
+#### Color Palette
+
+-   **Primary**: Teal-500 (`rgb(20, 184, 166)`)
+-   **Background**: Dark-900 (custom dark theme)
+-   **Text**: White with opacity variations
+-   **Accents**: Indigo-500 for secondary elements
+
+#### Typography
+
+-   **Font**: Inter (Google Fonts)
+-   **Weights**: 300, 400, 500, 600, 700
+-   **Responsive scaling**: 4xl → 6xl → 7xl → 8xl
+
+#### Animation Patterns
+
+-   **Entrance**: Staggered fade-up with delays
+-   **Hover**: Smooth color transitions
+-   **Floating**: Continuous y-axis movement for shapes
+-   **Scroll**: Backdrop blur activation
+
+### 6. Content Structure
+
+#### Page Sections
+
+1.  **Hero** - Main value proposition with CTA
+2.  **Audio Visualization** - Visual appeal and tech demonstration
+3.  **Services** - Feature cards with icons and descriptions
+4. **Pricing** - Free Consult (Book a Call), Custom Build (Schedule a Call)
+5.  **Call-to-Action** - Final conversion section
+6.  **Footer** - Brand reinforcement
+
+### 7. Environment Variables in Code
+
+#### Configuration Pattern
+
+**Create a config file (`src/config/vapi.ts`):**
+
+```typescript
+// This pattern safely references environment variables
+export const vapiConfig = {
+  assistantId: import.meta.env.VITE_VAPI_ASSISTANT_ID,
+  publicApiKey: import.meta.env.VITE_VAPI_PUBLIC_API_KEY,
+  agentName: import.meta.env.VITE_AGENT_NAME || 'Coach',
+  buttonConfig: {
+    position: "bottom-right",
+    offset: "40px",
+    width: "50px",
+    height: "50px",
+    idle: {
+      color: "rgb(20, 184, 166)",
+      type: "pill",
+      title: `Talk with ${import.meta.env.VITE_AGENT_NAME || 'Coach'}`,
+      subtitle: "Talk with us",
+      icon: "https://unpkg.com/lucide-static@0.321.0/icons/phone.svg"
+    }
+  }
+};
+
+```
+
+#### Using Environment Variables in Components
+
+```typescript
+// In your components, reference the config
+import { vapiConfig } from '../config/vapi';
+
+// Or directly access environment variables
+const calendarUrl = import.meta.env.VITE_GOOGLE_CALENDAR_URL;
+
+```
+
+**Important**: The actual values will be set in Vercel's deployment interface - your code only contains the variable references. So the URLs and vapi voice agent won't work currently, but will once deployed to Vercel.
+
+### 8. Performance Optimizations
+
+#### Loading Strategy
+
+-   Vapi script loads asynchronously via React component
+-   Google Calendar handled via window.open (no external scripts)
+-   Fonts preloaded with `preconnect`
+-   Images optimized and properly sized
+
+#### Animation Performance
+
+-   Use `transform` properties for animations
+-   Implement `will-change` for animated elements
+-   Minimize layout thrashing
+
+## Success Metrics
+
+-   Voice widget engagement rate
+-   Calendar booking conversion rate
+-   Page load performance
+-   User interaction quality
+-   Mobile responsiveness scores
+-   Environment variable security compliance
+
+## Next Steps
+
+1.  Set up your GitHub repository
+2.  Configure environment variables in Vercel
+3.  Test the deployment workflow
+4.  Monitor production performance
+5.  Iterate based on user feedback

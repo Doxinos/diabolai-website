@@ -31,7 +31,7 @@ export default function HowItWorks() {
   return (
     <section id="how-it-works" className="section-padding relative">
       <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900"></div>
-      
+
       <div className="container-max relative z-10">
         <div className="grid-container">
           <motion.div
@@ -44,7 +44,7 @@ export default function HowItWorks() {
             <span className="vertical-text absolute right-8 top-1/2 -translate-y-1/2 hidden lg:block">
               PROCESS
             </span>
-            
+
             <h2 className="mb-6">
               <span className="block">Get Started in</span>
               <span className="block bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">

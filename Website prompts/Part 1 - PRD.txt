@@ -1,0 +1,198 @@
+
+# Voice AI Landing Page - Product Requirements Document
+
+## Project Overview
+
+Create a premium voice AI business landing page with integrated Vapi voice chat widget, featuring modern design, smooth animations, and seamless voice interaction capabilities.
+
+## Technical Stack
+
+-   **Frontend**: React 18 + TypeScript + Vite
+-   **Styling**: Tailwind CSS + Framer Motion animations
+-   **UI Components**: shadcn/ui component library
+-   **Voice Integration**: Vapi AI voice widget
+-   **Booking Integration**: Google Calendar scheduling
+
+## Key Features & Implementation Steps
+
+### 1. Project Setup & Dependencies
+
+**Required packages:**
+
+-   `framer-motion` - For smooth animations and transitions
+-   `lucide-react` - For consistent iconography
+-   `react-router-dom` - For navigation (if multi-page)
+-   All shadcn/ui dependencies (pre-installed in Lovable)
+
+### 2. Core Components Structure
+
+#### Navigation Component (`src/components/Navbar.tsx`)
+
+**Features:**
+
+-   Fixed position with scroll-based backdrop blur effect
+-   Animated logo with gradient styling
+-   Responsive navigation menu
+-   Integrated "Book a Call" CTA button
+-   Smooth fade-in animation on load
+
+#### Hero Section (`src/components/ui/shape-landing-hero.tsx`)
+
+**Features:**
+
+-   Animated geometric shapes with floating effects
+-   Gradient text effects and backdrop blur
+-   Staggered animation entrance
+-   Responsive typography scaling
+-   Integrated booking CTA (only one button in the middle of the hero section - "Book a Demo"
+
+#### Supporting Components
+
+-   `AudioWaveform.tsx` - Visual audio representation
+-   `ServiceCard.tsx` - Animated service feature cards
+-   `Footer.tsx` - Standard footer with branding
+
+### 3. Vapi Voice Integration Setup
+
+#### Simple Widget Integration
+
+Add the Vapi widget directly to your `index.html` file in the `<body>` section:
+
+```html
+<vapi-widget 
+  mode="voice" 
+  theme="dark" 
+  base-color="#000000" 
+  accent-color="#15bfbf" 
+  button-base-color="#000000" 
+  button-accent-color="#ffffff" 
+  radius="large" 
+  size="full" 
+  position="bottom-right" 
+  main-label="TALK WITH AI" 
+  start-button-text="Start" 
+  end-button-text="End Call" 
+  require-consent="true" 
+  local-storage-key="vapi_widget_consent" 
+  show-transcript="true" 
+  public-key="YOUR PUBLIC KEY HERE" 
+  assistant-id="YOUR ASSISTANT ID HERE">
+</vapi-widget>
+
+<script src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js" async type="text/javascript"></script>
+
+```
+
+### 4. Google Calendar OR Calendly Integration
+
+#### Calendar Component (`src/components/CalendarBooking.tsx`)
+
+```typescript
+import { Button } from '@/components/ui/button';
+
+interface CalendarBookingProps {
+  className?: string;
+  label?: string;
+}
+
+export const CalendarBooking = ({ 
+  className = '', 
+  label = 'Book a Call' 
+}: CalendarBookingProps) => {
+  const handleBooking = () => {
+    const calendarUrl = 'YOUR GOOGLE OR CALENDLY LINK';
+    window.open(calendarUrl, '_blank');
+  };
+  
+  return (
+    <Button 
+      onClick={handleBooking}
+      className={`bg-teal-500 hover:bg-teal-600 text-white ${className}`}
+    >
+      {label}
+    </Button>
+  );
+};
+
+```
+
+### 5. Design System & Styling
+
+#### Color Palette
+
+-   **Primary**: Teal-500 (`rgb(20, 184, 166)`)
+-   **Background**: Dark-900 (custom dark theme)
+-   **Text**: White with opacity variations
+-   **Accents**: Indigo-500 for secondary elements
+
+#### Typography
+
+-   **Font**: Inter (Google Fonts)
+-   **Weights**: 300, 400, 500, 600, 700
+-   **Responsive scaling**: 4xl → 6xl → 7xl → 8xl
+
+#### Animation Patterns
+
+-   **Entrance**: Staggered fade-up with delays
+-   **Hover**: Smooth color transitions
+-   **Floating**: Continuous y-axis movement for background shapes
+-   **Scroll**: Backdrop blur activation
+
+### 6. Content Structure
+
+#### Page Sections
+
+1.  **Hero** - Main value proposition with CTA (one button "Book a Demo", this sends the user to the calendar link
+2.  **Audio Visualization** - Visual appeal and tech demonstration
+3.  **Services** - Feature cards with icons and descriptions
+4.  **Prices** A section split into two offers (Free Consult, Custom Build (require booking))
+5.  **Call-to-Action** - Final conversion section
+6.  **Footer** - Brand reinforcement
+
+### 7. Performance Optimizations
+
+#### Loading Strategy
+
+-   Vapi widget loads asynchronously via script tag
+-   Google Calendar handled via window.open (no external scripts)
+-   Fonts preloaded with `preconnect`
+-   Images optimized and properly sized
+
+#### Animation Performance
+
+-   Use `transform` properties for animations
+-   Implement `will-change` for animated elements
+-   Minimize layout thrashing
+
+### 8. Testing Checklist
+
+#### Functionality Tests
+
+-   [ ] Voice widget loads and positions correctly
+-   [ ] Calendar booking opens properly
+-   [ ] All animations play smoothly
+-   [ ] Responsive design works across devices
+-   [ ] Navigation links function properly
+
+#### Voice Integration Tests
+
+-   [ ] Voice widget connects successfully
+-   [ ] Assistant responds appropriately
+-   [ ] Call quality is acceptable
+-   [ ] Error handling works properly
+
+## Success Metrics
+
+-   Voice widget engagement rate
+-   Calendar booking conversion rate
+-   Page load performance
+-   User interaction quality
+-   Mobile responsiveness scores
+
+## Next Steps
+
+1.  Implement the landing page components
+2.  Add the Vapi widget to index.html
+3.  Test voice functionality
+4.  Optimize animations and performance
+5.  Launch and monitor user engagement
