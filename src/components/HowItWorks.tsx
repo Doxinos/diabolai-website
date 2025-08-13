@@ -28,6 +28,14 @@ const steps = [
 ]
 
 export default function HowItWorks() {
+  const openCalendly = () => {
+    if (typeof window !== 'undefined' && (window as any).Calendly) {
+      (window as any).Calendly.initPopupWidget({
+        url: 'https://calendly.com/peter-diabol/30min'
+      })
+    }
+  }
+
   return (
     <section id="how-it-works" className="section-padding relative">
       <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900"></div>
@@ -106,7 +114,7 @@ export default function HowItWorks() {
             className="col-span-12 mt-20 text-center"
           >
             <div className="bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-3xl p-12 md:p-16 border border-white/10">
-              <h3 className="text-3xl md:text-4xl font-bold mb-4">
+              <h3 className="text-3xl md:text-4xl font-bold mb-4 text-white">
                 Ready to Get Started?
               </h3>
               <p className="text-xl text-white/80 mb-8">
@@ -116,6 +124,7 @@ export default function HowItWorks() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="btn-primary"
+                onClick={openCalendly}
               >
                 Book Free Consultation
                 <ArrowRight className="w-5 h-5" />

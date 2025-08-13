@@ -31,6 +31,14 @@ const benefits = [
 ]
 
 export default function SolutionOverview() {
+  const openCalendly = () => {
+    if (typeof window !== 'undefined' && (window as any).Calendly) {
+      (window as any).Calendly.initPopupWidget({
+        url: 'https://calendly.com/peter-diabol/30min'
+      })
+    }
+  }
+
   return (
     <section id="why-us" className="section-padding relative">
       <div className="absolute inset-0 bg-black"></div>
@@ -99,7 +107,7 @@ export default function SolutionOverview() {
             className="col-span-12 mt-20"
           >
             <div className="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 rounded-3xl p-12 md:p-16 border border-white/10 text-center">
-              <h3 className="text-3xl md:text-4xl font-bold mb-4">
+              <h3 className="text-3xl md:text-4xl font-bold mb-4 text-white">
                 Ready to 10x Your Productivity?
               </h3>
               <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
@@ -109,6 +117,7 @@ export default function SolutionOverview() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="btn-primary"
+                onClick={openCalendly}
               >
                 Get Started Today
                 <ArrowRight className="w-5 h-5" />
