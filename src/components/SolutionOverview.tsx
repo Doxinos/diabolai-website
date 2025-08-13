@@ -32,7 +32,7 @@ const benefits = [
 
 export default function SolutionOverview() {
   return (
-    <section className="section-padding relative">
+    <section id="why-us" className="section-padding relative">
       <div className="absolute inset-0 bg-black"></div>
       
       <div className="container-max relative z-10">
