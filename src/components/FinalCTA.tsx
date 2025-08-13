@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 export default function FinalCTA() {
   const openCalendly = () => {
@@ -30,15 +30,7 @@ export default function FinalCTA() {
             viewport={{ once: true }}
             className="col-span-12 text-center"
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/5 mb-8"
-            >
-              <Sparkles className="w-4 h-4" />
-              <span className="text-sm uppercase tracking-wider">Limited Time Offer</span>
-            </motion.div>
+            <div className="mb-8"></div>
 
             <h2 className="mb-6">
               <span className="block text-white/90">Ready to</span>
