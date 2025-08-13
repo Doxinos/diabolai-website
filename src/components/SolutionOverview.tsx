@@ -83,7 +83,7 @@ export default function SolutionOverview() {
                   </div>
 
                   <div className="flex-1">
-                    <h3 className="text-2xl font-semibold mb-3">
+                    <h3 className="text-2xl font-semibold mb-3 text-white">
                       {benefit.title}
                     </h3>
                     <p className="text-white/70 mb-4">
