@@ -34,7 +34,7 @@ export default function SolutionOverview() {
   return (
     <section id="why-us" className="section-padding relative">
       <div className="absolute inset-0 bg-black"></div>
-      
+
       <div className="container-max relative z-10">
         <div className="grid-container">
           <motion.div
@@ -47,7 +47,7 @@ export default function SolutionOverview() {
             <span className="vertical-text absolute left-8 top-1/2 -translate-y-1/2 hidden lg:block">
               CAPABILITIES
             </span>
-            
+
             <h2 className="mb-6">
               <span className="block">AI Solutions That</span>
               <span className="block bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
@@ -73,7 +73,7 @@ export default function SolutionOverview() {
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center shrink-0">
                     <benefit.icon className="w-8 h-8 text-white" />
                   </div>
-                  
+
                   <div className="flex-1">
                     <h3 className="text-2xl font-semibold mb-3">
                       {benefit.title}

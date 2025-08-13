@@ -35,7 +35,7 @@ export default function SocialProof() {
   return (
     <section id="tech" className="section-padding relative">
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black"></div>
-      
+
       <div className="container-max relative z-10">
         <div className="grid-container">
           <motion.div

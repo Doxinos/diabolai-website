@@ -45,7 +45,7 @@ export default function Hero() {
               <div className="mb-8"></div>
 
               <h1 className="mb-4 text-6xl md:text-7xl lg:text-8xl font-bold leading-tight">
-                <span className="block bg-gradient-to-r from-[#d9d9d9] via-[#ffffff] to-[#c0c0c0] bg-clip-text text-transparent">
+                <span className="block silver-gradient">
                   AI Voice Agents That Transform Business
                 </span>
               </h1>
