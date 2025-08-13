@@ -15,7 +15,22 @@ export default function Hero() {
 
   return (
     <section id="hero" className="min-h-screen relative flex items-center justify-center overflow-hidden pt-16">
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-gray-900"></div>
+      {/* Video Background */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/Video_AI_Agent_talking.mp4" type="video/mp4" />
+      </video>
+      
+      {/* Dark overlay to ensure text readability */}
+      <div className="absolute inset-0 bg-black/70"></div>
+      
+      {/* Additional gradient overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80"></div>
 
       <div className="container-max relative z-10">
         <div className="grid-container">

@@ -36,11 +36,11 @@ export default function ClientLogos() {
                 viewport={{ once: true }}
                 className="flex justify-center items-center"
               >
-                <Image 
-                  src={client.logo} 
-                  alt={`${client.name} logo`} 
-                  width={120} 
-                  height={60} 
+                <Image
+                  src={client.logo}
+                  alt={`${client.name} logo`}
+                  width={120}
+                  height={60}
                   className="opacity-60 hover:opacity-100 transition-opacity object-contain"
                 />
               </motion.div>
