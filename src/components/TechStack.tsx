@@ -8,26 +8,29 @@ const techStack = [
   { name: 'Retell', category: 'AI Voice', logo: null },
   { name: 'ElevenLabs', category: 'AI Voice', logo: null },
   { name: 'OpenAI', category: 'AI', logo: '/logos/tech/openai.svg' },
-  
+
   // Supporting AI Tools
   { name: 'Claude', category: 'AI', logo: '/logos/tech/anthropic.svg' },
   { name: 'Whisper', category: 'AI', logo: null },
   { name: 'Google', category: 'Cloud AI', logo: '/logos/tech/google.svg' },
   { name: 'Microsoft', category: 'Azure AI', logo: '/logos/tech/microsoft.svg' },
-  
+
   // Automation & Integration
   { name: 'Make', category: 'Automation', logo: '/logos/tech/make.svg' },
   { name: 'Zapier', category: 'Integration', logo: '/logos/tech/zapier.svg' },
   { name: 'n8n', category: 'Automation', logo: null },
-  
+
   // CRM & Business Tools
   { name: 'HubSpot', category: 'CRM', logo: '/logos/tech/hubspot.svg' },
   { name: 'ClickUp', category: 'Project Management', logo: null },
   { name: 'Calendly', category: 'Scheduling', logo: '/logos/tech/calendly.svg' },
   { name: 'GoHighLevel', category: 'All-in-One', logo: null },
-  
+
   // Communication & Infrastructure
-  { name: 'Twilio', category: 'Communication', logo: '/logos/tech/twilio.svg' }
+  { name: 'Twilio', category: 'Communication', logo: '/logos/tech/twilio.svg' },
+  
+  // Development & Infrastructure
+  { name: 'GitHub', category: 'Development', logo: '/logos/tech/github.svg' }
 ]
 
 // Duplicate the array for seamless loop
@@ -88,10 +91,10 @@ export default function TechStack() {
                     {tool.logo ? (
                       /* Real SVG Logo */
                       <div className="text-center">
-                        <img 
+                                                <img 
                           src={tool.logo} 
                           alt={`${tool.name} logo`}
-                          className="w-12 h-12 mx-auto filter brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                          className="w-12 h-12 mx-auto opacity-80 group-hover:opacity-100 transition-opacity"
                         />
                         <div className="text-white/50 text-xs mt-1">
                           {tool.name}
