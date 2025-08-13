@@ -5,21 +5,15 @@ import { Star } from 'lucide-react'
 
 const testimonials = [
   {
-    name: 'Sarah Johnson',
-    role: 'CEO, TechStart Inc',
-    content: 'DiabolAI helped us increase our lead generation by 60% while reducing our team\'s workload by 40%. The ROI was immediate.',
+    name: 'Stefan Berg',
+    role: 'Transcom AB',
+    content: 'A great DevOps partnership with Diabol AB',
     rating: 5
   },
   {
-    name: 'Michael Chen',
-    role: 'Marketing Director, GrowthCo',
-    content: 'The AI agents work 24/7 and never miss a follow-up. Our conversion rates have never been higher.',
-    rating: 5
-  },
-  {
-    name: 'Emily Rodriguez',
-    role: 'Founder, StartupXYZ',
-    content: 'We scaled from 10 to 100 leads per month without hiring additional staff. DiabolAI made it possible.',
+    name: 'Matilda Ringstrom',
+    role: 'Chef Digital Kundupplevelse, Lansförsäkringar AB',
+    content: 'I highly recommend considering Diabol AB for their expertise in DevOps and CD services. Their professionalism and commitment to customer success make them a valuable partner',
     rating: 5
   }
 ]

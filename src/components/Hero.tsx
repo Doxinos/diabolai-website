@@ -54,7 +54,7 @@ export default function Hero() {
                 Our agents book, qualify & follow up automatically.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -79,6 +79,23 @@ export default function Hero() {
                   See How It Works
                 </motion.button>
               </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="mt-8"
+              >
+                <div className="bg-white/5 backdrop-blur-sm rounded-2xl px-8 py-6 mx-auto max-w-2xl border border-white/10">
+                  <p className="text-white/60 text-sm text-center mb-4">Previously delivered DevOps excellence to:</p>
+                  <div className="flex items-center justify-center gap-8 text-white/70 text-sm font-medium">
+                    <span>Spotify</span>
+                    <span>Klarna</span>
+                    <span>PayPal</span>
+                    <span>King</span>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
