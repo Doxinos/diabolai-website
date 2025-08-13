@@ -25,9 +25,8 @@ export default function WhatWeDo() {
               <h3 className="mb-4">AI Voice Agents</h3>
               <ul className="list-disc list-inside text-white/80 space-y-2">
                 <li>Natural conversation (ElevenLabs + GPT-4o/Claude)</li>
-                <li>Bookings & lead qualification (voice + SMS + email)</li>
-                <li>CRM & Calendar integrations: HubSpot, Pipedrive, GoHighLevel, Calendly</li>
-                <li>Real-time updates to deals, contacts, activities</li>
+                <li>Bookings & lead qualification</li>
+                <li>CRM & Calendar: HubSpot, Pipedrive, GoHighLevel, Calendly</li>
               </ul>
               <div className="mt-6">
                 <button
@@ -54,10 +53,9 @@ export default function WhatWeDo() {
             <div className="glass-effect p-8 h-full">
               <h3 className="mb-4">Connected Sales Automations</h3>
               <ul className="list-disc list-inside text-white/80 space-y-2">
-                <li>Personalized cold outreach (multi-channel)</li>
-                <li>Automated follow-up sequences with branching logic</li>
-                <li>Instant meeting notes + CRM updates after calls</li>
-                <li>No-code backbone: Make, n8n, Zapier, GoHighLevel</li>
+                <li>Personalized cold outreach</li>
+                <li>Automated follow-up sequences</li>
+                <li>Meeting notes + CRM updates directly after calls</li>
               </ul>
             </div>
           </motion.div>
