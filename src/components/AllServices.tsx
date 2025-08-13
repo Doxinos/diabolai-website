@@ -74,7 +74,7 @@ export default function AllServices() {
   return (
     <section className="section-padding relative bg-gradient-to-b from-black to-gray-900">
       <div className="absolute inset-0 bg-black/50"></div>
-      
+
       <div className="container-max relative z-10">
         <div className="grid-container">
           {/* Header */}
@@ -92,7 +92,7 @@ export default function AllServices() {
               </span>
             </h2>
             <p className="text-xl text-white/80 max-w-3xl mx-auto">
-              Start with AI Voice Agents, then scale with our full suite of automation services. 
+              Start with AI Voice Agents, then scale with our full suite of automation services.
               One team, complete solution.
             </p>
           </motion.div>
