@@ -14,7 +14,7 @@ export default function Hero() {
   }
 
   return (
-    <section className="min-h-screen relative flex items-center justify-center overflow-hidden">
+    <section id="hero" className="min-h-screen relative flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-gray-900"></div>
 
       <div className="container-max relative z-10">
@@ -51,17 +51,22 @@ export default function Hero() {
                 <Sparkles className="w-4 h-4" />
                 <span className="text-sm uppercase tracking-wider">AI-Powered Innovation</span>
               </motion.div>
+              <div className="flex items-center justify-center gap-6 opacity-60 mb-6 text-sm">
+                <span>Spotify</span>
+                <span>Klarna</span>
+                <span>PayPal</span>
+                <span>King</span>
+              </div>
 
               <h1 className="mb-6">
-                <span className="block">AI Agents That</span>
+                <span className="block">AI Voice Agents that</span>
                 <span className="block bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-                  Transform Business
+                  Book, Qualify & Follow Up — Automatically
                 </span>
               </h1>
 
               <p className="max-w-2xl mx-auto mb-12">
-                Unleash the power of custom AI automation to scale your revenue,
-                increase leads by 50%, and save 80% of your time.
+                Stop missing calls and opportunities. Our AI voice handles conversations, books meetings, and updates your CRM — no human needed.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -79,8 +84,12 @@ export default function Hero() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="btn-secondary"
+                  onClick={() => {
+                    const el = document.querySelector('#how-it-works')
+                    if (el) el.scrollIntoView({ behavior: 'smooth' })
+                  }}
                 >
-                  Watch Demo
+                  See How It Works
                 </motion.button>
               </div>
             </div>
