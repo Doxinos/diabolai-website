@@ -25,7 +25,7 @@ export default function Hero() {
         disablePictureInPicture
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="/Video_Diabol_AI_Agent_talking_to_Customer.mp4" type="video/mp4" />
+        <source src="/Video_AI_agent_Diabol_Customer_Service.mp4" type="video/mp4" />
       </video>
 
       {/* Dark overlay to ensure text readability */}
@@ -51,7 +51,7 @@ export default function Hero() {
               >
                 <Image
                   src="/logos/Diabol_Logo_White-01.png"
-                  alt="DiabolAI Logo"
+                  alt="DiabolAI - AI Voice Agents That Transform Business Logo"
                   width={200}
                   height={80}
                   className="mx-auto"
