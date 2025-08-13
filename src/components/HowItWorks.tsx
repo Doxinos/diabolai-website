@@ -29,7 +29,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="section-padding relative">
+    <section id="how-it-works" className="section-padding relative">
       <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900"></div>
       
       <div className="container-max relative z-10">

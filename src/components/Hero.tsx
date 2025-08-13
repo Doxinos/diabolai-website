@@ -14,7 +14,7 @@ export default function Hero() {
   }
 
   return (
-    <section className="min-h-screen relative flex items-center justify-center overflow-hidden">
+    <section id="hero" className="min-h-screen relative flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-gray-900"></div>
 
       <div className="container-max relative z-10">
@@ -52,16 +52,14 @@ export default function Hero() {
                 <span className="text-sm uppercase tracking-wider">AI-Powered Innovation</span>
               </motion.div>
 
-              <h1 className="mb-6">
-                <span className="block">AI Agents That</span>
-                <span className="block bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-                  Transform Business
+              <h1 className="mb-4 text-6xl md:text-7xl lg:text-8xl font-bold leading-tight">
+                <span className="block bg-gradient-to-r from-gray-300 via-white to-gray-400 bg-clip-text text-transparent">
+                  AI Voice Agents That Transform Business
                 </span>
               </h1>
 
-              <p className="max-w-2xl mx-auto mb-12">
-                Unleash the power of custom AI automation to scale your revenue,
-                increase leads by 50%, and save 80% of your time.
+              <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto mb-12">
+                Our agents book, qualify & follow up automatically.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -71,7 +69,7 @@ export default function Hero() {
                   className="btn-primary"
                   onClick={openCalendly}
                 >
-                  Book Free Demo
+                  Book a Demo
                   <ArrowRight className="w-5 h-5" />
                 </motion.button>
 
@@ -79,8 +77,14 @@ export default function Hero() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="btn-secondary"
+                  onClick={() => {
+                    const element = document.querySelector('#how-it-works')
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' })
+                    }
+                  }}
                 >
-                  Watch Demo
+                  See How It Works
                 </motion.button>
               </div>
             </div>
