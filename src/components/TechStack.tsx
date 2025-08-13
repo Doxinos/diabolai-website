@@ -64,7 +64,7 @@ export default function TechStack() {
           {/* Gradient overlays for smooth fade effect */}
           <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-gray-900 to-transparent z-10"></div>
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black to-transparent z-10"></div>
-          
+
           {/* First Row - Moving Left to Right */}
           <div className="flex overflow-hidden">
             <motion.div
@@ -91,13 +91,13 @@ export default function TechStack() {
                   <div className="w-20 h-20 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center group-hover:scale-105 transition-all duration-300 relative overflow-hidden">
                     {/* Colored gradient background on hover */}
                     <div className={`absolute inset-0 bg-gradient-to-br ${tool.color} opacity-0 group-hover:opacity-20 transition-opacity duration-300`}></div>
-                    
+
                     {tool.logo ? (
                       /* Real SVG Logo with color styling */
                       <div className="text-center relative z-10">
                         <div className={`w-10 h-10 mx-auto rounded-lg bg-gradient-to-br ${tool.color} p-1.5 flex items-center justify-center`}>
-                          <img 
-                            src={tool.logo} 
+                          <img
+                            src={tool.logo}
                             alt={`${tool.name} logo`}
                             className="w-full h-full filter brightness-0 invert"
                           />
@@ -151,13 +151,13 @@ export default function TechStack() {
                   <div className="w-20 h-20 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center group-hover:scale-105 transition-all duration-300 relative overflow-hidden">
                     {/* Colored gradient background on hover */}
                     <div className={`absolute inset-0 bg-gradient-to-br ${tool.color} opacity-0 group-hover:opacity-20 transition-opacity duration-300`}></div>
-                    
+
                     {tool.logo ? (
                       /* Real SVG Logo with color styling */
                       <div className="text-center relative z-10">
                         <div className={`w-10 h-10 mx-auto rounded-lg bg-gradient-to-br ${tool.color} p-1.5 flex items-center justify-center`}>
-                          <img 
-                            src={tool.logo} 
+                          <img
+                            src={tool.logo}
                             alt={`${tool.name} logo`}
                             className="w-full h-full filter brightness-0 invert"
                           />

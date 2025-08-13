@@ -114,7 +114,10 @@ export default function AllServices() {
                         <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${service.gradient} flex items-center justify-center`}>
                           <service.icon className="w-6 h-6 text-white" />
                         </div>
-                        <Badge variant={service.badgeVariant} className="text-xs">
+                        <Badge 
+                          variant={service.badgeVariant} 
+                          className={`text-xs ${service.badgeVariant === 'outline' ? 'text-white border-white/30' : ''}`}
+                        >
                           {service.badge}
                         </Badge>
                       </div>
