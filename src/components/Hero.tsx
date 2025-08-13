@@ -23,12 +23,12 @@ export default function Hero() {
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="/Video_AI_Agent_talking.mp4" type="video/mp4" />
+        <source src="/Video_Diabol_AI_Agent_talking_to_Customer.mp4" type="video/mp4" />
       </video>
-      
+
       {/* Dark overlay to ensure text readability */}
       <div className="absolute inset-0 bg-black/70"></div>
-      
+
       {/* Additional gradient overlay for depth */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80"></div>
 
