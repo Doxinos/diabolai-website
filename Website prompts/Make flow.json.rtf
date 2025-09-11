@@ -1,0 +1,347 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \{\
+    "name": "Sales Navigator \uc0\u8594  Pre-Qualify \u8594  LeadMagic \u8594  Instantly",\
+    "flow": [\
+        \{\
+            "id": 1,\
+            "module": "google-drive:watchFiles",\
+            "version": 1,\
+            "parameters": \{\
+                "__IMTCONN__": 0\
+            \},\
+            "mapper": \{\
+                "folderId": "\{\{YOUR_FOLDER_ID\}\}",\
+                "includeSubfolders": false,\
+                "fileTypes": ["text/csv"]\
+            \},\
+            "metadata": \{\
+                "designer": \{\
+                    "x": 0,\
+                    "y": 0\
+                \},\
+                "restore": \{\
+                    "parameters": \{\
+                        "__IMTCONN__": \{\
+                            "label": "My Google Drive Connection",\
+                            "data": \{\
+                                "scoped": "true",\
+                                "connection": "google"\
+                            \}\
+                        \}\
+                    \}\
+                \}\
+            \}\
+        \},\
+        \{\
+            "id": 2,\
+            "module": "csv:ParseCSV",\
+            "version": 1,\
+            "parameters": \{\
+                "colCount": null,\
+                "delimiter": ",",\
+                "parseNumbers": true,\
+                "parseJSON": false\
+            \},\
+            "mapper": \{\
+                "csv": "\{\{1.data\}\}"\
+            \},\
+            "metadata": \{\
+                "designer": \{\
+                    "x": 300,\
+                    "y": 0\
+                \}\
+            \}\
+        \},\
+        \{\
+            "id": 3,\
+            "module": "google-sheets:filterRows",\
+            "version": 2,\
+            "parameters": \{\
+                "__IMTCONN__": 0\
+            \},\
+            "mapper": \{\
+                "spreadsheetId": "\{\{YOUR_SHEET_ID\}\}",\
+                "sheetId": "Master Lead List",\
+                "filter": [\
+                    [\
+                        \{\
+                            "a": "\{\{2.col3\}\}",\
+                            "b": "\{\{2.`3`\}\}",\
+                            "o": "text:notequal"\
+                        \}\
+                    ]\
+                ],\
+                "limit": "1"\
+            \},\
+            "metadata": \{\
+                "designer": \{\
+                    "x": 600,\
+                    "y": 0\
+                \}\
+            \}\
+        \},\
+        \{\
+            "id": 4,\
+            "module": "builtin:BasicRouter",\
+            "version": 1,\
+            "mapper": null,\
+            "metadata": \{\
+                "designer": \{\
+                    "x": 900,\
+                    "y": 0\
+                \}\
+            \},\
+            "routes": [\
+                \{\
+                    "flow": [\
+                        \{\
+                            "id": 5,\
+                            "module": "openai-gpt-3:CreateCompletion",\
+                            "version": 1,\
+                            "parameters": \{\
+                                "__IMTCONN__": 0\
+                            \},\
+                            "filter": \{\
+                                "name": "Has Profile Data",\
+                                "conditions": [\
+                                    [\
+                                        \{\
+                                            "a": "\{\{2.`7`\}\}",\
+                                            "b": "",\
+                                            "o": "text:notequal"\
+                                        \}\
+                                    ],\
+                                    [\
+                                        \{\
+                                            "a": "\{\{2.`12`\}\}",\
+                                            "b": "",\
+                                            "o": "text:notequal"\
+                                        \}\
+                                    ]\
+                                ]\
+                            \},\
+                            "mapper": \{\
+                                "model": "gpt-4",\
+                                "temperature": 0.3,\
+                                "max_tokens": 150,\
+                                "messages": [\
+                                    \{\
+                                        "role": "system",\
+                                        "content": "You are a B2B lead qualifier for AI automation services. Analyze leads and determine if they are good fits based on company size, role, and technology indicators."\
+                                    \},\
+                                    \{\
+                                        "role": "user",\
+                                        "content": "Analyze this lead for AI automation services fit:\\n\\nName: \{\{2.`1`\}\} \{\{2.`2`\}\}\\nTitle: \{\{2.`4`\}\}\\nCompany: \{\{2.`5`\}\}\\nSummary: \{\{2.`7`\}\}\\nCompany Description: \{\{2.`12`\}\}\\n\\nLook for:\\n- Decision-making authority (C-level, VP, Director)\\n- Company size 10-500 employees\\n- Growth indicators\\n- Technology adoption signs\\n\\nRespond with JSON only:\\n\{\\"qualified\\": true/false, \\"score\\": 1-10, \\"reason\\": \\"brief explanation\\"\}"\
+                                    \}\
+                                ],\
+                                "response_format": "json_object"\
+                            \},\
+                            "metadata": \{\
+                                "designer": \{\
+                                    "x": 1200,\
+                                    "y": -150\
+                                \}\
+                            \}\
+                        \},\
+                        \{\
+                            "id": 6,\
+                            "module": "json:ParseJSON",\
+                            "version": 1,\
+                            "parameters": \{\
+                                "type": ""\
+                            \},\
+                            "mapper": \{\
+                                "json": "\{\{5.result\}\}"\
+                            \},\
+                            "metadata": \{\
+                                "designer": \{\
+                                    "x": 1500,\
+                                    "y": -150\
+                                \}\
+                            \}\
+                        \},\
+                        \{\
+                            "id": 7,\
+                            "module": "http:ActionSendData",\
+                            "version": 3,\
+                            "parameters": \{\
+                                "handleErrors": false,\
+                                "useNewZLibDeCompress": true\
+                            \},\
+                            "filter": \{\
+                                "name": "Qualified Leads Only",\
+                                "conditions": [\
+                                    [\
+                                        \{\
+                                            "a": "\{\{6.qualified\}\}",\
+                                            "b": true,\
+                                            "o": "equal"\
+                                        \}\
+                                    ],\
+                                    [\
+                                        \{\
+                                            "a": "\{\{6.score\}\}",\
+                                            "b": 7,\
+                                            "o": "number:gte"\
+                                        \}\
+                                    ]\
+                                ]\
+                            \},\
+                            "mapper": \{\
+                                "url": "https://api.leadmagic.io/v1/email-finder",\
+                                "method": "POST",\
+                                "headers": [\
+                                    \{\
+                                        "name": "X-API-Key",\
+                                        "value": "\{\{YOUR_LEADMAGIC_API_KEY\}\}"\
+                                    \},\
+                                    \{\
+                                        "name": "Content-Type",\
+                                        "value": "application/json"\
+                                    \}\
+                                ],\
+                                "bodyType": "raw",\
+                                "parseResponse": true,\
+                                "timeout": "30",\
+                                "shareCookies": false,\
+                                "ca": "",\
+                                "rejectUnauthorized": true,\
+                                "followRedirect": true,\
+                                "useQuerystring": false,\
+                                "gzip": true,\
+                                "useMtls": false,\
+                                "contentType": "application/json",\
+                                "data": "\{\\n  \\"first_name\\": \\"\{\{2.`1`\}\}\\",\\n  \\"last_name\\": \\"\{\{2.`2`\}\}\\",\\n  \\"domain\\": \\"\{\{2.`10`\}\}\\",\\n  \\"company_name\\": \\"\{\{2.`5`\}\}\\"\\n\}"\
+                            \},\
+                            "metadata": \{\
+                                "designer": \{\
+                                    "x": 1800,\
+                                    "y": -150\
+                                \}\
+                            \}\
+                        \},\
+                        \{\
+                            "id": 8,\
+                            "module": "builtin:BasicFeeder",\
+                            "version": 1,\
+                            "parameters": \{\},\
+                            "filter": \{\
+                                "name": "Valid Email Only",\
+                                "conditions": [\
+                                    [\
+                                        \{\
+                                            "a": "\{\{7.data.status\}\}",\
+                                            "b": "valid",\
+                                            "o": "text:equal"\
+                                        \}\
+                                    ]\
+                                ]\
+                            \},\
+                            "mapper": \{\
+                                "array": "\{\{7.data\}\}"\
+                            \},\
+                            "metadata": \{\
+                                "designer": \{\
+                                    "x": 2100,\
+                                    "y": -150\
+                                \}\
+                            \}\
+                        \},\
+                        \{\
+                            "id": 9,\
+                            "module": "instantly:addLeadToCampaign",\
+                            "version": 1,\
+                            "parameters": \{\
+                                "__IMTCONN__": 0\
+                            \},\
+                            "mapper": \{\
+                                "campaign_id": "\{\{YOUR_CAMPAIGN_ID\}\}",\
+                                "skip_if_in_workspace": true,\
+                                "leads": [\
+                                    \{\
+                                        "email": "\{\{7.data.email\}\}",\
+                                        "first_name": "\{\{2.`1`\}\}",\
+                                        "last_name": "\{\{2.`2`\}\}",\
+                                        "company_name": "\{\{2.`5`\}\}",\
+                                        "personalization_1": "\{\{2.`7`\}\}",\
+                                        "personalization_2": "\{\{2.`12`\}\}",\
+                                        "title": "\{\{2.`4`\}\}",\
+                                        "linkedin_url": "\{\{2.`3`\}\}",\
+                                        "custom_variables": \{\
+                                            "qualification_score": "\{\{6.score\}\}",\
+                                            "qualification_reason": "\{\{6.reason\}\}",\
+                                            "email_confidence": "\{\{7.data.confidence\}\}"\
+                                        \}\
+                                    \}\
+                                ]\
+                            \},\
+                            "metadata": \{\
+                                "designer": \{\
+                                    "x": 2400,\
+                                    "y": -150\
+                                \}\
+                            \}\
+                        \}\
+                    ]\
+                \}\
+            ]\
+        \},\
+        \{\
+            "id": 10,\
+            "module": "google-sheets:addRow",\
+            "version": 2,\
+            "parameters": \{\
+                "__IMTCONN__": 0\
+            \},\
+            "mapper": \{\
+                "spreadsheetId": "\{\{YOUR_SHEET_ID\}\}",\
+                "sheetId": "Processed Leads",\
+                "includesHeaders": true,\
+                "valueInputOption": "USER_ENTERED",\
+                "values": \{\
+                    "0": "\{\{now\}\}",\
+                    "1": "\{\{2.`3`\}\}",\
+                    "2": "\{\{2.`1`\}\}",\
+                    "3": "\{\{2.`2`\}\}",\
+                    "4": "\{\{2.`5`\}\}",\
+                    "5": "\{\{6.qualified\}\}",\
+                    "6": "\{\{6.score\}\}",\
+                    "7": "\{\{7.data.email\}\}",\
+                    "8": "\{\{7.data.status\}\}"\
+                \}\
+            \},\
+            "metadata": \{\
+                "designer": \{\
+                    "x": 2700,\
+                    "y": 0\
+                \}\
+            \}\
+        \}\
+    ],\
+    "metadata": \{\
+        "instant": false,\
+        "version": 1,\
+        "scenario": \{\
+            "roundtrips": 1,\
+            "maxErrors": 3,\
+            "autoCommit": true,\
+            "autoCommitTriggerLast": true,\
+            "sequential": false,\
+            "slots": null,\
+            "confidential": false,\
+            "dataloss": false,\
+            "dlq": false,\
+            "freshVariables": false\
+        \},\
+        "designer": \{\
+            "orphans": []\
+        \},\
+        "zone": "us1.make.com"\
+    \}\
+\}}
