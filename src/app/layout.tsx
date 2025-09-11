@@ -6,7 +6,7 @@ import './globals.css'
 export const metadata: Metadata = {
   metadataBase: new URL('https://diabolai.com'),
   title: 'DiabolAI - AI Voice Agents That Transform Business | Book, Qualify & Follow Up Automatically',
-  description: 'AI voice agents that book meetings, qualify leads, and follow up automatically. Transform your business with AI phone agents that work 24/7. Enterprise-grade reliability from team that delivered to Spotify, Klarna, PayPal.',
+  description: 'AI voice agents that book meetings, qualify leads, and follow up automatically. Transform your business with AI phone agents that work 24/7. Enterprise-grade reliability from team that delivered to Spotify, Klarna, PayPal. Live voice demo available.',
   keywords: 'AI voice agents, AI phone agents, automated booking, lead qualification, AI customer service, voice AI, AI phone calls, automated sales calls, DiabolAI, AI receptionist',
   authors: [{ name: 'DiabolAI' }],
   creator: 'DiabolAI',
