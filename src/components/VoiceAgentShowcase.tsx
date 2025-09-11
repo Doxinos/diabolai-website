@@ -11,11 +11,12 @@ import VoiceAgent from './VoiceAgent'
 import ProfessionalVoiceAgent from './ProfessionalVoiceAgent'
 import MinimalVoiceAgent from './MinimalVoiceAgent'
 import ElevenLabsWidget from './ElevenLabsWidget'
+import RealVoiceAgent from './RealVoiceAgent'
 
-type DesignOption = 'professional' | 'minimal' | 'original' | 'widget'
+type DesignOption = 'real' | 'professional' | 'minimal' | 'original' | 'widget'
 
 export default function VoiceAgentShowcase() {
-  const [selectedDesign, setSelectedDesign] = useState<DesignOption>('professional')
+  const [selectedDesign, setSelectedDesign] = useState<DesignOption>('real')
   const [callCount, setCallCount] = useState(0)
 
   const handleCallStart = () => {
@@ -23,6 +24,14 @@ export default function VoiceAgentShowcase() {
   }
 
   const designOptions = [
+    {
+      id: 'real' as DesignOption,
+      name: 'Real Voice',
+      description: 'Actually speaks using ElevenLabs API',
+      icon: Star,
+      badge: 'Live Demo',
+      color: 'from-green-500 to-emerald-600'
+    },
     {
       id: 'professional' as DesignOption,
       name: 'Professional',
@@ -61,6 +70,8 @@ export default function VoiceAgentShowcase() {
     const props = { onCallStart: handleCallStart, onCallEnd: () => {} }
     
     switch (selectedDesign) {
+      case 'real':
+        return <RealVoiceAgent {...props} />
       case 'professional':
         return <ProfessionalVoiceAgent {...props} theme="dark" size="standard" />
       case 'minimal':
@@ -74,12 +85,12 @@ export default function VoiceAgentShowcase() {
   }
 
   const features = [
-    "Multiple UI designs",
-    "Real-time audio processing", 
-    "Professional conversation flow",
-    "Responsive design",
+    "Real ElevenLabs voice synthesis",
+    "Multiple professional UI designs", 
+    "Natural conversation flow",
+    "Instant voice responses",
     "Demo-ready interface",
-    "Easy integration"
+    "Easy API integration"
   ]
 
   return (
