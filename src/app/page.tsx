@@ -6,8 +6,7 @@ import SocialProof from '@/components/SocialProof'
 import HowItWorks from '@/components/HowItWorks'
 import AllServices from '@/components/AllServices'
 import TechStack from '@/components/TechStack'
-import VoiceAgentShowcase from '@/components/VoiceAgentShowcase'
-import SimpleVoiceTest from '@/components/SimpleVoiceTest'
+import WorkingVoiceDemo from '@/components/WorkingVoiceDemo'
 import ClientLogos from '@/components/ClientLogos'
 import FinalCTA from '@/components/FinalCTA'
 
@@ -20,8 +19,7 @@ export default function Home() {
       <SolutionOverview />
       <SocialProof />
       <HowItWorks />
-      <SimpleVoiceTest />
-      <VoiceAgentShowcase />
+      <WorkingVoiceDemo />
       <AllServices />
       <TechStack />
       <ClientLogos />
