@@ -1,11 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { ElevenLabsClient } from '@elevenlabs/elevenlabs-js'
 
-// Initialize ElevenLabs client
-const elevenlabs = new ElevenLabsClient({
-  apiKey: process.env.ELEVENLABS_API_KEY
-})
-
 export async function POST(request: NextRequest) {
   try {
     const { text, voiceId = 'pNInz6obpgDQGcFmaJgB' } = await request.json() // Default to Adam voice
@@ -17,6 +12,11 @@ export async function POST(request: NextRequest) {
     if (!process.env.ELEVENLABS_API_KEY) {
       return NextResponse.json({ error: 'ElevenLabs API key not configured' }, { status: 500 })
     }
+
+    // Initialize ElevenLabs client with API key
+    const elevenlabs = new ElevenLabsClient({
+      apiKey: process.env.ELEVENLABS_API_KEY
+    })
 
     // Generate speech using ElevenLabs
     const audioBuffer = await elevenlabs.textToSpeech.convert(voiceId, {
