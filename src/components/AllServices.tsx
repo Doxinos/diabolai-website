@@ -71,6 +71,30 @@ export default function AllServices() {
     }
   }
 
+  const testVoiceAgent = async () => {
+    try {
+      const response = await fetch('/api/tts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          text: 'Hello! This is your AI voice agent speaking. I am powered by ElevenLabs and ready for your Tuesday demo presentation.',
+          voiceId: 'pNInz6obpgDQGcFmaJgB'
+        }),
+      })
+      
+      if (response.ok) {
+        const audioBlob = await response.blob()
+        const audioUrl = URL.createObjectURL(audioBlob)
+        const audio = new Audio(audioUrl)
+        audio.play()
+      } else {
+        alert('Voice API Error: ' + response.status)
+      }
+    } catch (error) {
+      alert('Voice Error: ' + error)
+    }
+  }
+
   return (
     <section className="section-padding relative bg-gradient-to-b from-black to-gray-900">
       <div className="absolute inset-0 bg-black/50"></div>
@@ -91,6 +115,18 @@ export default function AllServices() {
                 Complete AI Automation
               </span>
             </h2>
+            
+            {/* VOICE AGENT DEMO */}
+            <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-2xl p-8 mb-8">
+              <h3 className="text-2xl font-bold text-white mb-4">🎤 Live AI Voice Agent Demo</h3>
+              <p className="text-white/90 mb-6">Click to hear our AI voice agent powered by ElevenLabs</p>
+              <button
+                onClick={testVoiceAgent}
+                className="bg-white text-green-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors"
+              >
+                🗣️ Test Voice Agent Now
+              </button>
+            </div>
             <p className="text-xl text-white/80 max-w-3xl mx-auto">
               Start with AI Voice Agents, then scale with our full suite of automation services.
               One team, complete solution.

@@ -6,7 +6,6 @@ import SocialProof from '@/components/SocialProof'
 import HowItWorks from '@/components/HowItWorks'
 import AllServices from '@/components/AllServices'
 import TechStack from '@/components/TechStack'
-import UltraSimpleVoice from '@/components/UltraSimpleVoice'
 import ClientLogos from '@/components/ClientLogos'
 import FinalCTA from '@/components/FinalCTA'
 
@@ -19,7 +18,6 @@ export default function Home() {
       <SolutionOverview />
       <SocialProof />
       <HowItWorks />
-      <UltraSimpleVoice />
       <AllServices />
       <TechStack />
       <ClientLogos />
