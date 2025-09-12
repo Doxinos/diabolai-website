@@ -18,16 +18,17 @@ export async function POST(request: NextRequest) {
       apiKey: process.env.ELEVENLABS_API_KEY
     })
 
-    // Generate speech using ElevenLabs
+    // Generate speech using ElevenLabs Flash model for best latency
     const audioBuffer = await elevenlabs.textToSpeech.convert(voiceId, {
       text,
-      modelId: 'eleven_turbo_v2_5', // Fast model for real-time use
+      modelId: 'eleven_flash_v2_5', // Flash model for lowest latency
       voiceSettings: {
         stability: 0.7,
         similarityBoost: 0.8,
         style: 0.3,
         useSpeakerBoost: true
-      }
+      },
+      optimizeStreamingLatency: true // Additional latency optimization
     })
 
     // Return audio stream directly
@@ -40,8 +41,15 @@ export async function POST(request: NextRequest) {
 
   } catch (error) {
     console.error('ElevenLabs TTS Error:', error)
+    
+    // Return more specific error for debugging
+    const errorMessage = error instanceof Error ? error.message : 'Failed to generate speech'
     return NextResponse.json(
-      { error: 'Failed to generate speech' }, 
+      { 
+        error: 'Failed to generate speech',
+        details: errorMessage,
+        hint: 'Check ElevenLabs API credits and key configuration'
+      }, 
       { status: 500 }
     )
   }
