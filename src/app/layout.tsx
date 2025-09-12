@@ -54,8 +54,19 @@ export default function RootLayout({
         {children}
         <SpeedInsights />
 
+        {/* ElevenLabs Floating Voice Agent Widget */}
+        <div dangerouslySetInnerHTML={{
+          __html: '<elevenlabs-convai agent-id="agent_1201k4ydfevsfbmavzyz4j73mcdx"></elevenlabs-convai>'
+        }} />
+
         <script
           src="https://assets.calendly.com/assets/external/widget.js"
+          type="text/javascript"
+          async
+        ></script>
+
+        <script
+          src="https://unpkg.com/@elevenlabs/convai-widget-embed"
           type="text/javascript"
           async
         ></script>
