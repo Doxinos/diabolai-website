@@ -25,7 +25,7 @@ export default function ElevenLabsOfficialWidget() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              🤖 Live AI Business Assistant
+              🎯 DiabolAI Voice Demo - Ready for Tuesday!
             </h2>
             <p className="text-xl text-white/80 max-w-3xl mx-auto mb-8">
               Have a real conversation with our AI business assistant. Powered by ElevenLabs' official conversational AI widget.
