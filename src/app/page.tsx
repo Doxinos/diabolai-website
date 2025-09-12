@@ -4,6 +4,7 @@ import ProblemStatement from '@/components/ProblemStatement'
 import SolutionOverview from '@/components/SolutionOverview'
 import SocialProof from '@/components/SocialProof'
 import HowItWorks from '@/components/HowItWorks'
+import ConversationalAI from '@/components/ConversationalAI'
 import AllServices from '@/components/AllServices'
 import TechStack from '@/components/TechStack'
 import ClientLogos from '@/components/ClientLogos'
@@ -18,6 +19,7 @@ export default function Home() {
       <SolutionOverview />
       <SocialProof />
       <HowItWorks />
+      <ConversationalAI />
       <AllServices />
       <TechStack />
       <ClientLogos />

@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
         style: 0.3,
         useSpeakerBoost: true
       },
-      optimizeStreamingLatency: true // Additional latency optimization
+      optimizeStreamingLatency: 1 // Additional latency optimization
     })
 
     // Return audio stream directly
