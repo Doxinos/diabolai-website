@@ -42,13 +42,17 @@ export default function ElevenLabsOfficialWidget() {
               </p>
             </div>
             
-            {/* Official ElevenLabs Widget */}
-            <div 
-              className="flex justify-center"
-              dangerouslySetInnerHTML={{
-                __html: '<elevenlabs-convai agent-id="agent_1201k4ydfevsfbmavzyz4j73mcdx"></elevenlabs-convai>'
-              }}
-            />
+            {/* Note: ElevenLabs widget will appear as floating button */}
+            <div className="flex justify-center">
+              <div className="bg-white/10 border border-white/20 rounded-2xl p-8 text-center">
+                <p className="text-white/80 mb-4">
+                  The ElevenLabs voice agent will appear as a floating button in the bottom right corner of your screen.
+                </p>
+                <p className="text-white/60 text-sm">
+                  Look for the circular voice button that follows you as you scroll.
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Instructions */}
