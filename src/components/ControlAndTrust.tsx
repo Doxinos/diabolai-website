@@ -16,8 +16,8 @@ export default function ControlAndTrust() {
           priority
         />
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/20" />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-black/10" />
       </div>
 
       {/* Content Overlay */}
@@ -39,50 +39,20 @@ export default function ControlAndTrust() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="text-5xl md:text-6xl lg:text-7xl font-bold text-white drop-shadow-2xl leading-tight"
+                className="text-6xl md:text-7xl lg:text-8xl font-sf-pro-display text-white drop-shadow-2xl leading-tight mb-12"
               >
                 You Conduct,
                 <br />
                 <span className="text-[#B2363F]">AI Performs</span>
               </motion.h2>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                viewport={{ once: true }}
-                className="space-y-6"
-              >
-                <div className="flex items-start space-x-4">
-                  <div className="w-3 h-3 bg-white rounded-full mt-2 flex-shrink-0" />
-                  <p className="text-gray-200 text-xl leading-relaxed">
-                    <span className="text-white font-bold">Your Brand Voice:</span> Every conversation reflects your unique personality and values
-                  </p>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-3 h-3 bg-white rounded-full mt-2 flex-shrink-0" />
-                  <p className="text-gray-200 text-xl leading-relaxed">
-                    <span className="text-white font-bold">Your Business Rules:</span> AI follows your specific processes and requirements exactly
-                  </p>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-3 h-3 bg-white rounded-full mt-2 flex-shrink-0" />
-                  <p className="text-gray-200 text-xl leading-relaxed">
-                    <span className="text-white font-bold">Your Approval Process:</span> Complete oversight with the automation you need
-                  </p>
-                </div>
-              </motion.div>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
                 viewport={{ once: true }}
-                className="pt-8"
               >
-                <p className="text-2xl text-white font-medium">
+                <p className="text-2xl md:text-3xl text-white font-sf-pro-text leading-relaxed">
                   Like a conductor leading an orchestra, you set the tempo while AI executes flawlessly.
                 </p>
               </motion.div>
