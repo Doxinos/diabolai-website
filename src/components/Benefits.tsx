@@ -28,7 +28,7 @@ const benefits = [
 
 export default function Benefits() {
   return (
-    <section className="py-12 bg-white">
+    <section className="py-12 bg-[#f5f5f7]">
       <div className="max-w-[1400px] mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {benefits.map((benefit, index) => (
@@ -38,7 +38,18 @@ export default function Benefits() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-[#f5f5f7] rounded-[20px] p-12 text-center hover:scale-[1.02] transition-transform duration-300 w-full h-0 pb-[100%] relative"
+              whileHover={{ 
+                scale: 1.02,
+                rotateX: 2,
+                rotateY: 2,
+                z: 20,
+                transition: { duration: 0.3, ease: "easeOut" }
+              }}
+              className="bg-white rounded-[20px] text-center w-full h-0 pb-[100%] relative transform-gpu perspective-1000"
+              style={{
+                transformStyle: "preserve-3d",
+                boxShadow: "0 4px 20px rgba(0,0,0,0.1)"
+              }}
             >
               <div className="absolute inset-0 p-12 flex flex-col justify-center items-center text-center">
                 <div className="flex justify-center mb-8">

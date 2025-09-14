@@ -155,6 +155,16 @@
     font-family: -apple-system, 'SF Pro Text', 'Inter', system-ui, sans-serif;
     font-weight: 400;
   }
+
+  /* 3D Perspective for hover effects */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-gpu {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
 }
 
 
