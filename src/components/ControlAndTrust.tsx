@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 export default function ControlAndTrust() {
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <section className="relative h-[80vh] overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -21,9 +21,9 @@ export default function ControlAndTrust() {
       </div>
 
       {/* Content Overlay */}
-      <div className="relative z-10 min-h-screen flex items-center">
+      <div className="relative z-10 h-full flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 items-center min-h-screen">
+          <div className="grid grid-cols-1 lg:grid-cols-2 items-center h-full">
             
             {/* Left Content */}
             <motion.div

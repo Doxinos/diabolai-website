@@ -113,39 +113,6 @@ export default function TryItNow() {
             </svg>
           </motion.div>
 
-          {/* Pulsing Call-to-Action */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="relative"
-          >
-            <motion.div
-              animate={{ 
-                scale: [1, 1.05, 1],
-                opacity: [0.5, 0.8, 0.5]
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="absolute inset-0 bg-[#B2363F] rounded-full blur-xl opacity-20"
-            />
-            
-            <div className="relative bg-white border-2 border-black rounded-2xl p-8 shadow-lg max-w-md mx-auto">
-              <div className="text-sm font-medium text-black mb-2">
-                👇 Look for this button
-              </div>
-              <div className="bg-[#B2363F] text-white px-6 py-3 rounded-full font-medium inline-block">
-                Need Help? Start a call
-              </div>
-              <div className="text-sm text-gray-500 mt-4">
-                Experience our AI voice agent in real-time
-              </div>
-            </div>
-          </motion.div>
 
           {/* Background decoration */}
           <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-blue-100 rounded-full opacity-20 blur-3xl transform -translate-y-1/2" />
