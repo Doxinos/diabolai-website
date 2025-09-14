@@ -25,7 +25,7 @@ export default function Hero() {
         disablePictureInPicture
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="/Video_AI_agent_Diabol_Customer_Service.mp4" type="video/mp4" />
+        <source src="/ai-voice-agent-business-transformation-demo.mp4" type="video/mp4" />
       </video>
 
       {/* Dark overlay to ensure text readability */}
@@ -43,23 +43,6 @@ export default function Hero() {
             className="col-span-12 lg:col-span-10 lg:col-start-2"
           >
             <div className="text-center">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-                className="mb-12"
-              >
-                <Image
-                  src="/logos/Diabol_Logo_White-01.png"
-                  alt="DiabolAI - AI Voice Agents That Transform Business Logo"
-                  width={200}
-                  height={80}
-                  className="mx-auto"
-                  priority
-                />
-              </motion.div>
-
-              <div className="mb-8"></div>
 
               <h1 className="mb-4 text-6xl md:text-7xl lg:text-8xl font-bold leading-tight">
                 <span className="block silver-gradient">

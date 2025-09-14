@@ -1,29 +1,19 @@
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
-import ProblemStatement from '@/components/ProblemStatement'
-import SolutionOverview from '@/components/SolutionOverview'
-import SocialProof from '@/components/SocialProof'
-import HowItWorks from '@/components/HowItWorks'
-import ElevenLabsOfficialWidget from '@/components/ElevenLabsOfficialWidget'
-import AllServices from '@/components/AllServices'
-import TechStack from '@/components/TechStack'
-import ClientLogos from '@/components/ClientLogos'
-import FinalCTA from '@/components/FinalCTA'
+import Benefits from '@/components/Benefits'
+import TryItNow from '@/components/TryItNow'
+import ControlAndTrust from '@/components/ControlAndTrust'
+import Explanation from '@/components/Explanation'
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       <Navigation />
       <Hero />
-      <ProblemStatement />
-      <SolutionOverview />
-      <SocialProof />
-      <HowItWorks />
-      <ElevenLabsOfficialWidget />
-      <AllServices />
-      <TechStack />
-      <ClientLogos />
-      <FinalCTA />
+      <Benefits />
+      <TryItNow />
+      <ControlAndTrust />
+      <Explanation />
     </main>
   )
 }

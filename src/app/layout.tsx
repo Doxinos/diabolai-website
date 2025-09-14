@@ -5,16 +5,16 @@ import './globals.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://diabolai.com'),
-  title: 'DiabolAI - AI Voice Agents That Transform Business | Book, Qualify & Follow Up Automatically',
-  description: 'AI voice agents that book meetings, qualify leads, and follow up automatically. Transform your business with AI phone agents that work 24/7. Enterprise-grade reliability from team that delivered to Spotify, Klarna, PayPal. Live voice demo available.',
-  keywords: 'AI voice agents, AI phone agents, automated booking, lead qualification, AI customer service, voice AI, AI phone calls, automated sales calls, DiabolAI, AI receptionist',
+  title: 'DiabolAI - AI Voice Agents That Transform Business | 24/7 Automated Booking & Lead Qualification',
+  description: 'AI voice agents that work 24/7 to book meetings, qualify leads, and follow up automatically. Perfect consistency, instant responses, and significant cost reduction. Try our live demo now and hear the difference.',
+  keywords: 'AI voice agents, AI phone agents, automated booking, lead qualification, 24/7 AI customer service, voice AI, AI phone calls, automated sales calls, DiabolAI, AI receptionist, AI automation, voice chatbot, conversational AI, AI call center',
   authors: [{ name: 'DiabolAI' }],
   creator: 'DiabolAI',
   publisher: 'DiabolAI',
   robots: 'index, follow',
   openGraph: {
     title: 'DiabolAI - AI Voice Agents That Transform Business',
-    description: 'AI voice agents that book meetings, qualify leads, and follow up automatically. Enterprise-grade reliability from former Spotify, Klarna team.',
+    description: 'AI voice agents that work 24/7 to book meetings, qualify leads, and follow up automatically. Perfect consistency, instant responses, and significant cost reduction.',
     type: 'website',
     url: 'https://diabolai.com',
     siteName: 'DiabolAI',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'DiabolAI - AI Voice Agents That Transform Business',
-    description: 'AI voice agents that book meetings, qualify leads, and follow up automatically.',
+    description: 'AI voice agents that work 24/7 to book meetings, qualify leads, and follow up automatically. Try our live demo now.',
     images: ['/logos/Diabol_Logo_White-01.png'],
     creator: '@DiabolAI',
   },
