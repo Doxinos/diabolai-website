@@ -41,9 +41,9 @@ export default function TryItNow() {
             >
               <defs>
                 <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#1E40AF" />
-                  <stop offset="50%" stopColor="#3B82F6" />
-                  <stop offset="100%" stopColor="#1E40AF" />
+                  <stop offset="0%" stopColor="#91BABE" />
+                  <stop offset="50%" stopColor="#B2C8CB" />
+                  <stop offset="100%" stopColor="#91BABE" />
                 </linearGradient>
               </defs>
               
@@ -131,14 +131,14 @@ export default function TryItNow() {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="absolute inset-0 bg-[#3B82F6] rounded-full blur-xl opacity-20"
+              className="absolute inset-0 bg-[#B2363F] rounded-full blur-xl opacity-20"
             />
             
-            <div className="relative bg-white border-2 border-[#3B82F6] rounded-2xl p-8 shadow-lg max-w-md mx-auto">
-              <div className="text-sm font-medium text-[#1E40AF] mb-2">
+            <div className="relative bg-white border-2 border-black rounded-2xl p-8 shadow-lg max-w-md mx-auto">
+              <div className="text-sm font-medium text-black mb-2">
                 👇 Look for this button
               </div>
-              <div className="bg-[#3B82F6] text-white px-6 py-3 rounded-full font-medium inline-block">
+              <div className="bg-[#B2363F] text-white px-6 py-3 rounded-full font-medium inline-block">
                 Need Help? Start a call
               </div>
               <div className="text-sm text-gray-500 mt-4">

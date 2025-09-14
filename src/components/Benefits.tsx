@@ -28,9 +28,9 @@ const benefits = [
 
 export default function Benefits() {
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+    <section className="py-12 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-6xl mx-auto">
           {benefits.map((benefit, index) => (
             <motion.div
               key={index}
@@ -38,19 +38,19 @@ export default function Benefits() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-[#f5f5f7] rounded-[20px] p-8 text-center hover:scale-105 transition-transform duration-300"
+              className="bg-[#f5f5f7] rounded-[20px] p-12 text-center hover:scale-[1.02] transition-transform duration-300 min-h-[320px] flex flex-col justify-center"
             >
-              <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center">
-                  <benefit.icon className="w-8 h-8 text-white" />
+              <div className="flex justify-center mb-8">
+                <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center shadow-lg shadow-[#91BABE]/40">
+                  <benefit.icon className="w-10 h-10 text-white" />
                 </div>
               </div>
               
-              <h3 className="text-xl font-semibold text-black mb-3">
+              <h3 className="text-2xl md:text-3xl font-bold text-black mb-4">
                 {benefit.title}
               </h3>
               
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="text-gray-600 text-lg leading-relaxed">
                 {benefit.description}
               </p>
             </motion.div>

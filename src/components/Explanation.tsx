@@ -44,8 +44,8 @@ export default function Explanation() {
             viewport={{ once: true }}
             className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300"
           >
-            <div className="w-16 h-16 bg-[#3B82F6]/10 rounded-2xl flex items-center justify-center mb-6">
-              <Settings className="w-8 h-8 text-[#3B82F6]" />
+            <div className="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mb-6">
+              <Settings className="w-8 h-8 text-black" />
             </div>
             
             <h3 className="text-2xl font-bold text-black mb-4">
@@ -81,8 +81,8 @@ export default function Explanation() {
             viewport={{ once: true }}
             className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300"
           >
-            <div className="w-16 h-16 bg-[#1E40AF]/10 rounded-2xl flex items-center justify-center mb-6">
-              <Shield className="w-8 h-8 text-[#1E40AF]" />
+            <div className="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mb-6">
+              <Shield className="w-8 h-8 text-black" />
             </div>
             
             <h3 className="text-2xl font-bold text-black mb-4">
@@ -154,12 +154,12 @@ export default function Explanation() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-r from-[#1E40AF] to-[#3B82F6] rounded-2xl p-8 md:p-12 text-center text-white mb-16"
+          className="bg-black rounded-2xl p-8 md:p-12 text-center text-white mb-16"
         >
           <h3 className="text-3xl md:text-4xl font-bold mb-4">
             All With 24/7 Automation
           </h3>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             While you sleep, your AI agents are booking meetings, qualifying leads, 
             and following up with prospects. Never miss another opportunity.
           </p>
@@ -184,7 +184,7 @@ export default function Explanation() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center space-x-3 bg-[#3B82F6] hover:bg-[#1E40AF] text-white font-semibold px-8 py-4 rounded-full text-lg transition-colors duration-300 shadow-lg"
+            className="inline-flex items-center space-x-3 bg-[#B2363F] hover:bg-[#9a2d35] text-white font-semibold px-8 py-4 rounded-full text-lg transition-colors duration-300 shadow-lg"
             onClick={openCalendly}
           >
             <span>Book Your Free Demo</span>
