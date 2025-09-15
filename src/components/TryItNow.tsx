@@ -40,7 +40,7 @@ export default function TryItNow() {
               </h2>
               <p className="text-xl text-black max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
                 Don't take our word for it - have a quick chat with our AI agent! 
-                Just click <span className="font-semibold text-blue-600">'Need Help? Start a call'</span> in the bottom right 
+                Just click <span className="font-semibold text-blue-600">'Start a call'</span> in the bottom right 
                 and see for yourself.
               </p>
             </motion.div>
