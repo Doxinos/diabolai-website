@@ -54,31 +54,6 @@ export default function Hero() {
                 Our agents book, qualify & follow up automatically.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="btn-primary"
-                  onClick={openCalendly}
-                >
-                  Book a Demo
-                  <ArrowRight className="w-5 h-5" />
-                </motion.button>
-
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="btn-secondary"
-                  onClick={() => {
-                    const element = document.querySelector('#how-it-works')
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'smooth' })
-                    }
-                  }}
-                >
-                  See How It Works
-                </motion.button>
-              </div>
 
 
             </div>
