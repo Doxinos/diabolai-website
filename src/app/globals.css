@@ -146,13 +146,13 @@
 
   /* Adobe Fonts - Helvetica Neue LT Pro */
   .font-helvetica-display {
-    font-family: var(--font-roboto), system-ui, sans-serif;
+    font-family: system-ui, -apple-system, sans-serif;
     font-weight: 500; /* 65 Medium */
     font-style: normal;
   }
 
   .font-helvetica-text {
-    font-family: var(--font-roboto), system-ui, sans-serif;
+    font-family: system-ui, -apple-system, sans-serif;
     font-weight: 400; /* 55 Roman */
     font-style: normal;
   }
