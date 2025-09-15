@@ -45,7 +45,7 @@ export default function Benefits() {
                 z: 20,
                 transition: { duration: 0.3, ease: "easeOut" }
               }}
-              className="bg-white rounded-[20px] text-center w-full h-0 pb-[100%] relative transform-gpu perspective-1000"
+              className="bg-white rounded-[20px] text-center w-full h-0 pb-[75%] relative transform-gpu perspective-1000"
               style={{
                 transformStyle: "preserve-3d",
                 boxShadow: "0 4px 20px rgba(0,0,0,0.1)"

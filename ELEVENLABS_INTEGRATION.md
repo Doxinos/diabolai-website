@@ -20,7 +20,7 @@ This document details the complete process of integrating ElevenLabs conversatio
 ### 2. Environment Variables
 Add to `.env.local`:
 ```env
-ELEVENLABS_API_KEY=sk_a32f9a995d7712c6896e9e2b9d2999dbfd1bf2a5a95b2e55
+ELEVENLABS_API_KEY=your_elevenlabs_api_key_here
 NEXT_PUBLIC_AGENT_ID=agent_1201k4ydfevsfbmavzyz4j73mcdx
 ```
 
