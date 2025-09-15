@@ -29,7 +29,7 @@ const benefits = [
 export default function Benefits() {
   return (
     <section className="py-12 bg-[#f5f5f7]">
-      <div className="max-w-[1400px] mx-auto px-6">
+      <div className="max-w-[900px] mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {benefits.map((benefit, index) => (
             <motion.div
