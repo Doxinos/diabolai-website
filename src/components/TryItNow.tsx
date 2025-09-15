@@ -23,7 +23,7 @@ export default function TryItNow() {
           disablePictureInPicture
           className="w-full h-auto block"
         >
-          <source src="/images/imports/backgrounds/soundwave_ai_voic_Cerise_blue.mp4" type="video/mp4" />
+          <source src="/images/imports/backgrounds/Soundwave-ai-voice.mp4" type="video/mp4" />
         </video>
         
         {/* Text overlay */}
