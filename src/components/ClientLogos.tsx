@@ -14,8 +14,8 @@ export default function ClientLogos() {
   ]
 
   return (
-    <section className="py-24 px-6 md:px-8" style={{ backgroundColor: '#f4f4f5' }}>
-      <div className="container-max">
+    <section className="py-16 bg-gray-50 border-t border-gray-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -23,26 +23,29 @@ export default function ClientLogos() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <p className="text-gray-600 text-sm mb-8">
-            Previously delivered technical excellence to:
+          <p className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-12">
+            Previously delivered technical excellence to
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 opacity-60">
+          
+          {/* Logo Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
             {clients.map((client, index) => (
               <motion.div
                 key={client.name}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="flex justify-center items-center"
+                className="col-span-1 flex justify-center items-center"
               >
-                <Image
-                  src={client.logo}
-                  alt={`${client.name} logo`}
-                  width={120}
-                  height={60}
-                  className="opacity-60 hover:opacity-100 transition-opacity object-contain"
-                />
+                <div className="relative h-12 w-32 grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110">
+                  <Image
+                    src={client.logo}
+                    alt={`${client.name} logo`}
+                    fill
+                    className="object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
+                  />
+                </div>
               </motion.div>
             ))}
           </div>
