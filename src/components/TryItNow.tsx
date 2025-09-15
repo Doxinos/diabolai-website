@@ -27,7 +27,7 @@ export default function TryItNow() {
         </video>
         
         {/* Text overlay */}
-        <div className="absolute inset-0 flex items-start justify-center pt-16">
+        <div className="absolute inset-0 flex items-start justify-center pt-20">
           <div className="text-center px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
