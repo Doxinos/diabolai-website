@@ -31,7 +31,7 @@ export default function TryItNow() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="w-screen mb-20 mt-12 h-48 relative -mx-6 md:-mx-8 lg:-mx-12"
+            className="w-screen mb-20 mt-12 relative -mx-6 md:-mx-8 lg:-mx-12"
           >
             <video
               autoPlay
@@ -40,7 +40,7 @@ export default function TryItNow() {
               playsInline
               preload="auto"
               disablePictureInPicture
-              className="w-full h-full object-contain"
+              className="w-full h-auto block"
             >
               <source src="/images/imports/backgrounds/soundwave_ai_voic_Cerise_blue.mp4" type="video/mp4" />
             </video>
