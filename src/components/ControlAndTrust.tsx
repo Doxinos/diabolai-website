@@ -39,7 +39,7 @@ export default function ControlAndTrust() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="text-6xl md:text-7xl lg:text-8xl font-sf-pro-display text-white drop-shadow-2xl leading-tight mb-12"
+                className="text-6xl md:text-7xl lg:text-8xl font-helvetica-display text-white drop-shadow-2xl leading-tight mb-12"
               >
                 You Conduct,
                 <br />
@@ -52,7 +52,7 @@ export default function ControlAndTrust() {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 viewport={{ once: true }}
               >
-                <p className="text-2xl md:text-3xl text-white font-sf-pro-text leading-relaxed">
+                <p className="text-2xl md:text-3xl text-white font-helvetica-text leading-relaxed">
                   Like a conductor leading an orchestra, you set the tempo while AI executes flawlessly.
                 </p>
               </motion.div>

@@ -49,6 +49,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://use.typekit.net/eyb7srb.css" />
       </head>
       <body>
         {children}
