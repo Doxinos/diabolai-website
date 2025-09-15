@@ -38,24 +38,9 @@ export const ElevenLabsGate: React.FC = () => {
   return null
 }
 
-export const TypekitGate: React.FC = () => {
-  const { consent } = useConsent()
-  useEffect(() => {
-    if (!consent.functional) return
-    if (document.querySelector('link[href^="https://use.typekit.net/"]')) return
-    const l = document.createElement("link")
-    l.rel = "stylesheet"
-    l.href = "https://use.typekit.net/eyb7srb.css"
-    document.head.appendChild(l)
-    return () => { l.remove() }
-  }, [consent.functional])
-  return null
-}
-
 export default function ScriptGates() {
   return (
     <>
-      <TypekitGate />
       <CalendlyGate />
       <ElevenLabsGate />
     </>

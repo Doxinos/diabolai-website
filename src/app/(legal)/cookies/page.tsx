@@ -25,7 +25,7 @@ export default function CookiesPage() {
         <li>Vercel (hosting)</li>
         <li>Calendly (scheduling widget)</li>
         <li>ElevenLabs (voice widget)</li>
-        <li>Adobe Typekit or self‑hosted fonts</li>
+        <li>Fonts served from our own domain via Next.js</li>
       </ul>
 
       <p className="text-sm text-gray-600">This page is a summary. For detailed processing information, see our Privacy Policy.</p>

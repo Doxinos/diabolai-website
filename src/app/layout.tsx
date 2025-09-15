@@ -59,7 +59,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Calendly CSS loaded only when widget script is allowed */}
+        {/* Third‑party scripts are loaded conditionally in ScriptGates; no external fonts */}
       </head>
       <body className={roboto.className}>
         <ConsentProvider>

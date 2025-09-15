@@ -23,7 +23,7 @@ export const CookieSettingsModal: React.FC = () => {
         <p className="text-sm text-gray-700 mb-4">Select which categories you want to allow. Necessary cookies are always on.</p>
 
         <div className="divide-y">
-          <Row label="Necessary" checked readOnly disabled helper="Required for core site functions." />
+          <Row label="Necessary" checked={true} disabled helper="Required for core site functions." />
           <Row label="Functional" checked={consent.functional} onChange={(v) => toggleCategory("functional", v)} helper="Calendly widget, ElevenLabs voice widget, UI preferences." />
           <Row label="Analytics" checked={consent.analytics} onChange={(v) => toggleCategory("analytics", v)} helper="Measurement and performance." />
           <Row label="Marketing" checked={consent.marketing} onChange={(v) => toggleCategory("marketing", v)} helper="Third‑party embeds and remarketing." />

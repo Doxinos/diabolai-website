@@ -24,8 +24,9 @@ export default function PrivacyPage() {
 
       <h2>Processors and Transfers</h2>
       <p>
-        We use service providers such as Vercel (hosting), Calendly (booking), ElevenLabs (voice widget), and Adobe Typekit or
-        self‑hosted fonts. Some providers are outside the EU/EEA; we rely on Standard Contractual Clauses and additional safeguards.
+        We use service providers such as Vercel (hosting), Calendly (booking), and ElevenLabs (voice widget). Fonts are served
+        from our own domain via Next.js. Some providers are outside the EU/EEA; we rely on Standard Contractual Clauses and
+        additional safeguards.
       </p>
 
       <h2>Cookies and Tracking</h2>
