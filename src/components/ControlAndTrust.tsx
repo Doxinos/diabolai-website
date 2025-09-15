@@ -9,8 +9,8 @@ export default function ControlAndTrust() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/imports/features/ai_Composer_2.png"
-          alt="Human conductor leading AI orchestra - You conduct, AI performs"
+          src="/images/imports/features/ai_composer_female.png"
+          alt="Female conductor leading AI orchestra - You conduct, AI performs"
           fill
           className="object-cover"
           priority
