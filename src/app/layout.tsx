@@ -1,6 +1,10 @@
 import type { Metadata } from 'next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
+import { ConsentProvider } from '@/components/consent/ConsentProvider'
+import CookieBanner from '@/components/consent/CookieBanner'
+import CookieSettingsModal from '@/components/consent/CookieSettingsModal'
+import Footer from '@/components/Footer'
 
 
 export const metadata: Metadata = {
@@ -48,29 +52,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
-        <link rel="stylesheet" href="https://use.typekit.net/eyb7srb.css" />
+        {/* Calendly CSS loaded only when widget script is allowed */}
       </head>
       <body>
-        {children}
+        <ConsentProvider>
+          {children}
+          <Footer />
+          <CookieBanner />
+          <CookieSettingsModal />
+        </ConsentProvider>
         <SpeedInsights />
-
-        <script
-          src="https://assets.calendly.com/assets/external/widget.js"
-          type="text/javascript"
-          async
-        ></script>
-
-        {/* ElevenLabs Floating Voice Agent Widget */}
-        <div dangerouslySetInnerHTML={{
-          __html: '<elevenlabs-convai agent-id="agent_1201k4ydfevsfbmavzyz4j73mcdx"></elevenlabs-convai>'
-        }} />
-
-        <script
-          src="https://unpkg.com/@elevenlabs/convai-widget-embed"
-          type="text/javascript"
-          async
-        ></script>
 
       </body>
     </html>
