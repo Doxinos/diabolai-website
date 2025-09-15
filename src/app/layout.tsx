@@ -1,10 +1,17 @@
 import type { Metadata } from 'next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Roboto } from 'next/font/google'
 import './globals.css'
 import { ConsentProvider } from '@/components/consent/ConsentProvider'
 import CookieBanner from '@/components/consent/CookieBanner'
 import CookieSettingsModal from '@/components/consent/CookieSettingsModal'
 import Footer from '@/components/Footer'
+
+const roboto = Roboto({
+  weight: ['300', '400', '500', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 
 export const metadata: Metadata = {
@@ -54,7 +61,7 @@ export default function RootLayout({
       <head>
         {/* Calendly CSS loaded only when widget script is allowed */}
       </head>
-      <body>
+      <body className={roboto.className}>
         <ConsentProvider>
           {children}
           <Footer />
