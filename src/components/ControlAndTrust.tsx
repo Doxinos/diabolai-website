@@ -16,8 +16,8 @@ export default function ControlAndTrust() {
           priority
         />
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-black/10" />
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-black/5" />
       </div>
 
       {/* Content Overlay */}
