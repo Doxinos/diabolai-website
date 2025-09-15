@@ -25,92 +25,25 @@ export default function TryItNow() {
             </p>
           </motion.div>
 
-          {/* Animated Sound Wave Visualization */}
+          {/* Video Sound Wave Visualization */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="flex items-center justify-center mb-16 h-32"
+            className="w-full mb-20 mt-12 h-32 relative overflow-hidden"
           >
-            <svg
-              width="600"
-              height="120"
-              viewBox="0 0 600 120"
-              className="w-full max-w-2xl"
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              disablePictureInPicture
+              className="absolute inset-0 w-full h-full object-cover object-center"
             >
-              <defs>
-                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#91BABE" />
-                  <stop offset="50%" stopColor="#B2C8CB" />
-                  <stop offset="100%" stopColor="#91BABE" />
-                </linearGradient>
-              </defs>
-              
-              <motion.path
-                d="M0,60 Q150,20 300,60 T600,60"
-                fill="none"
-                stroke="url(#waveGradient)"
-                strokeWidth="4"
-                strokeLinecap="round"
-                animate={{
-                  d: [
-                    "M0,60 Q150,20 300,60 T600,60",
-                    "M0,60 Q150,100 300,60 T600,60",
-                    "M0,60 Q150,20 300,60 T600,60"
-                  ]
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
-              
-              <motion.path
-                d="M0,60 Q75,40 150,60 Q225,80 300,60 Q375,40 450,60 Q525,80 600,60"
-                fill="none"
-                stroke="url(#waveGradient)"
-                strokeWidth="3"
-                strokeLinecap="round"
-                opacity="0.6"
-                animate={{
-                  d: [
-                    "M0,60 Q75,40 150,60 Q225,80 300,60 Q375,40 450,60 Q525,80 600,60",
-                    "M0,60 Q75,80 150,60 Q225,40 300,60 Q375,80 450,60 Q525,40 600,60",
-                    "M0,60 Q75,40 150,60 Q225,80 300,60 Q375,40 450,60 Q525,80 600,60"
-                  ]
-                }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.5
-                }}
-              />
-              
-              <motion.path
-                d="M0,60 Q100,50 200,60 Q300,70 400,60 Q500,50 600,60"
-                fill="none"
-                stroke="url(#waveGradient)"
-                strokeWidth="2"
-                strokeLinecap="round"
-                opacity="0.4"
-                animate={{
-                  d: [
-                    "M0,60 Q100,50 200,60 Q300,70 400,60 Q500,50 600,60",
-                    "M0,60 Q100,70 200,60 Q300,50 400,60 Q500,70 600,60",
-                    "M0,60 Q100,50 200,60 Q300,70 400,60 Q500,50 600,60"
-                  ]
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1
-                }}
-              />
-            </svg>
+              <source src="/images/imports/backgrounds/soundwave_ai_voic_Cerise_blue.mp4" type="video/mp4" />
+            </video>
           </motion.div>
 
 
