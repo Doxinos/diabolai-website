@@ -27,18 +27,18 @@ export default function TryItNow() {
         </video>
         
         {/* Text overlay */}
-        <div className="absolute inset-0 flex items-start justify-center pt-20">
-          <div className="text-center px-4 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 flex items-start justify-center pt-8 sm:pt-16 md:pt-20">
+          <div className="text-center px-6 sm:px-8 lg:px-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 drop-shadow-2xl">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4 sm:mb-6 drop-shadow-2xl">
                 Curious How It Sounds?
               </h2>
-              <p className="text-xl text-black max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
+              <p className="text-lg sm:text-xl text-black max-w-2xl sm:max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
                 Don't take our word for it - have a quick chat with our AI agent! 
                 Just click <span className="font-semibold text-blue-600">'Start a call'</span> in the bottom right 
                 and see for yourself.
