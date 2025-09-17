@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../My AI Tools Blog"
+		}
+	],
+	"settings": {
+		"workbench.editor.enablePreview": false,
+		"emmet.includeLanguages": {
+			"markdown": "html"
+		},
+		"terminal.integrated.defaultProfile.osx": "zsh"
+	}
+}
