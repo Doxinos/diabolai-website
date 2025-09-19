@@ -24,6 +24,7 @@ export default function Navigation() {
           <a href="#how-it-works" className="hover:text-white transition-colors">How it works</a>
           <a href="#why-us" className="hover:text-white transition-colors">Why us</a>
           <a href="#tech" className="hover:text-white transition-colors">Tech</a>
+          <Link href="/faq" className="hover:text-white transition-colors">FAQ</Link>
           <a href="#contact" className="hover:text-white transition-colors">Contact</a>
         </div>
 
