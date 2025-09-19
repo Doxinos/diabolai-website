@@ -1,0 +1,34 @@
+SEO SITEMAP STRATEGY - DiabolAI Website
+===========================================
+
+## Current Implementation
+- Single sitemap: /sitemap.xml
+- Keep simple until 100-200+ URLs
+- Defer sectioned sitemaps until blog/resources launch
+
+## Staging Environment Rules
+- Block staging from indexing: https://staging.diabolai.com/
+- Methods: HTTP auth OR X-Robots-Tag: noindex
+- robots.txt: Disallow: /
+- DO NOT submit staging to Google Search Console
+
+## Future Sectioned Sitemap Structure (when blog launches)
+/sitemap.xml (index file) points to:
+├── /sitemap-pages.xml (static pages)
+├── /sitemap-blog.xml (blog posts)
+└── /sitemap-resources.xml (guides, resources)
+
+## Sitemap Hygiene Checklist
+✅ Only indexable 200 URLs (no noindex, no canonicals elsewhere)
+✅ Absolute HTTPS URLs
+✅ Consistent trailing-slash policy
+✅ Correct headers (200, Content-Type: application/xml; charset=UTF-8)
+✅ Accurate <lastmod> on publish/updates
+✅ Add "Sitemap: https://diabolai.com/sitemap.xml" to production robots.txt only
+⚪ Ping Google Search Console on deploy (optional)
+
+## Implementation Notes
+- Current sitemap auto-generates via Next.js at /sitemap.xml
+- Contains all current pages with proper priorities
+- Ready for sectioned approach when blog content scales
+- Staging protection prevents indexing conflicts
