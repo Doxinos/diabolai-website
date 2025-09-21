@@ -3,9 +3,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useCallback } from 'react'
+import { trackScheduleClick } from '@/utils/analytics'
 
 export default function Navigation() {
   const openCalendly = useCallback(() => {
+    trackScheduleClick('navigation')
     if (typeof window !== 'undefined' && (window as any).Calendly) {
       (window as any).Calendly.initPopupWidget({
         url: 'https://calendly.com/peter-diabol/30min'

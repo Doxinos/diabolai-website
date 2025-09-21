@@ -4,6 +4,7 @@ import Benefits from '@/components/Benefits'
 import TryItNow from '@/components/TryItNow'
 import ControlAndTrust from '@/components/ControlAndTrust'
 import Explanation from '@/components/Explanation'
+import QuickFAQ from '@/components/QuickFAQ'
 import SocialProof from '@/components/SocialProof'
 import ClientLogos from '@/components/ClientLogos'
 import ScriptGates from '@/components/ScriptGates'
@@ -18,6 +19,7 @@ export default function Home() {
       <TryItNow />
       <ControlAndTrust />
       <Explanation />
+      <QuickFAQ />
       <SocialProof />
       <ClientLogos />
     </main>

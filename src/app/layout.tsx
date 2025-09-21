@@ -5,6 +5,7 @@ import './globals.css'
 import { ConsentProvider } from '@/components/consent/ConsentProvider'
 import CookieBanner from '@/components/consent/CookieBanner'
 import CookieSettingsModal from '@/components/consent/CookieSettingsModal'
+import GoogleAnalytics from '@/components/analytics/GoogleAnalytics'
 import Footer from '@/components/Footer'
 
 const roboto = Roboto({
@@ -88,6 +89,7 @@ export default function RootLayout({
       </head>
       <body className={roboto.className}>
         <ConsentProvider>
+          <GoogleAnalytics />
           {children}
           <Footer />
           <CookieBanner />

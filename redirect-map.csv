@@ -1,0 +1,10 @@
+old_url,new_url,status,notes
+# Legacy diabol.se redirects to diabolai.com
+https://diabol.se/,https://diabolai.com/,301,Root domain redirect
+https://www.diabol.se/,https://diabolai.com/,301,WWW redirect
+https://diabol.se/devops,https://diabolai.com/,301,Old DevOps page → home
+https://diabol.se/blog,https://diabolai.com/faq,301,Legacy blog → FAQ page
+https://diabol.se/contact,https://diabolai.com/contact,301,Contact page redirect
+https://diabol.se/about,https://diabolai.com/,301,About page → home
+https://diabol.se/services,https://diabolai.com/,301,Services → home
+https://diabol.se/ai-automation,https://diabolai.com/,301,AI automation content → home
