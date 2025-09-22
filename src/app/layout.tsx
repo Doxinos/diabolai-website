@@ -16,7 +16,7 @@ const roboto = Roboto({
 
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://diabolai.com'),
+  metadataBase: new URL('https://www.diabolai.com'),
   title: 'diabol - AI Voice Agents That Transform Business | 24/7 Automated Booking & Lead Qualification',
   description: 'AI voice agents that work 24/7 to book meetings, qualify leads, and follow up automatically. Perfect consistency, instant responses, and significant cost reduction. Try our live demo now and hear the difference.',
   keywords: 'AI voice agents, AI phone agents, automated booking, lead qualification, 24/7 AI customer service, voice AI, AI phone calls, automated sales calls, diabol, AI receptionist, AI automation, voice chatbot, conversational AI, AI call center',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     creator: '@diabol',
   },
   alternates: {
-    canonical: 'https://diabolai.com',
+    canonical: 'https://www.diabolai.com',
   },
 }
 
