@@ -184,7 +184,7 @@ export default function Explanation() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center space-x-3 bg-[#B2363F] hover:bg-[#9a2d35] text-white font-semibold px-8 py-4 rounded-full text-lg transition-colors duration-300 shadow-lg"
+            className="inline-flex items-center space-x-3 bg-brand-cerise hover:bg-brand-cerise-dark text-white font-semibold px-8 py-4 rounded-full text-lg transition-colors duration-300 shadow-lg"
             onClick={openCalendly}
           >
             <span>Book Your Free Demo</span>

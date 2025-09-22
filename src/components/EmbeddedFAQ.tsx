@@ -49,9 +49,9 @@ export default function EmbeddedFAQ({ faqs, industry, showPricingCTA = true }: E
             <CardTitle className="text-white text-lg font-semibold flex items-center justify-between">
               {faq.question}
               {openItems.has(faq.id) ? (
-                <ChevronUp className="w-5 h-5 text-purple-400" />
+                <ChevronUp className="w-5 h-5 text-brand-cerise" />
               ) : (
-                <ChevronDown className="w-5 h-5 text-purple-400" />
+                <ChevronDown className="w-5 h-5 text-brand-cerise" />
               )}
             </CardTitle>
           </CardHeader>
@@ -64,7 +64,7 @@ export default function EmbeddedFAQ({ faqs, industry, showPricingCTA = true }: E
                 <Link
                   href="/contact"
                   onClick={() => handleCTAClick('strategy_session')}
-                  className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-medium transition-colors text-center"
+                  className="bg-brand-cerise hover:bg-brand-cerise-dark text-white px-4 py-2 rounded-lg font-medium transition-colors text-center"
                 >
                   Get Your Strategy Session
                 </Link>

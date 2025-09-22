@@ -9,6 +9,16 @@ module.exports = {
   theme: {
   	extend: {
   		colors: {
+  			// DiabolAI Brand Colors
+  			brand: {
+  				black: '#000000',
+  				white: '#FFFFFF',
+  				cerise: '#DD345B',
+  				'cerise-dark': '#B42D4A', // Hover state
+  				cornflower: '#97CCE1',
+  				'lily-white': '#E5F6FE',
+  				'nile-blue': '#123358',
+  			},
   			primary: {
   				'50': '#eff6ff',
   				'500': '#3b82f6',
