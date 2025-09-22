@@ -24,8 +24,8 @@ export default function GoogleAnalytics() {
       window.dataLayer.push(arguments)
     }
 
-    // Set default consent to 'denied' as per Google best practices
-    // This applies globally, but can be region-specific if needed
+    // Set region-specific default consent
+    // Strict privacy for EEA, GDPR regions
     window.gtag('consent', 'default', {
       ad_storage: 'denied',
       analytics_storage: 'denied',
@@ -34,8 +34,18 @@ export default function GoogleAnalytics() {
       functionality_storage: 'denied',
       personalization_storage: 'denied',
       security_storage: 'granted',
-      // Optional: Add region-specific settings
-      // region: ['US-CA', 'US-CO', 'US-CT'] // Example for US state privacy laws
+      region: ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IS', 'IE', 'IT', 'LV', 'LI', 'LT', 'LU', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'GB', 'US-CA', 'US-CO', 'US-CT', 'US-UT', 'US-VA']
+    })
+
+    // Less restrictive for other regions (still respects user consent banner)
+    window.gtag('consent', 'default', {
+      ad_storage: 'granted',
+      analytics_storage: 'granted', 
+      ad_user_data: 'granted',
+      ad_personalization: 'granted',
+      functionality_storage: 'granted',
+      personalization_storage: 'granted',
+      security_storage: 'granted'
     })
 
     // Initialize GA4
