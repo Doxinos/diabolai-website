@@ -7,6 +7,7 @@ import CookieBanner from '@/components/consent/CookieBanner'
 import CookieSettingsModal from '@/components/consent/CookieSettingsModal'
 import GoogleAnalytics from '@/components/analytics/GoogleAnalytics'
 import Footer from '@/components/Footer'
+import CalendlyBadge from '@/components/CalendlyBadge'
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
@@ -62,6 +63,9 @@ export default function RootLayout({
       <head>
         {/* Third‑party scripts are loaded conditionally in ScriptGates; no external fonts */}
         
+        {/* Calendly badge widget CSS */}
+        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+        
         {/* Organization Structured Data */}
         <script
           type="application/ld+json"
@@ -90,6 +94,7 @@ export default function RootLayout({
       <body className={roboto.className}>
         <ConsentProvider>
           <GoogleAnalytics />
+          <CalendlyBadge />
           {children}
           <Footer />
           <CookieBanner />

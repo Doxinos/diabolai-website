@@ -1,7 +1,6 @@
 declare global {
   interface Window {
     Calendly: {
-      initPopupWidget: (options: { url: string }) => void;
       initBadgeWidget: (options: {
         url: string;
         text: string;
@@ -9,6 +8,7 @@ declare global {
         textColor: string;
         branding: boolean;
       }) => void;
+      initPopupWidget: (options: { url: string }) => void;
     };
   }
 }

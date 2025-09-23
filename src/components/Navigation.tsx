@@ -6,13 +6,9 @@ import { useCallback } from 'react'
 import { trackScheduleClick } from '@/utils/analytics'
 
 export default function Navigation() {
-  const openCalendly = useCallback(() => {
+  const handleBookDemo = useCallback(() => {
     trackScheduleClick('navigation')
-    if (typeof window !== 'undefined' && (window as any).Calendly) {
-      (window as any).Calendly.initPopupWidget({
-        url: 'https://calendly.com/peter-diabol/30min'
-      })
-    }
+    // Calendly badge widget handles the booking flow
   }, [])
 
   return (
@@ -30,7 +26,7 @@ export default function Navigation() {
           <a href="#contact" className="hover:text-white transition-colors">Contact</a>
         </div>
 
-        <button onClick={openCalendly} className="btn-primary text-sm px-6 py-2">
+        <button onClick={handleBookDemo} className="btn-primary text-sm px-6 py-2">
           Book a Demo
         </button>
       </nav>
