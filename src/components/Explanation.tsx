@@ -4,11 +4,11 @@ import { motion } from 'framer-motion'
 import { ArrowRight, CheckCircle2, Settings, Shield } from 'lucide-react'
 
 export default function Explanation() {
-  const openCalendly = () => {
-    if (typeof window !== 'undefined' && window.Calendly) {
-      window.Calendly.initPopupWidget({
-        url: 'https://calendly.com/peter-diabol/30min'
-      })
+  const handleBookDemo = () => {
+    // Calendly badge widget handles the booking flow
+    // Just track the analytics event
+    if (typeof window !== 'undefined') {
+      // You can add analytics tracking here if needed
     }
   }
 
@@ -185,7 +185,7 @@ export default function Explanation() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center space-x-3 bg-brand-cerise hover:bg-brand-cerise-dark text-white font-semibold px-8 py-4 rounded-full text-lg transition-colors duration-300 shadow-lg"
-            onClick={openCalendly}
+            onClick={handleBookDemo}
           >
             <span>Book Your Free Demo</span>
             <ArrowRight className="w-5 h-5" />
