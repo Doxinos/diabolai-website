@@ -166,6 +166,22 @@
     transform: translateZ(0);
     backface-visibility: hidden;
   }
+
+  /* Calendly scroll lock prevention */
+  body[style*="overflow: hidden"],
+  body[style*="overflow:hidden"],
+  body[style*="position: fixed"],
+  body[style*="position:fixed"] {
+    overflow: auto !important;
+    position: static !important;
+    width: auto !important;
+    top: auto !important;
+  }
+  
+  /* Keep main document scrollable when Calendly is open */
+  html {
+    overflow-y: scroll !important;
+  }
 }
 
 

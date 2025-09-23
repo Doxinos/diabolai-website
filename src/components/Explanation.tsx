@@ -5,10 +5,10 @@ import { ArrowRight, CheckCircle2, Settings, Shield } from 'lucide-react'
 
 export default function Explanation() {
   const handleBookDemo = () => {
-    // Calendly badge widget handles the booking flow
-    // Just track the analytics event
-    if (typeof window !== 'undefined') {
-      // You can add analytics tracking here if needed
+    if (typeof window !== 'undefined' && (window as any).Calendly) {
+      (window as any).Calendly.initPopupWidget({
+        url: 'https://calendly.com/peter-diabol/30min'
+      })
     }
   }
 

@@ -7,7 +7,7 @@ import CookieBanner from '@/components/consent/CookieBanner'
 import CookieSettingsModal from '@/components/consent/CookieSettingsModal'
 import GoogleAnalytics from '@/components/analytics/GoogleAnalytics'
 import Footer from '@/components/Footer'
-import CalendlyBadge from '@/components/CalendlyBadge'
+import CalendlyLoader from '@/components/CalendlyLoader'
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
@@ -94,7 +94,7 @@ export default function RootLayout({
       <body className={roboto.className}>
         <ConsentProvider>
           <GoogleAnalytics />
-          <CalendlyBadge />
+          <CalendlyLoader />
           {children}
           <Footer />
           <CookieBanner />

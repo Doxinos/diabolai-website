@@ -8,7 +8,11 @@ import { trackScheduleClick } from '@/utils/analytics'
 export default function Navigation() {
   const handleBookDemo = useCallback(() => {
     trackScheduleClick('navigation')
-    // Calendly badge widget handles the booking flow
+    if (typeof window !== 'undefined' && (window as any).Calendly) {
+      (window as any).Calendly.initPopupWidget({
+        url: 'https://calendly.com/peter-diabol/30min'
+      })
+    }
   }, [])
 
   return (
