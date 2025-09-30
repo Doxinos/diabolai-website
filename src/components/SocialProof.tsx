@@ -16,7 +16,7 @@ const testimonials = [
     name: 'Matilda Ringstrom',
     role: 'Chef Digital Kundupplevelse',
     company: 'Lansförsäkringar AB',
-    content: 'I highly recommend considering Diabol AB for their expertise in DevOps and CD services. Their professionalism and commitment to customer success make them a valuable partner.',
+    content: 'I am delighted to share my positive experience with Diabol services. Diabol has proven to be a valuable partner throughout our project which have had a significant impact on our organization. They have always been available to address our inquiries and concerns promptly, ensuring that our project stays on track. Their expertise has been invaluable in transforming our operations and enabling us to become more agile and responsive to market demands. In summary, I highly recommend Diabol AB for organizations seeking reliable services.',
     rating: 5,
     avatar: '/images/avatars/matilda-ringstrom.jpg'
   }
