@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import Navigation from '@/components/Navigation'
+import FAQClient from './FAQClient'
 
 export const metadata: Metadata = {
   title: 'FAQ - AI Voice Agents | DiabolAI',
@@ -141,78 +140,5 @@ const structuredData = {
 }
 
 export default function FAQPage() {
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
-      
-      <Navigation />
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 pt-16">
-        <div className="container mx-auto px-4 py-16">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Frequently Asked Questions
-            </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Get answers to common questions about AI voice agents, implementation, and how they can transform your business operations.
-            </p>
-          </div>
-
-          <div className="max-w-4xl mx-auto space-y-12">
-            {faqData.map((category, categoryIndex) => (
-              <div key={categoryIndex}>
-                <h2 className="text-2xl font-bold text-white mb-6 border-b border-purple-500/30 pb-3">
-                  {category.category}
-                </h2>
-                
-                <div className="space-y-4">
-                  {category.questions.map((faq, faqIndex) => (
-                    <Card key={faqIndex} className="bg-slate-800/50 border-slate-700 backdrop-blur-sm">
-                      <CardHeader>
-                        <CardTitle className="text-white text-lg font-semibold">
-                          {faq.question}
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-gray-300 leading-relaxed">
-                          {faq.answer}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-16">
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-8 max-w-2xl mx-auto border border-slate-700">
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Still have questions?
-              </h3>
-              <p className="text-gray-300 mb-6">
-                Can't find the answer you're looking for? Our team is here to help you understand how AI voice agents can benefit your specific business needs.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="mailto:hello@diabolai.com"
-                  className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
-                >
-                  Contact Support
-                </a>
-                <a
-                  href="tel:+1234567890"
-                  className="bg-slate-700 hover:bg-slate-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
-                >
-                  Schedule a Call
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  )
+  return <FAQClient faqData={faqData} structuredData={structuredData} />
 }
