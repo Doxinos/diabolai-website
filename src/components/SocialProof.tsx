@@ -8,7 +8,7 @@ const testimonials = [
     name: 'Stefan Berg',
     role: 'CTO',
     company: 'Transcom AB',
-    content: 'A great DevOps partnership with Diabol AB. Their technical expertise and professional approach made all the difference.',
+    content: 'Diabol has proven to be a reliable and knowledgeable partner, delivering a solution that significantly improved our development and operations workflows. If you are seeking a dependable and effective service provider, Diabol AB is the company to choose. Thank you, Diabol AB, for your exceptional service and commitment to our success.',
     rating: 5,
     avatar: '/images/avatars/stefan-berg.jpg'
   },
@@ -19,14 +19,6 @@ const testimonials = [
     content: 'I highly recommend considering Diabol AB for their expertise in DevOps and CD services. Their professionalism and commitment to customer success make them a valuable partner.',
     rating: 5,
     avatar: '/images/avatars/matilda-ringstrom.jpg'
-  },
-  {
-    name: 'Lars Anderson',
-    role: 'Head of Engineering',
-    company: 'TechCorp',
-    content: 'Exceptional AI automation solutions that transformed our customer service. Response times improved by 80% while maintaining quality.',
-    rating: 5,
-    avatar: '/images/avatars/lars-anderson.jpg'
   }
 ]
 
