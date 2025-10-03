@@ -8,7 +8,7 @@ const nextConfig = {
 
   // Optimize for modern browsers
   experimental: {
-    optimizePackageImports: ['@radix-ui/react-slot', 'lucide-react'],
+    optimizePackageImports: ['@radix-ui/react-slot', 'lucide-react', 'framer-motion'],
     webpackBuildWorker: true,
   },
   
@@ -17,6 +17,7 @@ const nextConfig = {
     domains: ['localhost'],
     formats: ['image/webp', 'image/avif'],
   },
+
 
   // Public folder configuration
   async rewrites() {

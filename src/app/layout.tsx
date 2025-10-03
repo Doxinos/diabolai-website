@@ -12,6 +12,7 @@ import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration'
 import ExternalResources from '@/components/ExternalResources'
 import CriticalCSS from '@/components/CriticalCSS'
 import DeferredCSS from '@/components/DeferredCSS'
+import LazyMotionProvider from '@/components/LazyMotion'
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
@@ -94,15 +95,17 @@ export default function RootLayout({
         />
       </head>
       <body className={roboto.className}>
-        <ConsentProvider>
-          <DeferredCSS />
-          <GoogleAnalytics />
-          <CalendlyLoader />
-          {children}
-          <Footer />
-          <CookieBanner />
-          <CookieSettingsModal />
-        </ConsentProvider>
+        <LazyMotionProvider>
+          <ConsentProvider>
+            <DeferredCSS />
+            <GoogleAnalytics />
+            <CalendlyLoader />
+            {children}
+            <Footer />
+            <CookieBanner />
+            <CookieSettingsModal />
+          </ConsentProvider>
+        </LazyMotionProvider>
         <SpeedInsights />
       </body>
     </html>
