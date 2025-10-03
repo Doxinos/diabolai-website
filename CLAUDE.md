@@ -169,6 +169,12 @@ Start updating professional profiles (LinkedIn, etc.) to link to www.diabolai.co
 - **Deployment**: Vercel
 - **Future CMS**: Sanity.io for blog content
 
+## Deployment Configuration ⚠️ CRITICAL
+- **Production Branch**: `tuesday-demo-final` (NOT main)
+- **Vercel Config**: Configured to deploy from `tuesday-demo-final` branch
+- **Important**: Always push changes to `tuesday-demo-final` for deployment
+- **Never push to main** - it's not configured for deployment
+
 ## SEO Strategy Notes
 - **Two-site approach**:
   - DiabolAI.com/blog = qualified lead content
@@ -193,4 +199,6 @@ Start updating professional profiles (LinkedIn, etc.) to link to www.diabolai.co
 - Add new issues/requirements as they come up
 - Reference this file for project context
 - Ask user about priority if unclear on task order
+- **CRITICAL**: Always deploy to `tuesday-demo-final` branch, never main
+- When user asks about deployment issues, check Vercel is watching `tuesday-demo-final`
 
