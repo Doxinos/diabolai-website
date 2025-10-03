@@ -55,6 +55,15 @@ DiabolAI website for AI Voice Agents business - Next.js 14 with TypeScript and T
   - Protected site quality score during development phase
   - Prevents Google indexing of thin content pages
 
+- **Performance Optimizations** (2025-10-03)
+  - ✅ **Legacy JavaScript removal**: Eliminated 12KB of unnecessary polyfills
+  - ✅ **Code splitting**: Dynamic imports reduced unused JavaScript by ~20KB
+  - ✅ **Video optimization**: Lazy loading reduced network payload by 1.8MB
+  - ✅ **Modern browser targeting**: .browserslistrc for ES2020+ support
+  - ✅ **Critical CSS**: Inlined above-the-fold styles, deferred non-critical CSS
+  - ✅ **LazyMotion**: Optimized Framer Motion bundle size
+  - Fixed all major PageSpeed Insights issues
+
 ## SEO Protection Process ✅ COMPLETE
 Our initial SEO audit and setup are now complete. The site is protected and ready for strategic content rollout.
 
@@ -170,10 +179,10 @@ Start updating professional profiles (LinkedIn, etc.) to link to www.diabolai.co
 - **Future CMS**: Sanity.io for blog content
 
 ## Deployment Configuration ⚠️ CRITICAL
-- **Production Branch**: `tuesday-demo-final` (NOT main)
-- **Vercel Config**: Configured to deploy from `tuesday-demo-final` branch
-- **Important**: Always push changes to `tuesday-demo-final` for deployment
-- **Never push to main** - it's not configured for deployment
+- **Production Branch**: `main` (standard deployment)
+- **Vercel Config**: Configured to deploy from `main` branch
+- **Important**: Always push changes to `main` for deployment
+- **Development**: Use feature branches, then merge to `main`
 
 ## SEO Strategy Notes
 - **Two-site approach**:
@@ -199,6 +208,6 @@ Start updating professional profiles (LinkedIn, etc.) to link to www.diabolai.co
 - Add new issues/requirements as they come up
 - Reference this file for project context
 - Ask user about priority if unclear on task order
-- **CRITICAL**: Always deploy to `tuesday-demo-final` branch, never main
-- When user asks about deployment issues, check Vercel is watching `tuesday-demo-final`
+- **CRITICAL**: Always deploy to `main` branch for production
+- Use standard Git workflow: feature branches → main
 
