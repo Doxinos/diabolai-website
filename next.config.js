@@ -6,11 +6,12 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
 
-  // Optimize CSS loading
+  // Optimize for modern browsers
   experimental: {
     optimizePackageImports: ['@radix-ui/react-slot', 'lucide-react'],
+    webpackBuildWorker: true,
   },
-
+  
   // Asset configuration
   images: {
     domains: ['localhost'],

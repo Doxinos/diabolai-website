@@ -1,0 +1,26 @@
+# Browsers that we support for modern builds
+# This eliminates legacy polyfills for modern browsers
+
+# Chrome/Chromium versions (ES2020+ support)
+Chrome >= 91
+
+# Firefox versions (ES2020+ support) 
+Firefox >= 90
+
+# Safari versions (ES2020+ support)
+Safari >= 14
+
+# Edge versions (ES2020+ support)
+Edge >= 91
+
+# Mobile browsers
+iOS >= 14
+Android >= 91
+
+# Exclude Internet Explorer entirely
+not IE 11
+not IE_Mob 11
+
+# Coverage should be around 95%+ of global usage
+> 0.2%
+not dead
