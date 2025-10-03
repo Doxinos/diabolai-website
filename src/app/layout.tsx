@@ -10,6 +10,8 @@ import Footer from '@/components/Footer'
 import CalendlyLoader from '@/components/CalendlyLoader'
 import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration'
 import ExternalResources from '@/components/ExternalResources'
+import CriticalCSS from '@/components/CriticalCSS'
+import DeferredCSS from '@/components/DeferredCSS'
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
@@ -63,6 +65,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <CriticalCSS />
         <ExternalResources />
         
         {/* Organization Structured Data */}
@@ -92,6 +95,7 @@ export default function RootLayout({
       </head>
       <body className={roboto.className}>
         <ConsentProvider>
+          <DeferredCSS />
           <GoogleAnalytics />
           <CalendlyLoader />
           {children}

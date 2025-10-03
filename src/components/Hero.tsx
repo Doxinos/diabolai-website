@@ -14,7 +14,18 @@ export default function Hero() {
   }
 
   return (
-    <section id="hero" className="min-h-screen relative flex items-center justify-center overflow-hidden pt-16">
+    <section 
+      id="hero" 
+      style={{
+        minHeight: '100vh',
+        position: 'relative',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        overflow: 'hidden',
+        paddingTop: '4rem'
+      }}
+    >
       {/* Video Background */}
       <video
         autoPlay
