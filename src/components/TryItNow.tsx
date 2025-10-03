@@ -1,21 +1,14 @@
+import LazyVideo from './LazyVideo'
+
 export default function TryItNow() {
   return (
     <section className="bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
       {/* Video Sound Wave Visualization with Text Overlay */}
       <div className="w-full relative">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          disablePictureInPicture
+        <LazyVideo
+          src="/images/imports/backgrounds/soundwave-ai-voice_compressed.mp4"
           className="w-full h-auto block"
-        >
-          <source src="/images/imports/backgrounds/soundwave-ai-voice_compressed.mp4" type="video/mp4" />
-          <source src="/images/imports/backgrounds/soundwave_ai_voic_Cerise_blue.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        />
         
         {/* Text overlay */}
         <div className="absolute inset-0 flex items-start justify-center pt-8 sm:pt-16 md:pt-20">

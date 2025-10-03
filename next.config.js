@@ -18,6 +18,29 @@ const nextConfig = {
     formats: ['image/webp', 'image/avif'],
   },
 
+  // Add headers for caching and compression
+  async headers() {
+    return [
+      {
+        source: '/:all*(mp4|webm|m4v)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/:all*(woff|woff2|eot|ttf|otf)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ]
+  },
 
   // Public folder configuration
   async rewrites() {

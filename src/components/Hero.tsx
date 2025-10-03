@@ -32,7 +32,7 @@ export default function Hero() {
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
         disablePictureInPicture
         className="absolute inset-0 w-full h-full object-cover"
       >
