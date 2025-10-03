@@ -1,11 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Target modern browsers only and optimize CSS
-  experimental: {
-    legacyBrowsers: false,
-    optimizeCss: true,
-  },
-
   // Configure SWC to target modern browsers
   swcMinify: true,
   compiler: {

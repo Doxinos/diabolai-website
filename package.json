@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "echo 'Tests not configured yet'",
+    "test:ui": "echo 'Tests not configured yet'",
+    "test:production": "echo 'Tests not configured yet'"
   },
   "dependencies": {
     "@elevenlabs/elevenlabs-js": "^2.15.0",
@@ -38,5 +41,8 @@
     "last 2 Firefox versions",
     "last 2 Safari versions",
     "last 2 Edge versions"
-  ]
+  ],
+  "devDependencies": {
+    "@playwright/test": "^1.55.1"
+  }
 }
