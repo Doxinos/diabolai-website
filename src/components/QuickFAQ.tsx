@@ -60,13 +60,13 @@ export default function QuickFAQ() {
   }
 
   return (
-    <section className="py-16 bg-slate-900/50">
+    <section className="py-16 bg-slate-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Quick Answers
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-100 max-w-2xl mx-auto">
             Common questions about getting started with AI voice agents
           </p>
         </div>
@@ -81,9 +81,9 @@ export default function QuickFAQ() {
                 <CardTitle className="text-white text-lg font-semibold flex items-center justify-between">
                   {faq.question}
                   {openItems.has(faq.id) ? (
-                    <ChevronUp className="w-5 h-5 text-brand-cerise" />
+                    <ChevronUp className="w-5 h-5 text-brand-cornflower" />
                   ) : (
-                    <ChevronDown className="w-5 h-5 text-brand-cerise" />
+                    <ChevronDown className="w-5 h-5 text-brand-cornflower" />
                   )}
                 </CardTitle>
               </CardHeader>
@@ -119,7 +119,7 @@ export default function QuickFAQ() {
         <div className="text-center mt-8">
           <Link
             href="/faq"
-            className="text-brand-cerise hover:text-brand-cerise-dark font-medium"
+            className="text-brand-cornflower hover:text-white font-medium transition-colors"
           >
             See all FAQs →
           </Link>

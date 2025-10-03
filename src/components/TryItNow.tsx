@@ -19,11 +19,11 @@ export default function TryItNow() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           disablePictureInPicture
           className="w-full h-auto block"
         >
-          <source src="/images/imports/backgrounds/soundwave-ai-voice.mp4" type="video/mp4" />
+          <source src="/images/imports/backgrounds/soundwave-ai-voice_compressed.mp4" type="video/mp4" />
           <source src="/images/imports/backgrounds/soundwave_ai_voic_Cerise_blue.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>

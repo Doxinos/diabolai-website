@@ -8,6 +8,9 @@ import CookieSettingsModal from '@/components/consent/CookieSettingsModal'
 import GoogleAnalytics from '@/components/analytics/GoogleAnalytics'
 import Footer from '@/components/Footer'
 import CalendlyLoader from '@/components/CalendlyLoader'
+import LazyMotionWrapper from '@/components/motion/LazyMotion'
+import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration'
+import ExternalResources from '@/components/ExternalResources'
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
@@ -61,10 +64,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Third‑party scripts are loaded conditionally in ScriptGates; no external fonts */}
-        
-        {/* Calendly badge widget CSS */}
-        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+        <ExternalResources />
         
         {/* Organization Structured Data */}
         <script
@@ -93,15 +93,17 @@ export default function RootLayout({
       </head>
       <body className={roboto.className}>
         <ConsentProvider>
+          <ServiceWorkerRegistration />
           <GoogleAnalytics />
           <CalendlyLoader />
-          {children}
+          <LazyMotionWrapper>
+            {children}
+          </LazyMotionWrapper>
           <Footer />
           <CookieBanner />
           <CookieSettingsModal />
         </ConsentProvider>
         <SpeedInsights />
-
       </body>
     </html>
   )

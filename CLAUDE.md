@@ -4,6 +4,12 @@
 DiabolAI website for AI Voice Agents business - Next.js 14 with TypeScript and Tailwind CSS
 
 ## Completed Tasks ✅
+- **Customer Testimonials & FAQ Updates** (2025-10-01)
+  - Fixed FAQ page contact section to properly use Calendly integration
+  - Updated Matilda Ringstrom testimonial with detailed review
+  - Enhanced customer testimonials section
+  - Fixed navigation menu and updated sitemap structure
+
 - **Google Analytics 4 Implementation** (2025-01-21)
   - GA4 tracking integrated with consent management system (G-W971B3WD3H)
   - Comprehensive event tracking: schedule_click, generate_lead, cta_click, faq_expand

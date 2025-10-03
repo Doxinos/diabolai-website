@@ -16,7 +16,7 @@ const GA_MEASUREMENT_ID = 'G-W971B3WD3H'
 export default function GoogleAnalytics() {
   const { consent } = useConsent()
 
-  // Initialize gtag and set default consent (runs once)
+  // Initialize gtag function only (don't set config until script loads)
   useEffect(() => {
     // Initialize gtag function
     window.dataLayer = window.dataLayer || []
@@ -47,14 +47,6 @@ export default function GoogleAnalytics() {
       personalization_storage: 'granted',
       security_storage: 'granted'
     })
-
-    // Initialize GA4
-    window.gtag('js', new Date())
-    window.gtag('config', GA_MEASUREMENT_ID, {
-      anonymize_ip: true,
-      allow_google_signals: false, // Will be updated based on consent
-      allow_ad_personalization_signals: false,
-    })
   }, []) // Empty dependency array - runs once
 
   // Update consent when user changes preferences
@@ -78,11 +70,26 @@ export default function GoogleAnalytics() {
     }
   }, [consent])
 
+  // Only load GTM script if analytics consent is given
+  if (!consent.analytics) {
+    return null
+  }
+
   return (
     <>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        strategy="afterInteractive"
+        strategy="lazyOnload"
+        onLoad={() => {
+          // Initialize after script loads
+          window.gtag('js', new Date())
+          window.gtag('config', GA_MEASUREMENT_ID, {
+            anonymize_ip: true,
+            allow_google_signals: consent.marketing,
+            allow_ad_personalization_signals: consent.marketing,
+            send_page_view: true,
+          })
+        }}
       />
     </>
   )

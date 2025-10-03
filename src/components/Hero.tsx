@@ -21,11 +21,11 @@ export default function Hero() {
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
         disablePictureInPicture
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="/ai-voice-agent-business-transformation-demo.mp4" type="video/mp4" />
+        <source src="/ai-voice-agent-intro-compressed.mp4" type="video/mp4" />
       </video>
 
       {/* Dark overlay to ensure text readability */}

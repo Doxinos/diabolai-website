@@ -1,9 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Remove deprecated appDir option
-  // experimental: {
-  //   appDir: true,
-  // },
+  // Target modern browsers only and optimize CSS
+  experimental: {
+    legacyBrowsers: false,
+    optimizeCss: true,
+  },
+
+  // Configure SWC to target modern browsers
+  swcMinify: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
 
   // Asset configuration
   images: {

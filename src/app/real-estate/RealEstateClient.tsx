@@ -205,7 +205,7 @@ export default function RealEstateClient() {
               Why Top Agents Choose DiabolAI
             </h2>
             <p className="text-xl text-white/80 max-w-3xl mx-auto">
-              Join hundreds of real estate professionals who've automated their lead handling.
+              Transform how you handle leads with AI-powered automation built for real estate.
             </p>
           </div>
 
