@@ -8,7 +8,6 @@ import CookieSettingsModal from '@/components/consent/CookieSettingsModal'
 import GoogleAnalytics from '@/components/analytics/GoogleAnalytics'
 import Footer from '@/components/Footer'
 import CalendlyLoader from '@/components/CalendlyLoader'
-import LazyMotionWrapper from '@/components/motion/LazyMotion'
 import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration'
 import ExternalResources from '@/components/ExternalResources'
 
@@ -93,12 +92,9 @@ export default function RootLayout({
       </head>
       <body className={roboto.className}>
         <ConsentProvider>
-          <ServiceWorkerRegistration />
           <GoogleAnalytics />
           <CalendlyLoader />
-          <LazyMotionWrapper>
-            {children}
-          </LazyMotionWrapper>
+          {children}
           <Footer />
           <CookieBanner />
           <CookieSettingsModal />
