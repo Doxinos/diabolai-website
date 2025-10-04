@@ -183,6 +183,7 @@ Start updating professional profiles (LinkedIn, etc.) to link to www.diabolai.co
 - **Vercel Config**: Configured to deploy from `main` branch
 - **Important**: Always push changes to `main` for deployment
 - **Development**: Use feature branches, then merge to `main`
+- **Status**: Clean baseline for optimization (2025-01-03)
 
 ## SEO Strategy Notes
 - **Two-site approach**:
