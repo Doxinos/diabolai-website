@@ -51,6 +51,17 @@ const nextConfig = {
       },
     ]
   },
+  
+  // Redirects for removed pages
+  async redirects() {
+    return [
+      {
+        source: '/alt',
+        destination: '/',
+        permanent: true, // 301 permanent redirect
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig
