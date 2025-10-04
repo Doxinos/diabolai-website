@@ -27,6 +27,10 @@ export default function ExternalResources() {
       <link rel="dns-prefetch" href="https://assets.calendly.com" />
       <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       
+      {/* Favicon links to prevent 404 errors */}
+      <link rel="icon" href="/favicon.ico" />
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+      
     </>
   )
 }

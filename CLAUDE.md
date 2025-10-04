@@ -55,13 +55,15 @@ DiabolAI website for AI Voice Agents business - Next.js 14 with TypeScript and T
   - Protected site quality score during development phase
   - Prevents Google indexing of thin content pages
 
-- **Performance Optimizations** (2025-10-03)
+- **Performance Optimizations** (2025-10-03 → 2025-10-04)
   - ✅ **Legacy JavaScript removal**: Eliminated 12KB of unnecessary polyfills
   - ✅ **Code splitting**: Dynamic imports reduced unused JavaScript by ~20KB
   - ✅ **Video optimization**: Lazy loading reduced network payload by 1.8MB
   - ✅ **Modern browser targeting**: .browserslistrc for ES2020+ support
   - ✅ **Critical CSS**: Inlined above-the-fold styles, deferred non-critical CSS
   - ✅ **LazyMotion**: Optimized Framer Motion bundle size
+  - ✅ **Font preloading**: Added preload hints for critical fonts
+  - **Final Score**: 93/96/100/100 (Performance/Accessibility/Best Practices/SEO)
   - Fixed all major PageSpeed Insights issues
 
 ## SEO Protection Process ✅ COMPLETE
@@ -83,6 +85,33 @@ Our initial SEO audit and setup are now complete. The site is protected and read
 
 ### **"Seed" Citations:**
 Start updating professional profiles (LinkedIn, etc.) to link to www.diabolai.com for early domain authority building.
+
+## Performance Optimization Lessons ⚠️ CRITICAL
+**Current Score**: 93/96/100/100 (Performance/Accessibility/Best Practices/SEO)
+
+### ✅ Safe Optimizations That Work:
+- **Font preloading**: Preload critical font files via ExternalResources.tsx
+- **LazyMotion**: Use domAnimation instead of full Framer Motion bundle
+- **Video lazy loading**: Reduces initial network payload significantly
+- **Modern browser targeting**: ES2020+ via .browserslistrc
+- **Standard code splitting**: Dynamic imports for non-critical components
+
+### ❌ Optimizations That CAUSE REGRESSIONS (DO NOT USE):
+- **Aggressive critical CSS expansion**: Caused scores to drop from 95 to 75
+- **Service worker implementation**: Added overhead without meaningful benefit  
+- **Legacy polyfill removal**: Caused build errors and compatibility issues
+- **Inline script tags in components**: Causes TypeScript and build errors
+- **Excessive preconnect/dns-prefetch**: Minimal impact, potential overhead
+
+### 🟡 Known Acceptable Issues:
+- **Render-blocking CSS** (~300ms): Core styling cannot be deferred safely
+- **Legacy JavaScript** (~12KB): Required polyfills for compatibility
+- **Cache efficiency** (~6KB): Acceptable trade-off for current setup
+
+### 🔧 Deployment Notes:
+- **vercel.json font pattern**: Must use `"/:path*.(woff|woff2|eot|ttf|otf)"` format
+- **Build process**: Any optimization that breaks the build is automatically rejected
+- **Testing methodology**: Always measure before/after scores with PageSpeed Insights
 
 ## Current Issues/Improvements Needed 🔧
 - **FAQ Page Design** - Needs visual improvements and better styling
@@ -183,7 +212,9 @@ Start updating professional profiles (LinkedIn, etc.) to link to www.diabolai.co
 - **Vercel Config**: Configured to deploy from `main` branch
 - **Important**: Always push changes to `main` for deployment
 - **Development**: Use feature branches, then merge to `main`
-- **Status**: Clean baseline for optimization (2025-01-03)
+- **Status**: Optimized and stable (2025-01-03)
+- **Webhook**: Created manual webhook between GitHub and Vercel for main branch
+- **Critical Fix**: vercel.json font pattern must be `"/:path*.(woff|woff2|eot|ttf|otf)"` for deployments to work
 
 ## SEO Strategy Notes
 - **Two-site approach**:
