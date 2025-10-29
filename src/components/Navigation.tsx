@@ -60,6 +60,7 @@ export default function Navigation() {
             )}
           </div>
           <Link href="/faq" className="hover:text-white transition-colors">FAQ</Link>
+          <Link href="https://diabol-blog-8pxvivd45-peter-ferms-projects.vercel.app" className="hover:text-white transition-colors">Blog</Link>
         </div>
 
         <button onClick={handleBookDemo} className="btn-primary text-sm px-6 py-2">
