@@ -110,19 +110,13 @@ export default function RealEstateClient() {
             Turn every call into opportunity.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          <div className="flex justify-center items-center mb-12">
             <button 
               onClick={handleScheduleClick}
               className="btn-primary text-lg px-8 py-4 flex items-center gap-3"
             >
               <Calendar className="w-5 h-5" />
               Schedule Demo
-            </button>
-            <button 
-              onClick={() => handleCTAClick('roi_calculator')}
-              className="btn-secondary text-lg px-8 py-4"
-            >
-              Calculate ROI
             </button>
           </div>
           
