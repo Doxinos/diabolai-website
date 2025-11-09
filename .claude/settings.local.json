@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git commit:*)",
+      "Bash(git add:*)",
+      "Bash(npm run build:*)",
+      "WebFetch(domain:elevenlabs.io)",
+      "WebFetch(domain:elevenlabs.io)",
+      "WebFetch(domain:showcase.elevenlabs.io)",
+      "WebFetch(domain:github.com)",
+      "Bash(vercel:*)",
+      "Bash(git push:*)",
+      "Bash(mv:*)",
+      "Bash(mkdir:*)",
+      "Bash(npx tsc:*)"
+    ],
+    "deny": []
+  }
+}
