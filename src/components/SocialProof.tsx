@@ -95,12 +95,7 @@ export default function SocialProof() {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <p className="text-gray-600 mb-6">Join these industry leaders in transforming your business</p>
-          <div className="inline-flex items-center text-sm text-gray-500">
-            <Star className="h-4 w-4 text-yellow-400 fill-current mr-1" />
-            <span className="font-semibold mr-1">4.9/5</span>
-            <span>from 50+ reviews</span>
-          </div>
+          <p className="text-gray-600">Ready to transform your business with strategic AI?</p>
         </motion.div>
       </div>
     </section>
