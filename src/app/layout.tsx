@@ -98,12 +98,47 @@ export default function RootLayout({
                 "AI strategy",
                 "AI implementation"
               ],
-              "serviceType": [
-                "AI Consulting",
-                "AI Transformation",
-                "Business Automation",
-                "AI Voice Agents",
-                "AI Implementation"
+              "makesOffer": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "AI Consulting",
+                    "serviceType": "Business Consulting"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "AI Transformation",
+                    "serviceType": "Business Consulting"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Business Automation",
+                    "serviceType": "Technology Consulting"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "AI Voice Agents",
+                    "serviceType": "Technology Solution"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "AI Implementation",
+                    "serviceType": "Technology Consulting"
+                  }
+                }
               ],
               "areaServed": [
                 { "@type": "Country", "name": "SE" },
