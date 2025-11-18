@@ -13,6 +13,7 @@ import ExternalResources from '@/components/ExternalResources'
 import CriticalCSS from '@/components/CriticalCSS'
 import DeferredCSS from '@/components/DeferredCSS'
 import LazyMotionProvider from '@/components/LazyMotion'
+import { LanguageProvider } from '@/contexts/LanguageContext'
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
@@ -70,7 +71,7 @@ export default function RootLayout({
         <CriticalCSS />
         <ExternalResources />
         
-        {/* Organization Structured Data */}
+        {/* Organization Structured Data - Updated for AI Visibility */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -78,35 +79,74 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               "legalName": "Diabol AB",
-              "name": "diabol",
-              "url": "https://diabolai.com",
+              "name": "Diabol AI",
+              "alternateName": ["DiabolAI", "diabol"],
+              "url": "https://diabolai.com/",
               "logo": "https://diabolai.com/logos/diabol-logo-black.png",
-              "description": "AI voice agents for Nordic businesses - automated booking, lead qualification, and follow-up",
+              "description": "AI consulting and transformation for SMBs. We help overwhelmed business owners diagnose opportunities, redesign processes, and implement AI strategically - from voice agents to full automation. Serving Nordics, North America, and Europe.",
+              "founder": {
+                "@type": "Person",
+                "name": "Peter Ferm",
+                "jobTitle": "Founder & CEO"
+              },
+              "knowsAbout": [
+                "AI consulting",
+                "AI transformation",
+                "SMB automation",
+                "AI voice agents",
+                "Business process automation",
+                "AI strategy",
+                "AI implementation"
+              ],
+              "serviceType": [
+                "AI Consulting",
+                "AI Transformation",
+                "Business Automation",
+                "AI Voice Agents",
+                "AI Implementation"
+              ],
+              "areaServed": [
+                { "@type": "Country", "name": "SE" },
+                { "@type": "Country", "name": "US" },
+                { "@type": "Country", "name": "NO" },
+                { "@type": "Country", "name": "DK" },
+                { "@type": "Country", "name": "FI" }
+              ],
               "address": {
                 "@type": "PostalAddress",
-                "addressCountry": "SE"
+                "addressCountry": {
+                  "@type": "Country",
+                  "name": "SE"
+                }
               },
               "contactPoint": {
                 "@type": "ContactPoint",
                 "email": "contact@diabolai.com",
-                "contactType": "customer service"
-              }
+                "contactType": "customer service",
+                "availableLanguage": ["English", "Swedish"]
+              },
+              "sameAs": [
+                "https://www.linkedin.com/company/diabol-ab",
+                "https://blog.diabolai.com"
+              ]
             })
           }}
         />
       </head>
       <body className={roboto.className}>
-        <LazyMotionProvider>
-          <ConsentProvider>
-            <DeferredCSS />
-            <GoogleAnalytics />
-            <CalendlyLoader />
-            {children}
-            <Footer />
-            <CookieBanner />
-            <CookieSettingsModal />
-          </ConsentProvider>
-        </LazyMotionProvider>
+        <LanguageProvider>
+          <LazyMotionProvider>
+            <ConsentProvider>
+              <DeferredCSS />
+              <GoogleAnalytics />
+              <CalendlyLoader />
+              {children}
+              <Footer />
+              <CookieBanner />
+              <CookieSettingsModal />
+            </ConsentProvider>
+          </LazyMotionProvider>
+        </LanguageProvider>
         <SpeedInsights />
       </body>
     </html>
