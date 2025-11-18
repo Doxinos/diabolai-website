@@ -49,6 +49,37 @@ export default function GoogleAnalytics() {
     })
   }, []) // Empty dependency array - runs once
 
+  // Track AI referrers
+  useEffect(() => {
+    if (typeof window !== 'undefined' && consent.analytics) {
+      const referrer = document.referrer.toLowerCase()
+      const aiReferrers = {
+        'chatgpt.com': 'ChatGPT',
+        'chat.openai.com': 'ChatGPT',
+        'perplexity.ai': 'Perplexity',
+        'claude.ai': 'Claude',
+        'gemini.google.com': 'Gemini',
+        'bard.google.com': 'Gemini',
+        'bing.com/chat': 'Bing Chat',
+        'you.com': 'You.com',
+        'phind.com': 'Phind'
+      }
+
+      // Check if referrer matches any AI platform
+      const aiSource = Object.entries(aiReferrers).find(([domain]) =>
+        referrer.includes(domain)
+      )?.[1]
+
+      if (aiSource && typeof window.gtag === 'function') {
+        window.gtag('event', 'ai_referral', {
+          ai_platform: aiSource,
+          referrer_url: document.referrer,
+          page_path: window.location.pathname
+        })
+      }
+    }
+  }, [consent.analytics])
+
   // Update consent when user changes preferences
   useEffect(() => {
     if (typeof window.gtag === 'function') {
