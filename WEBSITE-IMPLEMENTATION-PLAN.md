@@ -164,16 +164,24 @@ Pricing
 
 **4 Service Offerings:**
 
-#### 2.1 AI Diagnosis (90-min Remote) → /services/ai-diagnosis
+#### 2.1 AI Diagnosis (90-min Paid Audit) → /services/ai-diagnosis
 **For whom:** CEO/Founder wanting to know *where* AI gives most leverage
+
+**Application process:** Form-based qualification (not direct booking)
+- Requires company info, operational challenges, goals, budget range
+- You review and approve before scheduling
+- Ensures qualified prospects only
 
 **What you get:**
 - 3-5 prioritized use cases
 - Rough ROI calculation
 - Recommendation for next 30-90 days
+- Detailed opportunity assessment
 
-**Pricing:** $3K-$5K (pilot pricing for first 10 clients)
-**CTA:** "Book Your Diagnosis"
+**Pricing:** $3K-$5K (pilot pricing for first 10 qualified clients)
+**CTA:** "Apply for AI Audit" (opens qualification form)
+
+**Note:** Discovery Call (30 min, free) available for initial fit assessment before audit application
 
 #### 2.2 Strategy Consulting → /services/ai-strategy-consulting
 **Previously planned as separate page, now subfolder**

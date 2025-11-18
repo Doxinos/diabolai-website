@@ -73,56 +73,113 @@ Expected response:
 
 ## 2. Calendly Integration 📅 REQUIRED
 
-The "Book AI Diagnosis" CTA needs a Calendly link.
+The website needs TWO different booking paths:
 
-### Step 1: Create Calendly Event
+### A. Discovery Call (30 min) - Free
+For initial qualification and fit assessment.
+
+### B. AI Audit Application - Form-Based
+For qualified prospects to apply for the paid AI audit.
+
+---
+
+### Step 1: Create Calendly Discovery Call Event
 1. Log into [Calendly](https://calendly.com)
-2. Create new event type: "AI Diagnosis (90 min)"
+2. Create new event type: **"Discovery Call (30 min)"**
 3. Settings:
-   - Duration: 90 minutes
+   - Duration: **30 minutes**
    - Location: Google Meet or Zoom
    - Questions to ask:
      - Company name
      - Website URL
-     - Number of employees
+     - Number of employees (10-50 ideal)
      - Current biggest operational challenge
-     - What interested you in AI transformation?
+     - What interested you in working with Diabol AI?
+     - Have you explored AI solutions before?
 
-### Step 2: Get Event Link
-Copy the event link (e.g., `https://calendly.com/diabol-ai/ai-diagnosis`)
+### Step 2: Get Discovery Call Link
+Copy the event link (e.g., `https://calendly.com/diabol-ai/discovery-call`)
 
-### Step 3: Add to Environment Variables
+### Step 3: Create AI Audit Application Form
+
+Use Tally.so, Typeform, or Google Forms to create a qualification form.
+
+**Form fields:**
+1. **Contact Information**
+   - Full Name
+   - Email
+   - Phone (optional)
+   - LinkedIn Profile URL
+
+2. **Company Information**
+   - Company Name
+   - Website URL
+   - Industry
+   - Number of Employees
+   - Annual Revenue Range
+
+3. **Audit Goals**
+   - What are your top 3 operational challenges? (open text)
+   - What do you hope to achieve with an AI audit? (open text)
+   - Which areas interest you most? (checkboxes: Customer Service, Sales, Operations, Marketing, Data Management, Other)
+   - Timeline for implementation? (dropdown: 0-3 months, 3-6 months, 6-12 months, Exploring)
+
+4. **Current State**
+   - Are you currently using any AI tools? (Yes/No + describe)
+   - Do you have technical resources in-house? (Yes/No/Planning to hire)
+   - Budget allocated for AI implementation? (dropdown: <$10K, $10K-$50K, $50K-$100K, >$100K, Not sure yet)
+
+5. **Qualifying Questions**
+   - How did you hear about Diabol AI? (dropdown + Other)
+   - Why now? What's driving this decision? (open text)
+
+**Form submission:**
+- Triggers email to you with application details
+- Sends confirmation email to applicant
+- Optional: Webhooks to Airtable/CRM
+
+**Form URL example:** `https://tally.so/r/diabol-ai-audit-application`
+
+### Step 4: Add to Environment Variables
 Add to `.env.local`:
 
 ```bash
-NEXT_PUBLIC_CALENDLY_DIAGNOSIS_URL=https://calendly.com/your-link/ai-diagnosis
+# Discovery call (30 min - free)
+NEXT_PUBLIC_CALENDLY_DISCOVERY_URL=https://calendly.com/diabol-ai/discovery-call
+
+# AI Audit application form
+NEXT_PUBLIC_AUDIT_APPLICATION_URL=https://tally.so/r/diabol-ai-audit-application
 ```
 
-### Step 4: Create Calendly Component
-Create `src/components/CalendlyButton.tsx`:
+### Step 5: Create Dual CTA Components
+
+Create `src/components/BookingButtons.tsx`:
 
 ```typescript
 'use client'
 
-import { Calendar } from 'lucide-react'
+import { Calendar, FileText } from 'lucide-react'
 
-interface CalendlyButtonProps {
-  text?: string
-  variant?: 'primary' | 'secondary'
+interface BookingButtonsProps {
+  layout?: 'horizontal' | 'vertical'
   size?: 'sm' | 'md' | 'lg'
+  showBoth?: boolean // If false, only show discovery call
 }
 
-export default function CalendlyButton({
-  text = 'Book AI Diagnosis',
-  variant = 'primary',
-  size = 'md'
-}: CalendlyButtonProps) {
-  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_DIAGNOSIS_URL
+export default function BookingButtons({
+  layout = 'horizontal',
+  size = 'md',
+  showBoth = true
+}: BookingButtonsProps) {
+  const discoveryUrl = process.env.NEXT_PUBLIC_CALENDLY_DISCOVERY_URL
+  const auditUrl = process.env.NEXT_PUBLIC_AUDIT_APPLICATION_URL
 
-  const handleClick = () => {
-    if (calendlyUrl) {
-      window.open(calendlyUrl, '_blank')
-    }
+  const handleDiscovery = () => {
+    if (discoveryUrl) window.open(discoveryUrl, '_blank')
+  }
+
+  const handleAudit = () => {
+    if (auditUrl) window.open(auditUrl, '_blank')
   }
 
   const sizeClasses = {
@@ -131,41 +188,71 @@ export default function CalendlyButton({
     lg: 'px-8 py-4 text-lg'
   }
 
-  const variantClasses = {
-    primary: 'bg-blue-600 hover:bg-blue-700 text-white',
-    secondary: 'bg-white hover:bg-gray-100 text-blue-600 border-2 border-blue-600'
-  }
+  const containerClass = layout === 'horizontal'
+    ? 'flex gap-4 items-center'
+    : 'flex flex-col gap-4'
 
   return (
-    <button
-      onClick={handleClick}
-      className={`
-        ${sizeClasses[size]}
-        ${variantClasses[variant]}
-        rounded-lg font-semibold
-        transition-all duration-200
-        inline-flex items-center gap-2
-        shadow-lg hover:shadow-xl
-        transform hover:-translate-y-0.5
-      `}
-    >
-      <Calendar className="w-5 h-5" />
-      {text}
-    </button>
+    <div className={containerClass}>
+      {/* Primary: Discovery Call */}
+      <button
+        onClick={handleDiscovery}
+        className={`
+          ${sizeClasses[size]}
+          bg-blue-600 hover:bg-blue-700 text-white
+          rounded-lg font-semibold
+          transition-all duration-200
+          inline-flex items-center gap-2
+          shadow-lg hover:shadow-xl
+          transform hover:-translate-y-0.5
+        `}
+      >
+        <Calendar className="w-5 h-5" />
+        Book Discovery Call (30 min)
+      </button>
+
+      {/* Secondary: AI Audit Application */}
+      {showBoth && (
+        <button
+          onClick={handleAudit}
+          className={`
+            ${sizeClasses[size]}
+            bg-white hover:bg-gray-100 text-blue-600
+            border-2 border-blue-600
+            rounded-lg font-semibold
+            transition-all duration-200
+            inline-flex items-center gap-2
+            shadow-lg hover:shadow-xl
+            transform hover:-translate-y-0.5
+          `}
+        >
+          <FileText className="w-5 h-5" />
+          Apply for AI Audit
+        </button>
+      )}
+    </div>
   )
 }
 ```
 
-### Step 5: Add to Hero Section
+### Step 6: Add to Hero Section
 Edit `src/components/Hero.tsx`:
 
 ```typescript
 // At the top
-import CalendlyButton from './CalendlyButton'
+import BookingButtons from './BookingButtons'
 
-// Replace the primary CTA button with:
-<CalendlyButton text="Book AI Diagnosis (90 min)" size="lg" />
+// Replace the CTA buttons with:
+<BookingButtons layout="horizontal" size="lg" showBoth={true} />
 ```
+
+### Step 7: LinkedIn Profile Integration
+Add the AI Audit application form link to your LinkedIn profile:
+
+1. Go to LinkedIn profile
+2. Edit "Featured" section
+3. Add link: "Apply for AI Audit" → https://tally.so/r/diabol-ai-audit-application
+4. Or add to "Contact Info" → Website → "AI Audit Application"
 
 ### Step 6: Deploy
 ```bash
