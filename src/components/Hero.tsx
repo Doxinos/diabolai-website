@@ -57,12 +57,16 @@ export default function Hero() {
 
               <h1 className="mb-4 text-6xl md:text-7xl lg:text-8xl font-bold leading-tight">
                 <span className="block silver-gradient">
-                  AI Voice Agents That Transform Business
+                  Transform Your Business with Strategic AI
                 </span>
               </h1>
 
-              <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto mb-12">
-                Our agents book, qualify & follow up automatically.
+              <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-6">
+                From voice automation to full process transformation—we help SMBs diagnose opportunities, redesign workflows, and implement AI that drives real results.
+              </p>
+
+              <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-12">
+                Serving Nordics, North America, and Europe
               </p>
 
 

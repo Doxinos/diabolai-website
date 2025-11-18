@@ -8,12 +8,16 @@ const translationData = {
   },
   hero: {
     title: {
-      en: 'AI Voice Agents That Transform Business',
-      sv: 'AI-röstassistenter som transformerar din verksamhet'
+      en: 'Transform Your Business with Strategic AI',
+      sv: 'Transformera din verksamhet med strategisk AI'
     },
     subtitle: {
-      en: '24/7 Automated Booking & Lead Qualification',
-      sv: 'Automatisk bokning & leadkvalificering 24/7'
+      en: 'From voice automation to full process transformation—we help SMBs diagnose opportunities, redesign workflows, and implement AI that drives real results.',
+      sv: 'Från röstautomation till full processtransformation—vi hjälper SMB att identifiera möjligheter, omdesigna arbetsflöden och implementera AI som ger verkliga resultat.'
+    },
+    region: {
+      en: 'Serving Nordics, North America, and Europe',
+      sv: 'Betjänar Norden, Nordamerika och Europa'
     },
     cta: { en: 'Try Live Demo', sv: 'Prova live-demo' },
     secondary: { en: 'Learn More', sv: 'Läs mer' }
