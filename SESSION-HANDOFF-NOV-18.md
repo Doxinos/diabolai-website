@@ -101,9 +101,10 @@ This document provides complete context for continuing work on the Diabol AI web
 7. **[AI-SEO-IMPLEMENTATION.md](AI-SEO-IMPLEMENTATION.md)** - 10-point checklist tracking
 8. **[FAQ-EXPANSION-PLAN.md](FAQ-EXPANSION-PLAN.md)** - Path to 55-60 questions
 9. **[REDESIGN-PLAN.md](REDESIGN-PLAN.md)** - 5-phase approach
+10. **[LINK-BUILDING-STRATEGY.md](LINK-BUILDING-STRATEGY.md)** - ⭐ NEW - Systematic link building to grow from 28% to 75%+ trust node coverage
 
 ### Airtable Import (Separate Repo)
-10. **`/Users/peterferm/Development 2/MyAICoPilot/ai-citation-agent/DIABOL-AI-AIRTABLE-IMPORT.md`** - Complete audit import guide
+11. **`/Users/peterferm/Development 2/MyAICoPilot/ai-citation-agent/DIABOL-AI-AIRTABLE-IMPORT.md`** - Complete audit import guide
 
 ---
 
