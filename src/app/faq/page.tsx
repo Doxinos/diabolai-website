@@ -2,18 +2,43 @@ import type { Metadata } from 'next'
 import FAQClient from './FAQClient'
 
 export const metadata: Metadata = {
-  title: 'FAQ - AI Voice Agents | DiabolAI',
-  description: 'Frequently asked questions about AI voice agents, implementation, costs, and capabilities. Get answers to common questions about voice AI technology.',
+  title: 'AI Consulting FAQ | Voice Agents, Transformation & Strategy for SMBs',
+  description: 'Get answers about AI consulting, transformation, voice agents, and implementation for SMBs. From strategy to automation - comprehensive AI FAQ for growing businesses.',
   openGraph: {
-    title: 'AI Voice Agent FAQ | DiabolAI',
-    description: 'Complete answers to your questions about AI voice agents and voice AI technology.',
+    title: 'AI Consulting & Transformation FAQ | Diabol AI',
+    description: 'Complete answers about AI consulting, strategic transformation, voice agents, and business automation for SMBs.',
     type: 'website',
   }
 }
 
 const faqData = [
   {
-    category: "Getting Started",
+    category: "AI Consulting & Strategy",
+    questions: [
+      {
+        question: "What is AI transformation consulting and how can it help my business?",
+        answer: "AI transformation consulting helps businesses identify, prioritize, and implement AI solutions that drive measurable results. An AI consultant analyzes your operations, identifies high-impact opportunities, redesigns processes for AI optimization, and implements solutions tailored to your needs. For SMBs, this typically means 20-40% cost reduction and 2-3x faster processes within 6 months, without hiring in-house AI engineers."
+      },
+      {
+        question: "How do I know if my small business is ready for AI?",
+        answer: "Your business is ready for AI if you have: (1) Repetitive processes that consume significant time, (2) Customer interactions that follow predictable patterns, (3) Data stored digitally (spreadsheets, CRM, databases), (4) Desire to scale without proportional headcount growth, and (5) Budget of $5K-50K for initial implementation. Most SMBs with 10+ employees have at least 3-5 processes that benefit from AI automation within the first year."
+      },
+      {
+        question: "What business processes can be automated with AI?",
+        answer: "Common processes we automate for SMBs include: Customer-facing (lead qualification, appointment scheduling, customer support, sales calls), Operations (data entry, invoice processing, report generation, email triage), and Marketing (content creation, email personalization, lead scoring). Most businesses can automate 30-50% of routine tasks within 6 months, freeing teams to focus on strategic work."
+      },
+      {
+        question: "What is the Diagnose → Redesign → Automate framework?",
+        answer: "Our three-phase approach to AI transformation: (1) Diagnose - We audit your operations to identify bottlenecks and high-impact opportunities, creating a prioritized roadmap with ROI projections. (2) Redesign - We optimize your processes for AI compatibility, removing inefficiencies and redesigning workflows. (3) Automate - We implement AI solutions, integrate with existing systems, and train your team. This ensures AI solves real problems rather than automating bad processes."
+      },
+      {
+        question: "What's the ROI of AI implementation for SMBs?",
+        answer: "AI consulting for SMBs typically costs $15K-50K for implementation with 300-500% ROI in year one. Returns come from reduced labor costs (30-70% savings on automated tasks), increased efficiency (2-3x faster processes), revenue growth (24/7 customer engagement), and competitive advantage. Most businesses see positive ROI within 3-6 months. We start with focused pilot projects to prove value before full transformation."
+      }
+    ]
+  },
+  {
+    category: "AI Voice Agents",
     questions: [
       {
         question: "What is an AI voice agent?",
