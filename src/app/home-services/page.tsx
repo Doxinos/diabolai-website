@@ -35,7 +35,7 @@ export default function HomeServicesPage() {
           
           <Link 
             href="/#contact" 
-            className="inline-flex items-center gap-3 bg-brand-cerise hover:bg-brand-cerise-dark text-white font-medium px-6 py-3 rounded-full transition-all duration-300"
+            className="inline-flex items-center gap-3 bg-brand-orange hover:bg-brand-orange-dark text-white font-medium px-6 py-3 rounded-full transition-all duration-300"
           >
             Book Free Strategy Session
             <ArrowRight className="w-4 h-4" />

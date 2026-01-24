@@ -63,19 +63,20 @@ export default function Navigation() {
         </Link>
 
         <div className="hidden md:flex items-center gap-8 text-white/80">
+          <Link href="/services" className="hover:text-white transition-colors">Services</Link>
           <div className="relative" ref={dropdownRef}>
-            <button 
+            <button
               onClick={() => setIsIndustriesOpen(!isIndustriesOpen)}
               className="flex items-center gap-1 hover:text-white transition-colors"
             >
               Industries
               <ChevronDown className={`w-4 h-4 transition-transform ${isIndustriesOpen ? 'rotate-180' : ''}`} />
             </button>
-            
+
             {isIndustriesOpen && (
               <div className="absolute top-full left-0 mt-2 w-48 bg-black/90 backdrop-blur-sm border border-white/20 rounded-lg shadow-lg">
-                <Link 
-                  href="/real-estate" 
+                <Link
+                  href="/real-estate"
                   className="block px-4 py-3 text-white/80 hover:text-white hover:bg-white/10 transition-colors"
                   onClick={() => setIsIndustriesOpen(false)}
                 >
@@ -84,6 +85,7 @@ export default function Navigation() {
               </div>
             )}
           </div>
+          <Link href="/about" className="hover:text-white transition-colors">About</Link>
           <Link href="/faq" className="hover:text-white transition-colors">FAQ</Link>
           <Link href="https://blog.diabolai.com" className="hover:text-white transition-colors">Blog</Link>
         </div>
@@ -107,6 +109,15 @@ export default function Navigation() {
       {isMobileMenuOpen && (
         <div className="md:hidden fixed inset-0 top-16 bg-black/95 backdrop-blur-sm z-40">
           <div className="flex flex-col p-6 space-y-4">
+            {/* Services link */}
+            <Link
+              href="/services"
+              className="py-3 text-lg text-white/80 hover:text-white transition-colors border-b border-white/10"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Services
+            </Link>
+
             {/* Industries dropdown */}
             <div>
               <button
@@ -128,6 +139,15 @@ export default function Navigation() {
                 </div>
               )}
             </div>
+
+            {/* About link */}
+            <Link
+              href="/about"
+              className="py-3 text-lg text-white/80 hover:text-white transition-colors border-b border-white/10"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              About
+            </Link>
 
             {/* FAQ link */}
             <Link

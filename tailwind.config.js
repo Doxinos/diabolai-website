@@ -9,15 +9,14 @@ module.exports = {
   theme: {
   	extend: {
   		colors: {
-  			// DiabolAI Brand Colors
+  			// DiabolAI Brand Colors (Updated Jan 2025)
   			brand: {
   				black: '#000000',
   				white: '#FFFFFF',
-  				cerise: '#DD345B',
-  				'cerise-dark': '#B42D4A', // Hover state
-  				cornflower: '#97CCE1',
-  				'lily-white': '#E5F6FE',
-  				'nile-blue': '#123358',
+  				orange: '#FF4F30',        // Portland Orange - primary accent
+  				'orange-dark': '#E64528', // Hover state (10% darker)
+  				'oxford-blue': '#0A2843', // Dark sections, navy alternative
+  				westar: '#DCDBD3',        // Soft backgrounds, neutral
   			},
   			primary: {
   				'50': '#eff6ff',

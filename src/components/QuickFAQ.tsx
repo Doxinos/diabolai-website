@@ -81,9 +81,9 @@ export default function QuickFAQ() {
                 <CardTitle className="text-white text-lg font-semibold flex items-center justify-between">
                   {faq.question}
                   {openItems.has(faq.id) ? (
-                    <ChevronUp className="w-5 h-5 text-brand-cornflower" />
+                    <ChevronUp className="w-5 h-5 text-brand-orange" />
                   ) : (
-                    <ChevronDown className="w-5 h-5 text-brand-cornflower" />
+                    <ChevronDown className="w-5 h-5 text-brand-orange" />
                   )}
                 </CardTitle>
               </CardHeader>
@@ -96,7 +96,7 @@ export default function QuickFAQ() {
                     <Link
                       href="/contact"
                       onClick={() => handleCTAClick('strategy_session')}
-                      className="bg-brand-cerise hover:bg-brand-cerise-dark text-white px-4 py-2 rounded-lg font-medium transition-colors text-center"
+                      className="bg-brand-orange hover:bg-brand-orange-dark text-white px-4 py-2 rounded-lg font-medium transition-colors text-center"
                     >
                       Get Your Strategy Session
                     </Link>
@@ -119,7 +119,7 @@ export default function QuickFAQ() {
         <div className="text-center mt-8">
           <Link
             href="/faq"
-            className="text-brand-cornflower hover:text-white font-medium transition-colors"
+            className="text-brand-orange hover:text-white font-medium transition-colors"
           >
             See all FAQs →
           </Link>

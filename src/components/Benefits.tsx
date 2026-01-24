@@ -54,7 +54,7 @@ export default function Benefits() {
             >
               <div className="absolute inset-0 p-12 flex flex-col justify-center items-center text-center">
                 <div className="flex justify-center mb-8">
-                  <div className="w-20 h-20 bg-brand-cornflower rounded-full flex items-center justify-center shadow-lg shadow-brand-cornflower/60">
+                  <div className="w-20 h-20 bg-brand-orange rounded-full flex items-center justify-center shadow-lg shadow-brand-orange/60">
                     <benefit.icon className="w-10 h-10 text-white" />
                   </div>
                 </div>

@@ -1,7 +1,76 @@
 # DiabolAI Website - Project Status & Tasks
 
 ## Project Overview
-DiabolAI website for AI Voice Agents business - Next.js 14 with TypeScript and Tailwind CSS
+DiabolAI website - AI implementation consultancy. Next.js 14 with TypeScript and Tailwind CSS.
+
+**Services:**
+- **AI Voice Agents** - 24/7 call handling, lead qualification, appointment booking
+- **AI Automation** - Workflow automation, CRM integration, process optimization
+- **AI Content** - AI avatars, video production, founder-led content at scale
+
+**Positioning:** "Think before you build" - Strategy-first AI implementation, not just tools.
+
+---
+
+## 🚧 CURRENT PROJECT: Website Redesign (January 2025)
+
+### Status: In Progress on `redesign` branch
+
+Restructuring from voice-agent-focused homepage to broader AI solutions positioning.
+
+### Progress
+
+| Task | Status | Notes |
+|------|--------|-------|
+| Brand colors updated | ✅ Done | Portland Orange (#FF4F30) replaces Cerise |
+| Navigation updated | ✅ Done | Added Services, About links (desktop + mobile) |
+| New Homepage | ✅ Done | Strategic positioning, services intro |
+| Services page | ✅ Done | Voice, Automation, Content sections |
+| AI Voice page | ✅ Done | Original homepage content moved here |
+| About page | ⏳ Pending | Founder story |
+| Design review | ⏳ Pending | Review inspiration sites before finalizing |
+
+### NOT Deployed Yet
+All changes are local on `redesign` branch. Live site (main branch) unchanged.
+
+### New Site Structure
+```
+/ (homepage) - Strategic positioning, all services
+/services - Detailed service pages (Voice, Automation, Content)
+/ai-voice - Deep dive on voice agents (old homepage content)
+/about - Founder story (pending)
+/real-estate, /faq, /pricing - Keep existing
+```
+
+### Brand Colors (Updated Jan 2025)
+
+| Color | Hex | Tailwind | Usage |
+|-------|-----|----------|-------|
+| Black | #000000 | `bg-black` | Primary background |
+| White | #FFFFFF | `text-white` | Primary text |
+| Portland Orange | #FF4F30 | `bg-brand-orange` | CTAs (use sparingly) |
+| Oxford Blue | #0A2843 | `bg-brand-oxford-blue` | Dark sections |
+| Westar | #DCDBD3 | `bg-brand-westar` | Soft backgrounds |
+
+### Key Files for Redesign
+- `src/app/page.tsx` - New homepage
+- `src/app/services/page.tsx` - Services page
+- `src/app/ai-voice/page.tsx` - AI Voice deep-dive
+- `tailwind.config.js` - Brand colors
+
+### Related Resources
+- Brand design: `/Users/pete/.claude/skills/diabol-brand-design.md`
+- Brand voice: `/Users/pete/.claude/skills/diabol-brand-voice.md`
+- GEO strategy: `/Users/pete/Workspace/personal-projects/diabolai/strategy/geo-action-plan.md`
+
+### Next Steps
+1. Review design inspiration sites together
+2. Finalize design direction
+3. Complete About page
+4. Review all pages
+5. Merge to main and deploy
+
+---
 
 ## Completed Tasks ✅
 - **Customer Testimonials & FAQ Updates** (2025-10-01)
