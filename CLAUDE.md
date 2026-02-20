@@ -276,6 +276,38 @@ Start updating professional profiles (LinkedIn, etc.) to link to www.diabolai.co
 - **Deployment**: Vercel
 - **Future CMS**: Sanity.io for blog content
 
+---
+
+## brain/ Knowledge OS Sync
+
+Project docs for this website live in `~/brain/projects/website/README.md`.
+
+**When to update brain/:**
+- Architectural decisions → update `~/brain/projects/website/README.md`
+- Infrastructure changes (new MCP, new integration) → flag for orchestrator update
+- Completed milestones → add to build log in project README
+- New operational patterns → add to relevant `~/brain/ops/` file
+
+**brain/ is the knowledge layer. This repo is the code layer.**
+
+## Orchestrator Reference
+
+**For cross-project decisions, workflow optimization, or tool selection:**
+→ Read `~/.claude/CLAUDE.md` (Global Orchestrator)
+
+The orchestrator knows:
+- All available MCPs and when to use them
+- When to use CLI vs MCP vs Cowork
+- How this site connects to other projects (blog, brand assets)
+- Skill loading patterns for content/design tasks
+
+**Ask the orchestrator when:**
+- Unsure which tool is best for a task
+- Need to coordinate with blog or other projects
+- Want to optimize deployment workflow
+
+---
+
 ## Deployment Configuration ⚠️ CRITICAL
 - **Production Branch**: `main` (standard deployment)
 - **Vercel Config**: Configured to deploy from `main` branch
@@ -300,6 +332,32 @@ Start updating professional profiles (LinkedIn, etc.) to link to www.diabolai.co
 ## Contact Information
 - **Email**: hello@diabolai.com
 - **Calendly**: https://calendly.com/peter-diabol/30min
+
+---
+
+## Frontend Design Workflow
+
+### Before Writing Any Frontend Code
+- **Invoke the `frontend-design` skill** before writing UI code each session — it sets the aesthetic direction and prevents generic output.
+- Also load `web-design-guidelines` and `vercel-react-best-practices` when doing reviews or performance work.
+
+### Reference Image Matching
+- If a reference image or design is provided: **match layout, spacing, typography, and color exactly**. Do not improve or add to the design.
+- If no reference: design from scratch using the `frontend-design` skill's creative guidelines + brand colors from `tailwind.config.js`.
+
+### Screenshot Comparison Workflow
+- Use **Playwright MCP** (`mcp__playwright__*`) for all screenshots — never screenshot from `file:///` URLs.
+- Dev server: `npm run dev` (serves at `http://localhost:3000`)
+- After building a section: take a screenshot, compare against reference, fix mismatches, re-screenshot. **Do at least 2 comparison rounds.**
+- When comparing, be specific: "heading is 32px but reference shows ~24px", "card gap is 16px but should be 24px"
+- Check: spacing/padding, font size/weight/line-height, colors (exact hex), alignment, border-radius, shadows, image sizing
+
+### Hard Rules
+- Do not use `transition-all` — only animate `transform` and `opacity`
+- Every clickable element needs `hover`, `focus-visible`, and `active` states
+- Do not add sections, features, or content not in the reference
+- Use brand colors from `tailwind.config.js` — never default Tailwind palette
+- Use intentional, consistent spacing tokens — not random Tailwind steps
 
 ---
 

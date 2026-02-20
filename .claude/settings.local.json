@@ -12,7 +12,8 @@
       "Bash(git push:*)",
       "Bash(mv:*)",
       "Bash(mkdir:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(claude plugin install:*)"
     ],
     "deny": []
   }
