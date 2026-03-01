@@ -28,7 +28,7 @@ export default function ProfessionalVoiceAgent({
   const [connectionQuality, setConnectionQuality] = useState<'excellent' | 'good' | 'poor'>('excellent')
   
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const animationRef = useRef<number>()
+  const animationRef = useRef<number | null>(null)
 
   // Audio visualization
   useEffect(() => {

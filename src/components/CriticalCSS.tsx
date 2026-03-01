@@ -72,8 +72,8 @@ export default function CriticalCSS() {
         background-color: #f3f4f6;
       }
       
-      /* Video styles */
-      video {
+      /* Hero video background */
+      #hero video {
         position: absolute;
         inset: 0;
         width: 100%;

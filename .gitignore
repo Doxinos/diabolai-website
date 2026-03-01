@@ -31,3 +31,18 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# design reference screenshots (root level)
+/*.png
+/*.mp4
+
+# playwright MCP logs
+.playwright-mcp/
+
+# editor/agent configs
+.cursor/
+.opencode/
+.agents/
+
+# design prompts
+Website prompts/

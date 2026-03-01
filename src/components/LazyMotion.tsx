@@ -8,7 +8,7 @@ const loadFeatures = () =>
 
 export default function LazyMotionProvider({ children }: { children: React.ReactNode }) {
   return (
-    <LazyMotion features={loadFeatures} strict>
+    <LazyMotion features={loadFeatures}>
       {children}
     </LazyMotion>
   )

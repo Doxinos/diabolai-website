@@ -6,7 +6,7 @@ export default function TryItNow() {
       {/* Video Sound Wave Visualization with Text Overlay */}
       <div className="w-full relative">
         <LazyVideo
-          src="/images/imports/backgrounds/soundwave-ai-voice_compressed.mp4"
+          src="/images/imports/backgrounds/waveform-bw.mp4"
           className="w-full h-auto block"
         />
         

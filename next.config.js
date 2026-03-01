@@ -1,20 +1,23 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Configure SWC to target modern browsers
-  swcMinify: true,
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
 
-  // Optimize for modern browsers
+  // Optimize package imports
   experimental: {
     optimizePackageImports: ['@radix-ui/react-slot', 'lucide-react', 'framer-motion'],
     webpackBuildWorker: true,
   },
-  
+
   // Asset configuration
   images: {
-    domains: ['localhost'],
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+      },
+    ],
     formats: ['image/webp', 'image/avif'],
   },
 
@@ -51,14 +54,14 @@ const nextConfig = {
       },
     ]
   },
-  
+
   // Redirects for removed pages
   async redirects() {
     return [
       {
         source: '/alt',
         destination: '/',
-        permanent: true, // 301 permanent redirect
+        permanent: true,
       },
     ]
   },
