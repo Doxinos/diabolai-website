@@ -42,39 +42,41 @@ export default function Navigation() {
   }, [isMobileMenuOpen])
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-sm border-b border-white/10">
-      <nav className="container-max flex items-center justify-between px-6 md:px-8 h-16">
-        <Link href="/" className="flex items-center gap-3">
-          <Image src="/logos/Diabol_Logo_White-01.png" alt="diabol logo" width={120} height={40} />
-        </Link>
+    <>
+      <header className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-sm border-b border-white/10">
+        <nav className="container-max flex items-center justify-between px-6 md:px-8 h-16">
+          <Link href="/" className="flex items-center gap-3">
+            <Image src="/logos/Diabol_Logo_White-01.png" alt="diabol logo" width={120} height={40} />
+          </Link>
 
-        <div className="hidden md:flex items-center gap-8 text-white/80">
-          <Link href="/faq" className="hover:text-white transition-colors">FAQ</Link>
-          <Link href="https://blog.diabolai.com" className="hover:text-white transition-colors">Blog</Link>
-        </div>
+          <div className="hidden md:flex items-center gap-8 text-white/80">
+            <Link href="/faq" className="hover:text-white transition-colors">FAQ</Link>
+            <Link href="https://blog.diabolai.com" className="hover:text-white transition-colors">Blog</Link>
+          </div>
 
-        {/* Desktop Book a Demo button */}
-        <button onClick={handleBookDemo} className="hidden md:block btn-primary text-sm px-6 py-2">
-          Book a Demo
-        </button>
+          {/* Desktop Book a Demo button */}
+          <button onClick={handleBookDemo} className="hidden md:block btn-primary text-sm px-6 py-2">
+            Book a Demo
+          </button>
 
-        {/* Mobile hamburger button */}
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden p-2 text-white/80 hover:text-white transition-colors"
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </nav>
+          {/* Mobile hamburger button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2 text-white/80 hover:text-white transition-colors"
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </nav>
+      </header>
 
-      {/* Mobile menu overlay */}
+      {/* Mobile menu overlay — outside header to avoid backdrop-filter stacking context */}
       {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-16 bg-black z-40 [touch-action:manipulation]">
+        <div className="md:hidden fixed inset-0 top-16 bg-black z-50">
           <div className="flex flex-col p-6 space-y-4">
             <Link
               href="/faq"
-              className="py-3 text-lg text-white/80 hover:text-white transition-colors border-b border-white/10"
+              className="py-3 text-lg text-white border-b border-white/10"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               FAQ
@@ -82,7 +84,7 @@ export default function Navigation() {
 
             <Link
               href="https://blog.diabolai.com"
-              className="py-3 text-lg text-white/80 hover:text-white transition-colors border-b border-white/10"
+              className="py-3 text-lg text-white border-b border-white/10"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Blog
@@ -100,6 +102,6 @@ export default function Navigation() {
           </div>
         </div>
       )}
-    </header>
+    </>
   )
 }
