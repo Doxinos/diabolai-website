@@ -2,15 +2,12 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { useCallback, useState, useEffect, useRef } from 'react'
+import { useCallback, useState, useEffect } from 'react'
 import { trackScheduleClick } from '@/utils/analytics'
-import { ChevronDown, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 
 export default function Navigation() {
-  const [isIndustriesOpen, setIsIndustriesOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isMobileIndustriesOpen, setIsMobileIndustriesOpen] = useState(false)
-  const dropdownRef = useRef<HTMLDivElement>(null)
 
   const handleBookDemo = useCallback(() => {
     trackScheduleClick('navigation')
@@ -21,18 +18,7 @@ export default function Navigation() {
     }
   }, [])
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsIndustriesOpen(false)
-      }
-    }
-
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
-
-  // Close mobile menu on route change or resize
+  // Close mobile menu on resize
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
@@ -63,27 +49,6 @@ export default function Navigation() {
         </Link>
 
         <div className="hidden md:flex items-center gap-8 text-white/80">
-          <div className="relative" ref={dropdownRef}>
-            <button 
-              onClick={() => setIsIndustriesOpen(!isIndustriesOpen)}
-              className="flex items-center gap-1 hover:text-white transition-colors"
-            >
-              Industries
-              <ChevronDown className={`w-4 h-4 transition-transform ${isIndustriesOpen ? 'rotate-180' : ''}`} />
-            </button>
-            
-            {isIndustriesOpen && (
-              <div className="absolute top-full left-0 mt-2 w-48 bg-black/90 backdrop-blur-sm border border-white/20 rounded-lg shadow-lg">
-                <Link 
-                  href="/real-estate" 
-                  className="block px-4 py-3 text-white/80 hover:text-white hover:bg-white/10 transition-colors"
-                  onClick={() => setIsIndustriesOpen(false)}
-                >
-                  Real Estate
-                </Link>
-              </div>
-            )}
-          </div>
           <Link href="/faq" className="hover:text-white transition-colors">FAQ</Link>
           <Link href="https://blog.diabolai.com" className="hover:text-white transition-colors">Blog</Link>
         </div>
@@ -105,31 +70,8 @@ export default function Navigation() {
 
       {/* Mobile menu overlay */}
       {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-16 bg-black/95 backdrop-blur-sm z-40">
+        <div className="md:hidden fixed inset-0 top-16 bg-black z-40 [touch-action:manipulation]">
           <div className="flex flex-col p-6 space-y-4">
-            {/* Industries dropdown */}
-            <div>
-              <button
-                onClick={() => setIsMobileIndustriesOpen(!isMobileIndustriesOpen)}
-                className="flex items-center justify-between w-full py-3 text-lg text-white/80 hover:text-white transition-colors border-b border-white/10"
-              >
-                Industries
-                <ChevronDown className={`w-5 h-5 transition-transform ${isMobileIndustriesOpen ? 'rotate-180' : ''}`} />
-              </button>
-              {isMobileIndustriesOpen && (
-                <div className="pl-4 py-2">
-                  <Link
-                    href="/real-estate"
-                    className="block py-2 text-white/70 hover:text-white transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Real Estate
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            {/* FAQ link */}
             <Link
               href="/faq"
               className="py-3 text-lg text-white/80 hover:text-white transition-colors border-b border-white/10"
@@ -138,7 +80,6 @@ export default function Navigation() {
               FAQ
             </Link>
 
-            {/* Blog link */}
             <Link
               href="https://blog.diabolai.com"
               className="py-3 text-lg text-white/80 hover:text-white transition-colors border-b border-white/10"
@@ -147,7 +88,6 @@ export default function Navigation() {
               Blog
             </Link>
 
-            {/* Book a Demo button */}
             <button
               onClick={() => {
                 handleBookDemo()

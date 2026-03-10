@@ -37,7 +37,7 @@ export default function FAQClient({ faqData, structuredData }: FAQClientProps) {
       />
       
       <Navigation />
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 pt-16">
+      <div className="min-h-screen bg-black pt-16">
         <div className="container mx-auto px-4 py-16">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
@@ -51,13 +51,13 @@ export default function FAQClient({ faqData, structuredData }: FAQClientProps) {
           <div className="max-w-4xl mx-auto space-y-12">
             {faqData.map((category, categoryIndex) => (
               <div key={categoryIndex}>
-                <h2 className="text-2xl font-bold text-white mb-6 border-b border-purple-500/30 pb-3">
+                <h2 className="text-2xl font-bold text-white mb-6 border-b border-brand-orange/30 pb-3">
                   {category.category}
                 </h2>
                 
                 <div className="space-y-4">
                   {category.questions.map((faq, faqIndex) => (
-                    <Card key={faqIndex} className="bg-slate-800/50 border-slate-700 backdrop-blur-sm">
+                    <Card key={faqIndex} className="bg-white/5 border-white/10 backdrop-blur-sm">
                       <CardHeader>
                         <CardTitle className="text-white text-lg font-semibold">
                           {faq.question}
@@ -85,7 +85,7 @@ export default function FAQClient({ faqData, structuredData }: FAQClientProps) {
               </p>
               <button
                 onClick={handleScheduleCall}
-                className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors text-lg"
+                className="btn-primary text-lg px-8 py-4"
               >
                 Schedule a Call
               </button>
