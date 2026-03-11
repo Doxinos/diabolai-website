@@ -46,3 +46,6 @@ next-env.d.ts
 
 # design prompts
 Website prompts/
+
+# design preview (only has node_modules)
+design-preview/
