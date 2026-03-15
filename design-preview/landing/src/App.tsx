@@ -8,6 +8,10 @@ import FlipStrip from './components/FlipStrip';
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    gsap.globalTimeline.timeScale(0);
+    ScrollTrigger.defaults({ toggleActions: 'none none none none' });
+  }
 }
 
 /* ------------------------------------------------------------------ */
@@ -172,16 +176,23 @@ export const Navbar = ({ forceDark = false }: { forceDark?: boolean }) => {
         Diabol
       </a>
       <div className="hidden gap-8 md:flex">
-        {navLinks.map((link) => (
-          <a
-            key={link.label}
-            href={link.href}
-            className={`group relative text-sm no-underline transition-colors duration-500 ${onDark ? 'text-white/65 hover:text-white/95' : 'text-[rgba(17,17,17,0.60)] hover:text-[#111111]'}`}
-          >
-            {link.label}
-            <span className="absolute -bottom-1 left-0 h-[1px] w-0 bg-[#FF4F30] transition-all duration-300 group-hover:w-full" />
-          </a>
-        ))}
+        {navLinks.map((link) => {
+          const isActive = typeof window !== 'undefined' && window.location.pathname === link.href;
+          return (
+            <a
+              key={link.label}
+              href={link.href}
+              className={`group relative text-sm no-underline transition-colors duration-500 ${
+                isActive
+                  ? onDark ? 'text-white' : 'text-[#111111]'
+                  : onDark ? 'text-white/65 hover:text-white/95' : 'text-[rgba(17,17,17,0.60)] hover:text-[#111111]'
+              }`}
+            >
+              {link.label}
+              <span className={`absolute -bottom-1 left-0 h-[1px] bg-[#FF4F30] transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+            </a>
+          );
+        })}
       </div>
       <button className={`btn-magnetic rounded-full px-5 py-2 text-sm font-semibold transition-colors duration-500 ${onDark ? 'bg-white/10 text-white hover:bg-white/20' : 'bg-[#111111] text-[#DCDBD3] hover:bg-[#222222]'}`}>
         Book a Call
@@ -239,11 +250,11 @@ const Hero = () => {
           </div>
 
           {/* CTAs */}
-          <div className="mt-8 flex gap-4">
-            <button className="hero-cta btn-magnetic flex items-center gap-2 rounded-full bg-[#111111] px-8 py-4 text-sm font-bold text-[#DCDBD3] hover:bg-[#222222]">
+          <div className="mt-8 flex flex-wrap gap-4">
+            <button className="hero-cta btn-magnetic flex items-center gap-2 rounded-full bg-[#111111] px-6 py-4 text-sm font-bold text-[#DCDBD3] hover:bg-[#222222] md:px-8">
               See how it works <ArrowRight size={16} />
             </button>
-            <button className="hero-cta btn-magnetic rounded-full border border-[rgba(17,17,17,0.20)] bg-transparent px-8 py-4 text-sm font-bold text-[#111111] hover:bg-[rgba(17,17,17,0.05)]">
+            <button className="hero-cta btn-magnetic rounded-full border border-[rgba(17,17,17,0.20)] bg-transparent px-6 py-4 text-sm font-bold text-[#111111] hover:bg-[rgba(17,17,17,0.05)] md:px-8">
               Book a call
             </button>
           </div>
@@ -888,28 +899,38 @@ export const Testimonials = () => {
             return (
               <div
                 key={i}
-                className={`testimonial-card card-lift flex flex-col justify-between rounded-2xl p-10 lg:p-12 ${
+                className={`testimonial-card card-lift flex flex-col rounded-2xl p-10 lg:p-12 ${
                   isDark
                     ? 'bg-[#0A2843] border border-[rgba(255,255,255,0.08)]'
                     : 'bg-[#DCDBD3] border border-[rgba(17,17,17,0.08)]'
                 }`}
               >
-                {/* Stars */}
-                <div className="mb-6 flex gap-1">
-                  {[...Array(5)].map((_, si) => (
-                    <svg key={si} className="h-4 w-4 text-[#FF4F30]" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
+                {/* Top row: stars + verified badge */}
+                <div className="mb-8 flex items-center justify-between">
+                  <div className="flex gap-1">
+                    {[...Array(5)].map((_, si) => (
+                      <svg key={si} className="h-4 w-4 text-[#FF4F30]" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <span className={`font-mono text-[10px] uppercase tracking-[0.14em] ${isDark ? 'text-[rgba(255,255,255,0.30)]' : 'text-[rgba(17,17,17,0.30)]'}`}>
+                    Verified client
+                  </span>
+                </div>
+
+                {/* Decorative quote mark */}
+                <div className={`text-[80px] font-black leading-none mb-2 -mt-2 select-none ${isDark ? 'text-[rgba(255,255,255,0.08)]' : 'text-[rgba(17,17,17,0.07)]'}`}>
+                  &ldquo;
                 </div>
 
                 {/* Quote */}
-                <blockquote className={`text-[clamp(16px,1.2vw,18px)] leading-[1.7] ${isDark ? 'text-[rgba(255,255,255,0.70)]' : 'text-[rgba(17,17,17,0.70)]'}`}>
-                  &ldquo;{t.content}&rdquo;
+                <blockquote className={`flex-1 text-[clamp(17px,1.3vw,20px)] leading-[1.65] font-medium ${isDark ? 'text-[rgba(255,255,255,0.80)]' : 'text-[rgba(17,17,17,0.75)]'}`}>
+                  {t.content}
                 </blockquote>
 
                 {/* Author */}
-                <div className={`mt-8 flex items-center gap-4 border-t pt-8 ${isDark ? 'border-[rgba(255,255,255,0.10)]' : 'border-[rgba(17,17,17,0.08)]'}`}>
+                <div className={`mt-10 flex items-center gap-4 border-t pt-8 ${isDark ? 'border-[rgba(255,255,255,0.10)]' : 'border-[rgba(17,17,17,0.08)]'}`}>
                   <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full font-mono text-sm font-bold ${isDark ? 'bg-[#DCDBD3] text-[#0A2843]' : 'bg-[#0A2843] text-white'}`}>
                     {t.initials}
                   </div>
@@ -1094,7 +1115,57 @@ export const FAQ = () => {
 };
 
 /* ------------------------------------------------------------------ */
-/* I. FOOTER                                                           */
+/* I. FINAL CTA — Close the page                                       */
+/* ------------------------------------------------------------------ */
+const FinalCTA = () => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        '.final-cta-content > *',
+        { y: 30, opacity: 0 },
+        {
+          y: 0, opacity: 1, stagger: 0.12, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: ref.current, start: 'top 75%', once: true },
+        }
+      );
+    }, ref);
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section ref={ref} className="w-full bg-[#FF4F30] px-6 py-32 md:px-12">
+      <div className="mx-auto max-w-4xl">
+        <div className="final-cta-content flex flex-col items-start gap-10">
+          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[rgba(17,17,17,0.45)]">
+            Ready when you are
+          </p>
+          <h2 className="text-[clamp(36px,7vw,96px)] font-black leading-[0.92] tracking-[-0.04em] text-[#111111]">
+            Stop losing leads<br />to your competitors.
+          </h2>
+          <p className="max-w-xl text-[clamp(17px,1.4vw,22px)] font-medium leading-relaxed text-[rgba(17,17,17,0.65)]">
+            One call. We scope your system, agree on the outcome, and start building. Live in 3 weeks.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <button className="btn-magnetic rounded-full bg-[#111111] px-8 py-4 md:px-10 md:py-5 text-sm font-bold text-[#DCDBD3] hover:bg-[#222222] transition-colors duration-200">
+              Book a free call →
+            </button>
+            <button className="btn-magnetic rounded-full border-2 border-[rgba(17,17,17,0.25)] bg-transparent px-8 py-4 md:px-10 md:py-5 text-sm font-bold text-[#111111] hover:border-[#111111] transition-colors duration-200">
+              See pricing first
+            </button>
+          </div>
+          <p className="font-mono text-[11px] text-[rgba(17,17,17,0.40)] uppercase tracking-[0.12em]">
+            No retainer. No lock-in. Cancel if it's not working.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+/* ------------------------------------------------------------------ */
+/* J. FOOTER                                                           */
 /* ------------------------------------------------------------------ */
 export const Footer = () => (
   <footer data-theme="dark" className="relative -mt-12 w-full rounded-t-[40px] bg-[#0A2843] px-6 pt-24 pb-12 md:px-12">
@@ -1151,6 +1222,7 @@ export default function DiabolLandingPage() {
         <Testimonials />
         <ClientLogos />
         <FAQ />
+        <FinalCTA />
         <Footer />
       </main>
     </>
