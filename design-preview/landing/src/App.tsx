@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, CheckCircle2, ChevronDown, MousePointer2, Linkedin, Youtube, Instagram, Twitter, Mail } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { cn } from './lib/utils';
 import FlipStrip from './components/FlipStrip';
 
 if (typeof window !== "undefined") {
@@ -699,6 +701,113 @@ const SystemStack = () => {
 /* ------------------------------------------------------------------ */
 /* F. PRICING — The Offer Ladder                                       */
 /* ------------------------------------------------------------------ */
+/* ------------------------------------------------------------------ */
+/* F. PRICING — n5 Premium Cards                                       */
+/* ------------------------------------------------------------------ */
+const toneStyles = {
+  pilot: {
+    card: 'bg-[#DCDBD3] border border-[rgba(17,17,17,0.08)]',
+    text: 'text-[#111111]',
+    button: 'bg-[#111111] text-[#DCDBD3] hover:bg-[#222222]',
+    label: 'text-[rgba(17,17,17,0.45)]',
+  },
+  growth: {
+    card: 'bg-[#0A2843]',
+    text: 'text-white',
+    button: 'bg-[#FF4F30] text-white hover:bg-[#E64528]',
+    label: 'text-[rgba(255,255,255,0.50)]',
+  },
+  studio: {
+    card: 'bg-[#DCDBD3] border border-[rgba(17,17,17,0.08)]',
+    text: 'text-[#111111]',
+    button: 'bg-[#FF4F30] text-white hover:bg-[#E64528]',
+    label: 'text-[rgba(17,17,17,0.45)]',
+  },
+};
+
+interface PricingCardProps {
+  planName: string;
+  description: string;
+  price: string;
+  buttonText: string;
+  features: string[];
+  isFeatured?: boolean;
+  tone: keyof typeof toneStyles;
+}
+
+const CheckIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3 8L6.5 11.5L13 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const PricingCard: React.FC<PricingCardProps> = ({ planName, description, price, buttonText, features, isFeatured, tone }) => {
+  const styles = toneStyles[tone];
+  const checkColor = tone === 'growth' ? 'text-[#FF4F30]' : 'text-[#FF4F30]';
+  const featureTextColor = tone === 'growth' ? 'text-[rgba(255,255,255,0.75)]' : 'text-[rgba(17,17,17,0.65)]';
+  const dividerColor = tone === 'growth' ? 'border-[rgba(255,255,255,0.10)]' : 'border-[rgba(17,17,17,0.08)]';
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className={cn('relative rounded-3xl p-10 flex flex-col', styles.card, isFeatured ? 'shadow-2xl lg:scale-105 z-10' : '')}
+    >
+      {isFeatured && (
+        <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+          <span className="inline-block px-6 py-2 bg-[#FF4F30] text-white text-[10px] font-mono uppercase tracking-[0.14em] rounded-full">
+            Most Chosen
+          </span>
+        </div>
+      )}
+      <p className={cn('font-mono text-[11px] uppercase tracking-[0.18em] mb-6', styles.label)}>{planName}</p>
+      <h3 className={cn('text-[clamp(52px,6vw,72px)] font-black leading-none tracking-[-0.04em] mb-4', styles.text)}>
+        {price}
+      </h3>
+      <p className={cn('text-[15px] leading-relaxed mb-8', styles.label)}>{description}</p>
+      <div className={cn('border-t mb-8', dividerColor)} />
+      <ul className="flex flex-col gap-3 mb-10 flex-1">
+        {features.map((feature) => (
+          <li key={feature} className="flex items-start gap-3">
+            <CheckIcon className={cn('w-4 h-4 mt-0.5 flex-shrink-0', checkColor)} />
+            <span className={cn('text-[14px] leading-snug', featureTextColor)}>{feature}</span>
+          </li>
+        ))}
+      </ul>
+      <button className={cn('btn-magnetic w-full rounded-full py-5 text-sm font-bold transition-colors duration-200', styles.button)}>
+        {buttonText}
+      </button>
+    </motion.div>
+  );
+};
+
+const pilotFeatures = [
+  'Single AI system deployment',
+  '3-week delivery timeline',
+  '30-day post-launch support',
+  'Performance & ROI report',
+  'Handoff documentation included',
+];
+
+const growthFeatures = [
+  'Voice Agent + Content pipeline',
+  'Ongoing optimisation & tuning',
+  'Priority support (< 4h response)',
+  'Monthly strategy calls',
+  'New automations added monthly',
+  'Full analytics dashboard',
+];
+
+const studioFeatures = [
+  'Everything in Growth',
+  'Custom AI avatar build',
+  'Enterprise system integrations',
+  'Dedicated AI engineer',
+  'White-glove onboarding',
+  'SLA & uptime guarantee',
+];
+
 const Pricing = () => (
   <section id="pricing" className="w-full bg-white px-6 py-32 md:px-12">
     <div className="mx-auto max-w-7xl">
@@ -709,42 +818,10 @@ const Pricing = () => (
           <span className="text-[rgba(17,17,17,0.35)]">Scale when it works.</span>
         </h2>
       </div>
-
-      <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
-        {/* Pilot */}
-        <div className="card-lift rounded-2xl border border-[rgba(17,17,17,0.08)] bg-[#DCDBD3] p-10">
-          <h3 className="text-2xl font-bold text-[#111111]">Pilot</h3>
-          <p className="mt-2 text-sm text-[rgba(17,17,17,0.55)]">Single system deployment. Fast results.</p>
-          <div className="mt-8 text-4xl font-extrabold text-[#111111]">From €2K</div>
-          <button className="btn-magnetic mt-8 w-full rounded-full border border-[rgba(17,17,17,0.20)] py-4 text-sm font-bold text-[#111111] hover:bg-[rgba(17,17,17,0.05)]">
-            Get Started
-          </button>
-        </div>
-
-        {/* Growth — the premium pop */}
-        <div className="relative card-lift rounded-2xl bg-[#0A2843] p-10 lg:scale-105">
-          <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-[#DCDBD3] px-4 py-1 font-mono text-[10px] font-medium tracking-[0.14em] text-[#0A2843]">
-            MOST CHOSEN
-          </div>
-          <h3 className="text-2xl font-bold text-white">Growth</h3>
-          <p className="mt-2 text-sm text-[rgba(255,255,255,0.55)]">Full system architecture. Ongoing scale.</p>
-          <div className="mt-8 text-4xl font-extrabold text-white">
-            From €3K<span className="text-lg text-[rgba(255,255,255,0.40)]">/mo</span>
-          </div>
-          <button className="btn-magnetic mt-8 w-full rounded-full bg-[#FF4F30] py-4 text-sm font-bold text-white hover:bg-[#E64528]">
-            Scale Now
-          </button>
-        </div>
-
-        {/* Studio */}
-        <div className="card-lift rounded-2xl border border-[rgba(17,17,17,0.08)] bg-[#DCDBD3] p-10">
-          <h3 className="text-2xl font-bold text-[#111111]">Studio</h3>
-          <p className="mt-2 text-sm text-[rgba(17,17,17,0.55)]">Premium enterprise tier. Full avatar suite.</p>
-          <div className="mt-8 text-4xl font-extrabold text-[#111111]">From €20K</div>
-          <button className="btn-magnetic mt-8 w-full rounded-full border border-[rgba(17,17,17,0.20)] py-4 text-sm font-bold text-[#111111] hover:bg-[rgba(17,17,17,0.05)]">
-            Contact Sales
-          </button>
-        </div>
+      <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-3">
+        <PricingCard tone="pilot" planName="Pilot" price="From €2K" description="One AI system. Three weeks. Prove the ROI." buttonText="Get Started" features={pilotFeatures} />
+        <PricingCard tone="growth" planName="Growth" price="From €3K/mo" description="Full AI stack running and compounding every month." buttonText="Scale Now" isFeatured features={growthFeatures} />
+        <PricingCard tone="studio" planName="Studio" price="From €20K" description="End-to-end AI transformation with your own avatar." buttonText="Contact Sales" features={studioFeatures} />
       </div>
     </div>
   </section>

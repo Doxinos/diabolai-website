@@ -55,16 +55,9 @@ const HeroPanels = () => {
               background: 'radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.4) 100%)',
             }}
           />
-          {/* Placeholder: professional photo or avatar slot */}
-          <div className="relative rounded-2xl bg-[#1a1a1a] border border-[rgba(255,255,255,0.10)] w-full max-w-sm aspect-video flex items-center justify-center">
-            <div className="text-center">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[rgba(255,255,255,0.06)] mx-auto mb-3">
-                <User size={24} className="text-[rgba(255,255,255,0.35)]" />
-              </div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[rgba(255,255,255,0.25)]">
-                Real · On Camera
-              </p>
-            </div>
+          {/* Professional photo slot */}
+          <div className="relative rounded-2xl overflow-hidden w-full max-w-sm aspect-video">
+            <img src="/img-avatar-demo.png" alt="Real person on camera" className="absolute inset-0 w-full h-full object-cover object-top" />
           </div>
           {/* Label */}
           <p className="absolute bottom-4 left-8 lg:bottom-6 lg:left-12 font-mono text-[11px] uppercase tracking-[0.14em] text-[rgba(255,255,255,0.40)]">

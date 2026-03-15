@@ -581,9 +581,7 @@ const ObjectionSection = () => {
             <div className="grid grid-cols-2 gap-3">
               {/* IMG_COMPARE_A — text-to-video (deliberately mediocre) */}
               <div className="rounded-xl overflow-hidden relative" style={{ aspectRatio: '16/9' }}>
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-400 to-gray-600" />
-                {/* Grain overlay */}
-                <div className="absolute inset-0 opacity-[0.15]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")' }} />
+                <img src="/img-compare-generic.png" alt="Generic text-to-video result" className="absolute inset-0 w-full h-full object-cover" />
                 <span className="absolute bottom-2 left-2 rounded-full bg-[rgba(0,0,0,0.50)] px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.60)]">
                   Text-to-Video
                 </span>
@@ -591,9 +589,7 @@ const ObjectionSection = () => {
 
               {/* IMG_COMPARE_B — Diabol pipeline (cinematic) */}
               <div className="rounded-xl overflow-hidden relative" style={{ aspectRatio: '16/9' }}>
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0A2843] to-[#111111]" />
-                {/* Sharp highlight line */}
-                <div className="absolute top-[30%] right-[10%] w-[1px] h-[40%] bg-[rgba(255,255,255,0.12)] rotate-12" />
+                <img src="/img-compare-premium.png" alt="Diabol pipeline result" className="absolute inset-0 w-full h-full object-cover" />
                 <span className="absolute bottom-2 left-2 rounded-full bg-[#FF4F30] px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-white">
                   Diabol Pipeline
                 </span>

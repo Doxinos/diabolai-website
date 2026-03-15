@@ -518,7 +518,7 @@ const WhatYouGet = () => {
 /* FULL-BLEED VISUAL BREAK — Atmospheric image with ghost text         */
 /* ------------------------------------------------------------------ */
 const FullBleedBreak = ({
-  src = 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1600&q=80',
+  src = '/img-voice-fullbleed.png',
   overlayColor = 'rgba(17,17,17,0.35)',
   ghostText = '24/7',
   height = '60vh',
