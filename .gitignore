@@ -47,5 +47,8 @@ next-env.d.ts
 # design prompts
 Website prompts/
 
-# design preview (only has node_modules)
-design-preview/
+# design preview — track src, ignore build artifacts
+design-preview/landing/node_modules/
+design-preview/landing/dist/
+design-preview/landing/public/
+nanobanana-output/

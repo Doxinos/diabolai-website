@@ -3,6 +3,46 @@
 ## Project Overview
 DiabolAI website for AI Voice Agents business - Next.js 14 with TypeScript and Tailwind CSS
 
+---
+
+## Design Decisions & Revert Guide
+
+### FlipStrip Layout — Full-width rows (changed 2026-03-15)
+**File:** `design-preview/landing/src/components/FlipStrip.tsx`
+
+**Current:** Three full-width horizontal rows stacked vertically. Each row spans the entire page width. On hover, top/bottom halves split open to reveal Portland Orange with description text spreading across the full width.
+
+**To revert to original 3-column grid**, replace the `FlipStrip` export and `SplitTile` container with:
+```tsx
+// Change TILE_H back to 340
+const TILE_H = 340
+
+// In TileFront, restore the original layout:
+<div
+  className="absolute flex flex-col justify-between p-8 bg-[#DCDBD3] ..."
+  style={{ top: topOffset, left: 0, right: 0, height: TILE_H }}
+>
+  <p className="font-mono text-[11px] ...">{tile.label}</p>
+  <div>
+    <h3 className="font-black text-[clamp(44px,...)]">{tile.name}</h3>
+    <p className="font-mono text-[11px] ...">Hover to reveal →</p>
+  </div>
+  <p className="font-black text-[clamp(72px,...)] ...right-8">{tile.number}</p>
+</div>
+
+// In FlipStrip, change the container back to:
+<div className="grid grid-cols-1 md:grid-cols-3">
+  {tiles.map((tile, i) => (
+    <SplitTile key={tile.label} tile={tile} isLast={i === tiles.length - 1} />
+  ))}
+</div>
+
+// In SplitTile, change border to border-r (not border-b):
+className={`... ${!isLast ? 'border-r border-[rgba(17,17,17,0.08)]' : ''}`}
+```
+
+---
+
 ## Completed Tasks ✅
 - **Customer Testimonials & FAQ Updates** (2025-10-01)
   - Fixed FAQ page contact section to properly use Calendly integration
