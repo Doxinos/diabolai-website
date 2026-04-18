@@ -9,12 +9,17 @@ module.exports = {
   theme: {
   	extend: {
   		colors: {
-  			// DiabolAI Brand Colors
+  			// DiabolAI Brand Colors (new design)
+  			westar: '#DCDBD3',
+  			'oxford-blue': '#0A2843',
+  			'portland-orange': '#FF4F30',
+  			'near-black': '#111111',
+  			// Legacy brand colors (existing pages)
   			brand: {
   				black: '#000000',
   				white: '#FFFFFF',
   				cerise: '#DD345B',
-  				'cerise-dark': '#B42D4A', // Hover state
+  				'cerise-dark': '#B42D4A',
   				cornflower: '#97CCE1',
   				'lily-white': '#E5F6FE',
   				'nile-blue': '#123358',
@@ -70,24 +75,26 @@ module.exports = {
   		},
   		fontFamily: {
   			sans: [
-  				'SF Pro Display',
-  				'SF Pro Text',
-  				'-apple-system',
-  				'BlinkMacSystemFont',
+  				'var(--font-inter)',
+  				'Inter',
   				'system-ui',
+  				'-apple-system',
   				'sans-serif'
   			],
+  			mono: [
+  				'var(--font-mono)',
+  				'JetBrains Mono',
+  				'monospace'
+  			],
   			display: [
-  				'SF Pro Display',
-  				'-apple-system',
-  				'BlinkMacSystemFont',
+  				'var(--font-inter)',
+  				'Inter',
   				'system-ui',
   				'sans-serif'
   			],
   			text: [
-  				'SF Pro Text',
-  				'-apple-system',
-  				'BlinkMacSystemFont',
+  				'var(--font-inter)',
+  				'Inter',
   				'system-ui',
   				'sans-serif'
   			]

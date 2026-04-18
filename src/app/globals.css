@@ -5,6 +5,15 @@
 
 @layer base {
   :root {
+    /* New brand tokens */
+    --westar: #DCDBD3;
+    --oxford-blue: #0A2843;
+    --orange: #FF4F30;
+    --orange-hover: #E64528;
+    --near-black: #111111;
+    --white: #FFFFFF;
+
+    /* Shadcn/Radix tokens (kept for existing pages) */
     --beam-color: rgba(255, 255, 255, 0.1);
     --text-primary: rgba(255, 255, 255, 0.95);
     --text-secondary: rgba(255, 255, 255, 0.7);
@@ -37,36 +46,6 @@
     --radius: 0.5rem;
   }
 
-
-  html {
-    scroll-behavior: smooth;
-    @apply antialiased;
-  }
-
-  body {
-    @apply bg-black text-white font-text;
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-bold tracking-tight;
-  }
-
-  h1 {
-    @apply text-6xl md:text-7xl lg:text-8xl leading-[0.9];
-  }
-
-  h2 {
-    @apply text-4xl md:text-5xl lg:text-6xl leading-[1.1];
-  }
-
-  h3 {
-    @apply text-2xl md:text-3xl lg:text-4xl;
-  }
-
-  p {
-    @apply text-lg md:text-xl text-white/80 leading-relaxed;
-  }
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -81,7 +60,7 @@
     --muted: 0 0% 14.9%;
     --muted-foreground: 0 0% 63.9%;
     --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
+    --accent-foreground: 0 0% 9%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 14.9%;
@@ -93,16 +72,103 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
+
+  html {
+    scroll-behavior: smooth;
+    @apply antialiased;
+  }
+
+  body {
+    font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    @apply border-border;
+  }
 }
 
 @layer components {
+  /* ============================================
+     NEW DESIGN — Warm AI Premium styles
+     ============================================ */
+
+  /* Magnetic buttons — physical press feel */
+  .btn-magnetic {
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(0);
+    transition: transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1), background-color 300ms ease, box-shadow 300ms ease;
+  }
+  .btn-magnetic:hover { transform: scale(1.02); }
+  .btn-magnetic:active { transform: scale(0.98); }
+
+  /* Cards lift */
+  .card-lift {
+    transition: transform 280ms ease, box-shadow 280ms ease;
+  }
+  .card-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+
+  /* Custom scrollbar — warm, understated */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--westar); }
+  ::-webkit-scrollbar-thumb { background: rgba(17,17,17,0.15); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(17,17,17,0.25); }
+
+  /* Orbit animation for avatar badges */
+  @keyframes orbit {
+    from { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+    to { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+  }
+
+  /* Diagonal section transitions (AI Content page) */
+  .diag-right {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 60px), 0 100%);
+    margin-bottom: -60px;
+    position: relative;
+    z-index: 2;
+  }
+  .diag-left {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 60px));
+    margin-bottom: -60px;
+    position: relative;
+    z-index: 2;
+  }
+  @media (max-width: 767px) {
+    .diag-right {
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), 0 100%);
+      margin-bottom: -30px;
+    }
+    .diag-left {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 30px));
+      margin-bottom: -30px;
+    }
+  }
+
+  @keyframes bounce-arrow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* ============================================
+     LEGACY — Old design styles (existing pages)
+     ============================================ */
   .silver-gradient {
     background: linear-gradient(90deg, #a8a8a8, #ffffff, #a8a8a8);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-fill-color: transparent;
   }
+
   .btn-primary {
     @apply bg-white hover:bg-gray-100 text-black font-medium py-4 px-8 rounded-full transition-all duration-300 inline-flex items-center gap-2;
   }
@@ -127,10 +193,6 @@
     @apply h-px bg-gradient-to-r from-transparent via-white/20 to-transparent;
   }
 
-  .vertical-text {
-    @apply writing-mode-vertical-rl text-sm uppercase tracking-[0.2em] text-white/50;
-  }
-
   .glass-effect {
     @apply backdrop-blur-sm bg-white/5 border border-white/10 rounded-2xl;
   }
@@ -142,19 +204,6 @@
   .writing-mode-vertical-rl {
     writing-mode: vertical-rl;
     text-orientation: mixed;
-  }
-
-  /* Adobe Fonts - Helvetica Neue LT Pro */
-  .font-helvetica-display {
-    font-family: system-ui, -apple-system, sans-serif;
-    font-weight: 500; /* 65 Medium */
-    font-style: normal;
-  }
-
-  .font-helvetica-text {
-    font-family: system-ui, -apple-system, sans-serif;
-    font-weight: 400; /* 55 Roman */
-    font-style: normal;
   }
 
   /* 3D Perspective for hover effects */
@@ -177,20 +226,9 @@
     width: auto !important;
     top: auto !important;
   }
-  
+
   /* Keep main document scrollable when Calendly is open */
   html {
     overflow-y: scroll !important;
-  }
-}
-
-
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
   }
 }

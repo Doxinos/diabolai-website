@@ -1,69 +1,55 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://diabolai.com'
+  const baseUrl = 'https://www.diabolai.com'
   const now = new Date()
 
-  // Core pages - highest priority, frequently updated
-  const corePages: MetadataRoute.Sitemap = [
+  return [
+    // Homepage — highest priority
     {
       url: baseUrl,
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 1.0,
     },
+
+    // Service pages — high priority
+    {
+      url: `${baseUrl}/ai-voice`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/ai-content`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/ai-avatars`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+
+    // FAQ
     {
       url: `${baseUrl}/faq`,
       lastModified: now,
       changeFrequency: 'weekly',
-      priority: 0.9,
+      priority: 0.8,
     },
-  ]
 
-  // Service/Industry pages - high priority for AI search
-  const servicePages: MetadataRoute.Sitemap = [
+    // Industry page (indexable)
     {
       url: `${baseUrl}/real-estate`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/healthcare`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/home-services`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-  ]
-
-  // Money pages - conversion focused
-  const moneyPages: MetadataRoute.Sitemap = [
-    {
-      url: `${baseUrl}/pricing`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-  ]
-
-  // Comparison/Educational content - AI answer-focused
-  const comparisonPages: MetadataRoute.Sitemap = [
-    {
-      url: `${baseUrl}/comparison/ai-receptionist-vs-answering-service`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
-  ]
 
-  // Legal/Policy pages - low priority
-  const legalPages: MetadataRoute.Sitemap = [
+    // Legal pages — low priority
     {
       url: `${baseUrl}/privacy`,
       lastModified: now,
@@ -82,13 +68,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.3,
     },
-  ]
-
-  return [
-    ...corePages,
-    ...moneyPages,
-    ...servicePages,
-    ...comparisonPages,
-    ...legalPages,
   ]
 }

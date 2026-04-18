@@ -1,25 +1,34 @@
 import type { Metadata } from 'next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
-import { Roboto } from 'next/font/google'
+import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { ConsentProvider } from '@/components/consent/ConsentProvider'
 import CookieBanner from '@/components/consent/CookieBanner'
 import CookieSettingsModal from '@/components/consent/CookieSettingsModal'
 import GoogleAnalytics from '@/components/analytics/GoogleAnalytics'
-import Footer from '@/components/Footer'
+import Footer from '@/components/redesign/Footer'
+import NoiseOverlay from '@/components/redesign/NoiseOverlay'
 import CalendlyLoader from '@/components/CalendlyLoader'
-import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration'
 import ExternalResources from '@/components/ExternalResources'
 import CriticalCSS from '@/components/CriticalCSS'
 import DeferredCSS from '@/components/DeferredCSS'
 import LazyMotionProvider from '@/components/LazyMotion'
 import { LanguageProvider } from '@/contexts/LanguageContext'
 
-const roboto = Roboto({
-  weight: ['300', '400', '500', '700'],
+const inter = Inter({
+  weight: ['300', '400', '700', '800', '900'],
   subsets: ['latin'],
   display: 'swap',
   preload: true,
+  variable: '--font-inter',
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  weight: ['400', '500', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+  preload: true,
+  variable: '--font-mono',
 })
 
 
@@ -36,7 +45,7 @@ export const metadata: Metadata = {
     title: 'Diabol AI - Strategic AI Consulting for SMBs',
     description: 'Transform your business with strategic AI. From voice automation to full process transformation—we help SMBs diagnose opportunities, redesign workflows, and implement AI that drives real results.',
     type: 'website',
-    url: 'https://diabolai.com',
+    url: 'https://www.diabolai.com',
     siteName: 'Diabol AI',
     locale: 'en_US',
     images: [
@@ -81,8 +90,8 @@ export default function RootLayout({
               "legalName": "Diabol AB",
               "name": "Diabol AI",
               "alternateName": ["DiabolAI", "diabol"],
-              "url": "https://diabolai.com/",
-              "logo": "https://diabolai.com/logos/diabol-logo-black.png",
+              "url": "https://www.diabolai.com/",
+              "logo": "https://www.diabolai.com/logos/diabol-logo-black.png",
               "description": "AI consulting and transformation for SMBs. We help overwhelmed business owners diagnose opportunities, redesign processes, and implement AI strategically - from voice agents to full automation. Serving Nordics, North America, and Europe.",
               "founder": {
                 "@type": "Person",
@@ -168,7 +177,8 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={roboto.className}>
+      <body className={`${inter.variable} ${jetbrainsMono.variable} ${inter.className}`}>
+        <NoiseOverlay />
         <LanguageProvider>
           <LazyMotionProvider>
             <ConsentProvider>
