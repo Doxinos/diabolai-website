@@ -158,10 +158,10 @@ export default function RootLayout({
               ],
               "address": {
                 "@type": "PostalAddress",
-                "addressCountry": {
-                  "@type": "Country",
-                  "name": "SE"
-                }
+                "streetAddress": "Jungfrugatan 5",
+                "addressLocality": "Stockholm",
+                "postalCode": "114 44",
+                "addressCountry": "SE"
               },
               "contactPoint": {
                 "@type": "ContactPoint",
