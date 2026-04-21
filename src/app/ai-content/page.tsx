@@ -2,13 +2,14 @@ import { Metadata } from 'next'
 import AIContentClient from './AIContentClient'
 
 export const metadata: Metadata = {
-  title: 'AI Content Engine — Videos, Ads & Posts on Autopilot | Diabol AI',
+  title: 'AI Content Creation — Scale Content in Your Brand Voice | Diabol AI',
   description:
-    'AI-generated videos, graphics, and ad creatives deployed across every channel automatically. Content that scales without an agency retainer.',
+    'AI content creation for growing businesses — blog posts, videos, ads, and social in your brand voice, across every channel. No generic AI output, no agency retainer.',
+  keywords: 'AI content creation, AI content generator, AI content for business, AI blog posts, AI video scripts, AI marketing content, AI content agency, brand voice AI',
   openGraph: {
-    title: 'AI Content Engine — Videos, Ads & Posts on Autopilot | Diabol AI',
+    title: 'AI Content Creation — Scale Content in Your Brand Voice | Diabol AI',
     description:
-      'AI-generated content deployed across every channel automatically.',
+      'AI content creation in your brand voice, across every channel. No generic AI output, no agency retainer.',
     url: 'https://www.diabolai.com/ai-content',
     type: 'website',
   },

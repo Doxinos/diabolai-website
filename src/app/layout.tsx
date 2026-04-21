@@ -34,16 +34,16 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.diabolai.com'),
-  title: 'Diabol AI - Strategic AI Consulting for SMBs | Nordics, North America & Europe',
-  description: 'Transform your business with strategic AI. From voice automation to full process transformation—we help SMBs diagnose opportunities, redesign workflows, and implement AI that drives real results.',
-  keywords: 'AI consulting, AI transformation, business automation, AI voice agents, AI strategy, AI implementation, SMB automation, process automation, AI consulting Sweden, AI consulting Nordics, Diabol AI',
+  title: 'Diabol AI | AI Voice Agents, Content & Avatars for SMBs',
+  description: 'AI voice agents that answer calls 24/7, AI content that sounds like your brand, AI avatars that show up on camera — for growing businesses scaling without payroll. Based in Stockholm, serving Nordics and Europe.',
+  keywords: 'AI voice agents, AI receptionist, AI content creation, AI avatars, AI avatar for business, AI agency, AI automation, SMB automation, AI for small business, Diabol AI, AI agency Stockholm',
   authors: [{ name: 'Peter Ferm' }],
   creator: 'Diabol AI',
   publisher: 'Diabol AI',
   robots: 'index, follow',
   openGraph: {
-    title: 'Diabol AI - Strategic AI Consulting for SMBs',
-    description: 'Transform your business with strategic AI. From voice automation to full process transformation—we help SMBs diagnose opportunities, redesign workflows, and implement AI that drives real results.',
+    title: 'Diabol AI | AI Voice Agents, Content & Avatars for SMBs',
+    description: 'AI voice agents that answer calls 24/7, AI content that sounds like your brand, AI avatars that show up on camera — for growing businesses scaling without payroll.',
     type: 'website',
     url: 'https://www.diabolai.com',
     siteName: 'Diabol AI',
@@ -53,14 +53,14 @@ export const metadata: Metadata = {
         url: '/logos/Diabol_Logo_White-01.png',
         width: 1200,
         height: 630,
-        alt: 'Diabol AI - Strategic AI Consulting for SMBs',
+        alt: 'Diabol AI — AI Voice Agents, Content & Avatars for SMBs',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Diabol AI - Strategic AI Consulting for SMBs',
-    description: 'Transform your business with strategic AI. From voice automation to full process transformation. Serving Nordics, North America & Europe.',
+    title: 'Diabol AI | AI Voice Agents, Content & Avatars for SMBs',
+    description: 'AI voice agents, AI content, AI avatars. For growing businesses that want to scale without payroll. Based in Stockholm.',
     images: ['/logos/Diabol_Logo_White-01.png'],
     creator: '@diabol',
   },
@@ -92,46 +92,23 @@ export default function RootLayout({
               "alternateName": ["DiabolAI", "diabol"],
               "url": "https://www.diabolai.com/",
               "logo": "https://www.diabolai.com/logos/diabol-logo-black.png",
-              "description": "AI consulting and transformation for SMBs. We help overwhelmed business owners diagnose opportunities, redesign processes, and implement AI strategically - from voice agents to full automation. Serving Nordics, North America, and Europe.",
+              "description": "AI voice agents, AI content, and AI avatars for SMBs. We help growing businesses answer every call 24/7, publish content that sounds like their brand, and show up on camera everywhere — without proportional hiring. Based in Stockholm, serving Nordics, North America, and Europe.",
               "founder": {
                 "@type": "Person",
                 "name": "Peter Ferm",
                 "jobTitle": "Founder & CEO"
               },
               "knowsAbout": [
-                "AI consulting",
-                "AI transformation",
-                "SMB automation",
                 "AI voice agents",
-                "Business process automation",
-                "AI strategy",
-                "AI implementation"
+                "AI receptionist",
+                "AI content creation",
+                "AI avatars",
+                "AI agency",
+                "AI automation",
+                "SMB automation",
+                "Business process automation"
               ],
               "makesOffer": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "AI Consulting",
-                    "serviceType": "Business Consulting"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "AI Transformation",
-                    "serviceType": "Business Consulting"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Business Automation",
-                    "serviceType": "Technology Consulting"
-                  }
-                },
                 {
                   "@type": "Offer",
                   "itemOffered": {
@@ -144,7 +121,31 @@ export default function RootLayout({
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "AI Implementation",
+                    "name": "AI Content",
+                    "serviceType": "Technology Solution"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "AI Avatars",
+                    "serviceType": "Technology Solution"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "AI Receptionist",
+                    "serviceType": "Technology Solution"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "AI Automation",
                     "serviceType": "Technology Consulting"
                   }
                 }
