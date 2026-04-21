@@ -10,7 +10,7 @@ import StructuredData from './StructuredData'
 
 type FlatItem = FAQItem & { category: string; catIndex: number; qIndex: number }
 
-const POPULAR_KEYS = ['ready', 'ROI', 'cost', 'sound', 'integrate', 'setup']
+const POPULAR_KEYS = ['receptionist', 'avatar', 'content', 'sound', 'integrate', 'ready']
 
 function slug(s: string) {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
@@ -468,6 +468,26 @@ export default function FAQClient() {
                           )
                         })}
                       </div>
+                      {cat.relatedLinks && cat.relatedLinks.length > 0 && (
+                        <div className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 text-[13px]">
+                          <span className="font-mono uppercase tracking-[0.16em] text-[rgba(17,17,17,0.45)]">
+                            Related:
+                          </span>
+                          {cat.relatedLinks.map((link, li) => (
+                            <span key={link.href} className="inline-flex items-center gap-3">
+                              <a
+                                href={link.href}
+                                className="text-[#0A2843] underline decoration-[rgba(10,40,67,0.25)] underline-offset-4 transition-colors hover:text-[#FF4F30] hover:decoration-[#FF4F30]"
+                              >
+                                {link.text}
+                              </a>
+                              {li < cat.relatedLinks!.length - 1 && (
+                                <span aria-hidden="true" className="text-[rgba(17,17,17,0.25)]">·</span>
+                              )}
+                            </span>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>
