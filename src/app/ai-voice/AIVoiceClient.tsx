@@ -10,7 +10,8 @@ import Link from 'next/link';
 import Navbar from '@/components/redesign/Navbar';
 import Testimonials from '@/components/redesign/Testimonials';
 import ClientLogos from '@/components/redesign/ClientLogos';
-import HomeFAQ from '@/components/redesign/HomeFAQ';
+import PageFAQ from '@/components/redesign/PageFAQ';
+import { aiVoiceFaqData } from '@/data/aiVoiceFaq';
 import { trackScheduleClick } from '@/utils/analytics';
 
 if (typeof window !== 'undefined') {
@@ -852,7 +853,12 @@ export default function AIVoiceClient() {
         <VoiceFinalCTA onBookCall={handleBookCall} />
         <Testimonials />
         <ClientLogos />
-        <HomeFAQ />
+        <PageFAQ
+          data={aiVoiceFaqData}
+          eyebrow="AI Voice FAQ"
+          title="What teams ask about AI voice agents."
+          schemaId="ai-voice-faq-schema"
+        />
       </main>
     </>
   );

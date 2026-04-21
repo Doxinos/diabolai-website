@@ -8,7 +8,8 @@ import { ArrowRight, ChevronDown } from 'lucide-react'
 import Navbar from '@/components/redesign/Navbar'
 import Testimonials from '@/components/redesign/Testimonials'
 import ClientLogos from '@/components/redesign/ClientLogos'
-import HomeFAQ from '@/components/redesign/HomeFAQ'
+import PageFAQ from '@/components/redesign/PageFAQ'
+import { aiContentFaqData } from '@/data/aiContentFaq'
 import { trackScheduleClick } from '@/utils/analytics'
 
 if (typeof window !== 'undefined') {
@@ -968,7 +969,12 @@ export default function AIContentClient() {
       <ContentFinalCTA />
       <Testimonials />
       <ClientLogos />
-      <HomeFAQ />
+      <PageFAQ
+        data={aiContentFaqData}
+        eyebrow="AI Content FAQ"
+        title="What teams ask about AI content."
+        schemaId="ai-content-faq-schema"
+      />
     </main>
   )
 }

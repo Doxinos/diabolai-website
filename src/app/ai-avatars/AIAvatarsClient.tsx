@@ -17,7 +17,8 @@ import Link from 'next/link'
 import Navbar from '@/components/redesign/Navbar'
 import Testimonials from '@/components/redesign/Testimonials'
 import ClientLogos from '@/components/redesign/ClientLogos'
-import HomeFAQ from '@/components/redesign/HomeFAQ'
+import PageFAQ from '@/components/redesign/PageFAQ'
+import { aiAvatarsFaqData } from '@/data/aiAvatarsFaq'
 import { trackScheduleClick } from '@/utils/analytics'
 
 if (typeof window !== 'undefined') {
@@ -842,7 +843,12 @@ export default function AIAvatarsClient() {
       <FinalCTA onBookCall={handleBookCall} />
       <Testimonials />
       <ClientLogos />
-      <HomeFAQ />
+      <PageFAQ
+        data={aiAvatarsFaqData}
+        eyebrow="AI Avatars FAQ"
+        title="What teams ask about AI avatars."
+        schemaId="ai-avatars-faq-schema"
+      />
     </main>
   )
 }
