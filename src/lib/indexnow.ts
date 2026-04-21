@@ -43,12 +43,10 @@ export async function submitHomepage() {
 export async function submitAllPages() {
   const pages = [
     '/',
-    '/faq',
-    '/real-estate',
-    '/pricing',
-    '/healthcare',
-    '/home-services',
-    '/comparison/ai-receptionist-vs-answering-service'
+    '/ai-voice',
+    '/ai-content',
+    '/ai-avatars',
+    '/faq'
   ]
 
   return submitToIndexNow(pages)

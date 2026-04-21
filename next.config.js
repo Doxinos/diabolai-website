@@ -58,8 +58,14 @@ const nextConfig = {
       {
         source: '/alt',
         destination: '/',
-        permanent: true, // 301 permanent redirect
+        permanent: true,
       },
+      // Removed 2026-04-21: industry landing pages retired; FAQ covers these verticals
+      { source: '/healthcare', destination: '/faq', permanent: true },
+      { source: '/home-services', destination: '/faq', permanent: true },
+      { source: '/real-estate', destination: '/faq', permanent: true },
+      { source: '/pricing', destination: '/faq', permanent: true },
+      { source: '/comparison/:path*', destination: '/faq', permanent: true },
     ]
   },
 }

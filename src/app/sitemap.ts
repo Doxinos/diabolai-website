@@ -41,14 +41,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
 
-    // Industry page (indexable)
-    {
-      url: `${baseUrl}/real-estate`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-
     // Legal pages — low priority
     {
       url: `${baseUrl}/privacy`,

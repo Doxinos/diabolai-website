@@ -53,8 +53,8 @@ export const mainFaqData: FAQCategory[] = [
     ],
     relatedLinks: [
       { text: "AI Voice service", href: "/ai-voice" },
-      { text: "Healthcare", href: "/healthcare" },
-      { text: "Home Services", href: "/home-services" }
+      { text: "AI Content", href: "/ai-content" },
+      { text: "AI Avatars", href: "/ai-avatars" }
     ]
   },
   {
@@ -79,6 +79,7 @@ export const mainFaqData: FAQCategory[] = [
     ],
     relatedLinks: [
       { text: "AI Content service", href: "/ai-content" },
+      { text: "AI Voice", href: "/ai-voice" },
       { text: "AI Avatars", href: "/ai-avatars" }
     ]
   },
@@ -104,6 +105,7 @@ export const mainFaqData: FAQCategory[] = [
     ],
     relatedLinks: [
       { text: "AI Avatars service", href: "/ai-avatars" },
+      { text: "AI Voice", href: "/ai-voice" },
       { text: "AI Content", href: "/ai-content" }
     ]
   },
@@ -162,8 +164,9 @@ export const mainFaqData: FAQCategory[] = [
       }
     ],
     relatedLinks: [
-      { text: "Healthcare (HIPAA)", href: "/healthcare" },
-      { text: "Real Estate", href: "/real-estate" }
+      { text: "AI Voice", href: "/ai-voice" },
+      { text: "AI Content", href: "/ai-content" },
+      { text: "AI Avatars", href: "/ai-avatars" }
     ]
   },
   {
@@ -183,9 +186,9 @@ export const mainFaqData: FAQCategory[] = [
       }
     ],
     relatedLinks: [
-      { text: "Healthcare", href: "/healthcare" },
-      { text: "Real Estate", href: "/real-estate" },
-      { text: "Home Services", href: "/home-services" }
+      { text: "AI Voice", href: "/ai-voice" },
+      { text: "AI Content", href: "/ai-content" },
+      { text: "AI Avatars", href: "/ai-avatars" }
     ]
   }
 ]
