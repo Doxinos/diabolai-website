@@ -35,9 +35,10 @@ function ContentGrid() {
       {labels.map((label, i) => (
         <div
           key={i}
-          className="group/tile flex items-end rounded-xl border border-white/10 bg-[#DCDBD3]/10 p-3 transition-all duration-300 hover:bg-[#DCDBD3]/25 hover:border-white/25 cursor-default"
+          className="group/tile flex items-end rounded-xl border p-3 transition-all duration-300 hover:bg-[#DCDBD3]/25 hover:border-white/25 cursor-default"
           style={{
-            opacity: 0.6 + (i % 3) * 0.15,
+            animation: 'tile-glow 6s ease-in-out infinite',
+            animationDelay: `${i * 0.4}s`,
           }}
         >
           <span className="font-mono text-[10px] tracking-[0.1em] text-[rgba(255,255,255,0.50)] transition-colors duration-300 group-hover/tile:text-[rgba(255,255,255,0.90)]">
