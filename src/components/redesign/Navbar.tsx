@@ -81,6 +81,7 @@ export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
     { label: 'AI Voice', href: '/ai-voice' },
     { label: 'AI Content', href: '/ai-content' },
     { label: 'AI Avatars', href: '/ai-avatars' },
+    { label: 'FAQ', href: '/faq' },
     { label: 'Blog', href: 'https://blog.diabolai.com' },
   ]
 
@@ -159,20 +160,6 @@ export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/faq"
-              className="py-4 text-2xl font-bold text-white/60 border-b border-white/10 no-underline"
-              onClick={() => setMobileOpen(false)}
-            >
-              FAQ
-            </Link>
-            <Link
-              href="https://blog.diabolai.com"
-              className="py-4 text-2xl font-bold text-white/60 border-b border-white/10 no-underline"
-              onClick={() => setMobileOpen(false)}
-            >
-              Blog
-            </Link>
             <button
               onClick={() => {
                 handleBookCall()
