@@ -66,6 +66,8 @@ const nextConfig = {
       { source: '/real-estate', destination: '/faq', permanent: true },
       { source: '/pricing', destination: '/faq', permanent: true },
       { source: '/comparison/:path*', destination: '/faq', permanent: true },
+      // Merged 2026-04-24: AI Avatars is now a sub-section of AI Video pillar
+      { source: '/ai-avatars', destination: '/ai-content', permanent: true },
     ]
   },
 }

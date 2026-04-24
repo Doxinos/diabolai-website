@@ -79,8 +79,7 @@ export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
 
   const navLinks = [
     { label: 'AI Voice', href: '/ai-voice' },
-    { label: 'AI Content', href: '/ai-content' },
-    { label: 'AI Avatars', href: '/ai-avatars' },
+    { label: 'AI Video', href: '/ai-content' },
     { label: 'FAQ', href: '/faq' },
     { label: 'Blog', href: 'https://blog.diabolai.com' },
   ]

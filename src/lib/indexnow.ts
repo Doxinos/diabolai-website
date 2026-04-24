@@ -45,7 +45,6 @@ export async function submitAllPages() {
     '/',
     '/ai-voice',
     '/ai-content',
-    '/ai-avatars',
     '/faq'
   ]
 

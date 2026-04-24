@@ -94,21 +94,20 @@ const ContentHero = () => {
       {/* Content overlay */}
       <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
         <p className="ch-label font-mono text-[11px] uppercase tracking-[0.18em] text-[rgba(255,255,255,0.50)] mb-8">
-          — AI Content
+          — AI Video for Builders
         </p>
 
-        <h1 className="font-black leading-[0.92] tracking-[-0.04em] text-[clamp(48px,8vw,100px)] mb-8">
+        <h1 className="font-black leading-[0.92] tracking-[-0.04em] text-[clamp(42px,7vw,88px)] mb-8">
           <span className="ch-line1 block text-white">
-            Content that scales with you.
+            AI video that puts you in front of your market every day
           </span>
           <span className="ch-line2 block text-[rgba(255,255,255,0.40)]">
-            Not a team of 10.
+            — without a camera crew.
           </span>
         </h1>
 
-        <p className="ch-body max-w-[520px] mx-auto text-[clamp(16px,1.3vw,20px)] leading-[1.65] text-[rgba(255,255,255,0.65)] mb-10">
-          AI-generated videos, UGC-style ads, and cinematic hero commercials —
-          produced faster and at a fraction of traditional costs.
+        <p className="ch-body max-w-[560px] mx-auto text-[clamp(16px,1.3vw,20px)] leading-[1.65] text-[rgba(255,255,255,0.65)] mb-10">
+          Volume video and UGC ads, an AI avatar of you on camera in any language, and cinematic hero commercials — produced in hours, not shoot days, and always in your brand voice.
         </p>
 
         <div className="ch-ctas flex flex-wrap gap-4 justify-center">

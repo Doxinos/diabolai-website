@@ -34,16 +34,16 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.diabolai.com'),
-  title: 'Diabol AI | AI Voice Agents, Content & Avatars for SMBs',
-  description: 'AI voice agents that answer calls 24/7, AI content that sounds like your brand, AI avatars that show up on camera — for growing businesses scaling without payroll. Based in Stockholm, serving Nordics and Europe.',
-  keywords: 'AI voice agents, AI receptionist, AI content creation, AI avatars, AI avatar for business, AI agency, AI automation, SMB automation, AI for small business, Diabol AI, AI agency Stockholm',
+  title: 'Diabol AI | AI Voice + AI Video for Builders',
+  description: 'AI voice agents that answer every call 24/7, AI video and UGC ads that show up without a camera crew, AI avatars of you on camera in any language. For founders scaling presence and operations without scaling headcount. Based in Stockholm.',
+  keywords: 'AI voice agents, AI receptionist, AI video, AI content creation, AI UGC, AI UGC ads, AI avatars, AI avatar for business, AI video agency, AI agency, Diabol AI, AI agency Stockholm',
   authors: [{ name: 'Peter Ferm' }],
   creator: 'Diabol AI',
   publisher: 'Diabol AI',
   robots: 'index, follow',
   openGraph: {
-    title: 'Diabol AI | AI Voice Agents, Content & Avatars for SMBs',
-    description: 'AI voice agents that answer calls 24/7, AI content that sounds like your brand, AI avatars that show up on camera — for growing businesses scaling without payroll.',
+    title: 'Diabol AI | AI Voice + AI Video for Builders',
+    description: 'AI voice agents that answer every call 24/7, AI video and UGC ads that show up without a camera crew, AI avatars of you on camera in any language. For founders scaling presence without scaling headcount.',
     type: 'website',
     url: 'https://www.diabolai.com',
     siteName: 'Diabol AI',
@@ -53,14 +53,14 @@ export const metadata: Metadata = {
         url: '/logos/Diabol_Logo_White-01.png',
         width: 1200,
         height: 630,
-        alt: 'Diabol AI — AI Voice Agents, Content & Avatars for SMBs',
+        alt: 'Diabol AI — AI Voice + AI Video for Builders',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Diabol AI | AI Voice Agents, Content & Avatars for SMBs',
-    description: 'AI voice agents, AI content, AI avatars. For growing businesses that want to scale without payroll. Based in Stockholm.',
+    title: 'Diabol AI | AI Voice + AI Video for Builders',
+    description: 'AI voice agents and AI video for founders who want to show up everywhere without cloning themselves. Based in Stockholm.',
     images: ['/logos/Diabol_Logo_White-01.png'],
     creator: '@diabol',
   },
@@ -92,7 +92,7 @@ export default function RootLayout({
               "alternateName": ["DiabolAI", "diabol"],
               "url": "https://www.diabolai.com/",
               "logo": "https://www.diabolai.com/logos/diabol-logo-black.png",
-              "description": "AI voice agents, AI content, and AI avatars for SMBs. We help growing businesses answer every call 24/7, publish content that sounds like their brand, and show up on camera everywhere — without proportional hiring. Based in Stockholm, serving Nordics, North America, and Europe.",
+              "description": "AI voice agents and AI video for Builders — founders and operators running their businesses on AI instead of adding headcount. We build phone agents that answer every call 24/7, AI video and UGC ads that show up everywhere, and AI avatars that put founders on camera in any language. Based in Stockholm, serving Nordics, North America, and Europe.",
               "founder": {
                 "@type": "Person",
                 "name": "Peter Ferm",
@@ -101,12 +101,15 @@ export default function RootLayout({
               "knowsAbout": [
                 "AI voice agents",
                 "AI receptionist",
+                "AI video",
                 "AI content creation",
+                "AI UGC",
+                "AI UGC ads",
                 "AI avatars",
+                "AI avatar for business",
+                "AI video agency",
                 "AI agency",
-                "AI automation",
-                "SMB automation",
-                "Business process automation"
+                "AI automation"
               ],
               "makesOffer": [
                 {
@@ -121,7 +124,23 @@ export default function RootLayout({
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "AI Content",
+                    "name": "AI Receptionist",
+                    "serviceType": "Technology Solution"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "AI Video",
+                    "serviceType": "Technology Solution"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "AI UGC Ads",
                     "serviceType": "Technology Solution"
                   }
                 },
@@ -130,14 +149,6 @@ export default function RootLayout({
                   "itemOffered": {
                     "@type": "Service",
                     "name": "AI Avatars",
-                    "serviceType": "Technology Solution"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "AI Receptionist",
                     "serviceType": "Technology Solution"
                   }
                 },

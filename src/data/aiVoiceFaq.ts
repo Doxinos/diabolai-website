@@ -23,6 +23,6 @@ export const aiVoiceFaqData: FAQItem[] = [
   },
   {
     question: "How much does an AI voice agent cost?",
-    answer: "Pricing depends on call volume, languages, and integrations, so we don't publish a public price. Most engagements save meaningful money compared to hiring or outsourcing the same call volume to humans, because voice agents scale without payroll. The fastest way to get a real number is a free 30-minute audit where we map your call patterns to a fit."
+    answer: "Pricing depends on call volume, languages, and integrations, so we don't publish a public price. For most Builders, an AI voice agent captures more revenue than hiring or outsourcing the same call volume to humans — because it never drops a call, works 24/7, and scales with call volume instead of payroll. The fastest way to get a real number is a free 30-minute audit where we map your call patterns to a fit."
   }
 ]

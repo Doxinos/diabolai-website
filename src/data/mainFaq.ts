@@ -20,11 +20,11 @@ export const mainFaqData: FAQCategory[] = [
     questions: [
       {
         question: "What is an AI voice agent?",
-        answer: "An AI voice agent is a system that answers phone calls and talks with callers in real time using speech recognition, large language models, and realistic text-to-speech. Unlike a chatbot, it works over the phone — no app, no typing, no wait. It handles multi-turn conversations, understands context, and takes real actions like booking meetings or updating your CRM. Most businesses use AI voice agents to cover inbound calls, qualify leads, and free their team from routine phone work."
+        answer: "An AI voice agent is a system that answers phone calls and talks with callers in real time using speech recognition, large language models, and realistic text-to-speech. Unlike a chatbot, it works over the phone — no app, no typing, no wait. It handles multi-turn conversations, understands context, and takes real actions like booking meetings or updating your CRM. Founders use AI voice agents to cover inbound calls, qualify leads, and free their team from routine phone work."
       },
       {
         question: "What is an AI receptionist?",
-        answer: "An AI receptionist is an AI voice agent trained specifically for front-desk work — answering calls, greeting callers, routing to the right person, booking appointments, and collecting contact details. It works 24/7, never goes on break, and speaks naturally in multiple languages. For small businesses that lose calls to voicemail or pay for after-hours answering services, an AI receptionist captures every caller without adding payroll."
+        answer: "An AI receptionist is an AI voice agent trained specifically for front-desk work — answering calls, greeting callers, routing to the right person, booking appointments, and collecting contact details. It works 24/7, never goes on break, and speaks naturally in multiple languages. For Builders whose calls currently go to voicemail or a paid answering service, an AI receptionist captures every caller without adding payroll."
       },
       {
         question: "How is an AI receptionist different from an answering service?",
@@ -44,7 +44,7 @@ export const mainFaqData: FAQCategory[] = [
       },
       {
         question: "How much does an AI receptionist cost?",
-        answer: "It depends on call volume, languages, integrations, and whether you need 24/7 coverage — so we don't publish a public price. Most small businesses save money compared to hiring a full-time receptionist or paying per-minute for a traditional answering service, because AI scales without payroll. The fastest way to get a real number is to book a free 30-minute audit where we look at your call volume and map out a fit."
+        answer: "Pricing depends on call volume, languages, integrations, and whether you need 24/7 coverage — so we don't publish a public price. For most Builders, an AI receptionist captures more revenue than a full-time hire or a per-minute answering service ever could, because it never drops a call, works 24/7, and scales with call volume instead of payroll. The fastest way to get a real number is to book a free 30-minute audit where we map your call patterns to a fit."
       },
       {
         question: "How do AI voice agents compare to hiring human staff?",
@@ -53,20 +53,19 @@ export const mainFaqData: FAQCategory[] = [
     ],
     relatedLinks: [
       { text: "AI Voice service", href: "/ai-voice" },
-      { text: "AI Content", href: "/ai-content" },
-      { text: "AI Avatars", href: "/ai-avatars" }
+      { text: "AI Video service", href: "/ai-content" }
     ]
   },
   {
-    category: "AI Content",
+    category: "AI Video",
     questions: [
       {
-        question: "Can AI generate content for my business?",
-        answer: "Yes — AI can draft blog posts, product descriptions, email sequences, social media posts, video scripts, and ad copy at scale, in your brand voice. The lift isn't about replacing writers but about compressing the time between idea and published piece. Most businesses using AI content go from publishing monthly to publishing weekly without adding headcount, while keeping quality consistent."
+        question: "Can AI generate content and video for my business?",
+        answer: "Yes — AI can draft blog posts, product descriptions, email sequences, social posts, video scripts, UGC-style ads, and on-camera avatar videos at scale, in your brand voice. The lift isn't about replacing writers or production teams — it's about compressing the time between idea and published piece so you can show up on every channel your audience uses."
       },
       {
-        question: "What types of content can AI create?",
-        answer: "AI content creation covers written formats (blog posts, newsletters, product descriptions, ad copy, LinkedIn posts), video scripts and outlines, podcast show notes, social media captions, email sequences, and internal documentation. Modern models also generate images, short-form video, and AI avatars that deliver scripts on camera. The question is usually less \"can AI create it\" and more \"which formats matter for your audience.\""
+        question: "What types of content and video can AI create?",
+        answer: "Written formats (blog posts, newsletters, product descriptions, ad copy, LinkedIn posts), video scripts and outlines, short-form social video, UGC-style ad creative, AI avatar videos that deliver any script on camera in dozens of languages, and hero commercials for premium campaigns. The question is usually less \"can AI create it\" and more \"which formats actually move your audience.\""
       },
       {
         question: "Will AI content sound like my brand?",
@@ -75,38 +74,27 @@ export const mainFaqData: FAQCategory[] = [
       {
         question: "How do I keep AI content from sounding generic?",
         answer: "Generic AI content is usually a prompting problem, not an AI problem. Feeding a model a one-line prompt like \"write a blog post about X\" produces the average of everything ever written about X. Good AI content workflows start with a brand voice guide, a specific angle, a target reader, and examples of content you're proud of — then the AI acts like a skilled ghostwriter, not a random assistant."
-      }
-    ],
-    relatedLinks: [
-      { text: "AI Content service", href: "/ai-content" },
-      { text: "AI Voice", href: "/ai-voice" },
-      { text: "AI Avatars", href: "/ai-avatars" }
-    ]
-  },
-  {
-    category: "AI Avatars",
-    questions: [
+      },
       {
         question: "What is an AI avatar?",
-        answer: "An AI avatar is a digital version of a real person — or a fictional character — that can deliver any script on camera, in any language, without the person ever recording the video themselves. You record a few minutes of base footage once, then generate unlimited videos from text. Businesses use AI avatars for sales outreach, onboarding, training, product explainers, and localized marketing at scale."
+        answer: "An AI avatar is a digital version of a real person — or a fictional character — that can deliver any script on camera, in any language, without the person ever recording the video themselves. You record a few minutes of base footage once, then generate unlimited videos from text. Founders use AI avatars for sales outreach, onboarding, training, product explainers, and localized marketing at scale."
       },
       {
         question: "Can I use an AI avatar of myself for marketing videos?",
-        answer: "Yes — you can create an AI avatar of yourself from about 2–5 minutes of training footage, then generate videos of \"you\" delivering any script. It speaks dozens of languages while keeping your face, voice, and mannerisms. Solo founders and consultants use this to show up on camera daily without actually being on camera daily; sales teams use it to personalize outreach at volume."
+        answer: "Yes — you can create an AI avatar of yourself from about 2–5 minutes of training footage, then generate videos of \"you\" delivering any script. It speaks dozens of languages while keeping your face, voice, and mannerisms. Solo founders use this to show up on camera daily without actually being on camera daily; sales teams use it to personalize outreach at volume."
       },
       {
-        question: "How realistic do AI avatars look?",
-        answer: "Close enough that untrained viewers rarely notice — if the avatar is built correctly. The best results come from high-quality training footage, a natural-sounding voice clone, and scripts written for spoken delivery rather than pasted from a blog post. Cheap-looking AI avatars almost always trace back to shortcuts at one of those three steps."
+        question: "What is AI UGC and why does it matter?",
+        answer: "AI UGC is user-generated-content-style ad creative produced with AI — the casual, authentic-feeling videos that consistently outperform polished brand ads on TikTok, Reels, and Meta feeds. Instead of coordinating real creators, shoots, and approvals for every variant, you generate 10–30 UGC ad variants per week from a brief. Winners get scaled; losers get retired. Same creative pattern, compressed from weeks to hours."
       },
       {
         question: "Do viewers know they're watching an AI avatar?",
-        answer: "Most don't — but ethical use means disclosing when it matters. For marketing videos and outreach where the audience expects a brand communication, disclosure isn't always expected. For anything involving personal claims, testimonials, or sensitive topics, we recommend explicit disclosure — and in some jurisdictions it's legally required. We help clients set a disclosure policy that matches their industry and audience."
+        answer: "Most don't — but ethical use means disclosing when it matters. For marketing videos under your own brand, disclosure isn't usually expected. For testimonials, personal claims, or regulated industries, we recommend explicit disclosure — and in some jurisdictions it's legally required. We help founders set a disclosure policy that matches their industry and audience."
       }
     ],
     relatedLinks: [
-      { text: "AI Avatars service", href: "/ai-avatars" },
-      { text: "AI Voice", href: "/ai-voice" },
-      { text: "AI Content", href: "/ai-content" }
+      { text: "AI Video service", href: "/ai-content" },
+      { text: "AI Voice", href: "/ai-voice" }
     ]
   },
   {
@@ -114,11 +102,11 @@ export const mainFaqData: FAQCategory[] = [
     questions: [
       {
         question: "How do I know if my business is ready for AI?",
-        answer: "You're ready if you have at least three of these: repetitive processes that eat team time, customer interactions that follow predictable patterns, data already stored digitally (CRM, spreadsheets, inbox), a goal to grow without proportional hiring, and a team willing to change how work gets done. Most SMBs with 10+ people have 3–5 processes worth automating within the first year. A 30-minute audit usually surfaces them in under an hour."
+        answer: "You're ready if you have at least three of these: repetitive processes that eat team time, customer interactions that follow predictable patterns, data already stored digitally (CRM, spreadsheets, inbox), a goal to grow without adding headcount, and a team willing to change how work gets done. Most Builders with 10+ people have 3–5 processes worth automating within the first year. A 30-minute audit usually surfaces them in under an hour."
       },
       {
         question: "What business processes can AI automate?",
-        answer: "The highest-ROI candidates are: customer-facing (answering calls, qualifying leads, booking meetings, basic support), operational (email triage, invoice processing, data entry, report generation), and content (writing, personalizing at scale, translating). Most businesses can automate 30–50% of routine tasks within six months without disrupting the work that actually needs human judgment."
+        answer: "The highest-leverage candidates are: customer-facing (answering calls, qualifying leads, booking meetings, basic support), operational (email triage, invoice processing, data entry, report generation), and content (writing, personalizing at scale, translating). Most businesses can automate 30–50% of routine tasks within six months without disrupting the work that actually needs human judgment."
       },
       {
         question: "How long does it take to set up an AI voice agent?",
@@ -126,7 +114,7 @@ export const mainFaqData: FAQCategory[] = [
       },
       {
         question: "Do I need technical knowledge to use an AI voice agent?",
-        answer: "No — we handle the setup, integrations, and ongoing maintenance. You get a dashboard on the voice platform we build on (such as Vapi) where you can monitor calls, read transcripts, update scripts, and adjust settings. Most clients operate the agent day-to-day without involving a developer."
+        answer: "No — we handle the setup, integrations, and ongoing maintenance. You get a dashboard on the voice platform we build on (such as Vapi) where you can monitor calls, read transcripts, update scripts, and adjust settings. Most founders operate the agent day-to-day without involving a developer."
       },
       {
         question: "What languages do AI voice agents support?",
@@ -142,9 +130,8 @@ export const mainFaqData: FAQCategory[] = [
       }
     ],
     relatedLinks: [
-      { text: "AI Voice service", href: "/ai-voice" },
-      { text: "AI Content service", href: "/ai-content" },
-      { text: "AI Avatars service", href: "/ai-avatars" }
+      { text: "AI Voice", href: "/ai-voice" },
+      { text: "AI Video", href: "/ai-content" }
     ]
   },
   {
@@ -152,7 +139,7 @@ export const mainFaqData: FAQCategory[] = [
     questions: [
       {
         question: "Are AI voice agents secure and GDPR/HIPAA compliant?",
-        answer: "Yes — our deployments use enterprise-grade security by default: encrypted transport, encrypted storage, role-based access, and full audit logging. For regulated industries we configure GDPR-compliant deployments for EU clients, HIPAA-aligned deployments for U.S. healthcare, and CCPA-compliant handling for California residents. Specific compliance requirements are scoped during the audit."
+        answer: "Yes — our deployments use enterprise-grade security by default: encrypted transport, encrypted storage, role-based access, and full audit logging. For regulated industries we configure GDPR-compliant deployments for EU-based businesses, HIPAA-aligned deployments for U.S. healthcare, and CCPA-compliant handling for California residents. Specific compliance requirements are scoped during the audit."
       },
       {
         question: "How is customer data protected?",
@@ -165,8 +152,7 @@ export const mainFaqData: FAQCategory[] = [
     ],
     relatedLinks: [
       { text: "AI Voice", href: "/ai-voice" },
-      { text: "AI Content", href: "/ai-content" },
-      { text: "AI Avatars", href: "/ai-avatars" }
+      { text: "AI Video", href: "/ai-content" }
     ]
   },
   {
@@ -187,8 +173,7 @@ export const mainFaqData: FAQCategory[] = [
     ],
     relatedLinks: [
       { text: "AI Voice", href: "/ai-voice" },
-      { text: "AI Content", href: "/ai-content" },
-      { text: "AI Avatars", href: "/ai-avatars" }
+      { text: "AI Video", href: "/ai-content" }
     ]
   }
 ]

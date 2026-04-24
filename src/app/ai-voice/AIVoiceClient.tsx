@@ -694,7 +694,7 @@ const Objections = () => {
     },
     {
       q: 'Is this GDPR compliant?',
-      a: 'Yes. GDPR compliance is built in from day one — call recording consent, data storage, processing agreements. We\'ve handled this for EU clients. If you have a specific compliance requirement, tell us in the pilot call and we\'ll address it directly.',
+      a: 'Yes. GDPR compliance is built in from day one — call recording consent, data storage, processing agreements. We\'ve handled this for EU-based businesses. If you have a specific compliance requirement, tell us in the pilot call and we\'ll address it directly.',
     },
     {
       q: 'Can it do outbound calls too?',
