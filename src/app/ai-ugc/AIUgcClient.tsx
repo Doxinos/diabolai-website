@@ -88,12 +88,12 @@ const UgcHero = () => {
         </p>
 
         <div className="uh-ctas flex flex-wrap gap-4 justify-center">
-          <a
-            href="https://app.diabolai.com"
-            className="flex items-center gap-2 rounded-full bg-[#FF4F30] px-8 py-4 text-sm font-bold text-white hover:bg-[#E64528] transition-colors duration-200 no-underline"
+          <button
+            onClick={() => openCalendly('ai_ugc_hero_early_access')}
+            className="flex items-center gap-2 rounded-full bg-[#FF4F30] px-8 py-4 text-sm font-bold text-white hover:bg-[#E64528] transition-colors duration-200"
           >
             Get early access <ArrowRight size={16} />
-          </a>
+          </button>
           <button
             onClick={() => openCalendly('ai_ugc_hero_demo')}
             className="rounded-full border border-[rgba(255,255,255,0.30)] bg-transparent px-8 py-4 text-sm font-bold text-white hover:bg-[rgba(255,255,255,0.05)] transition-colors duration-200"
@@ -319,12 +319,12 @@ const UgcFinalCTA = () => {
           <span className="text-[rgba(255,255,255,0.45)]">In your brand voice. Without the wait.</span>
         </h2>
         <div className="mt-12 flex flex-wrap gap-4 justify-center">
-          <a
-            href="https://app.diabolai.com"
-            className="flex items-center gap-2 rounded-full bg-[#FF4F30] px-8 py-4 text-sm font-bold text-white hover:bg-[#E64528] transition-colors duration-200 no-underline"
+          <button
+            onClick={() => openCalendly('ai_ugc_final_early_access')}
+            className="flex items-center gap-2 rounded-full bg-[#FF4F30] px-8 py-4 text-sm font-bold text-white hover:bg-[#E64528] transition-colors duration-200"
           >
             Get early access <ArrowRight size={16} />
-          </a>
+          </button>
           <button
             onClick={() => openCalendly('ai_ugc_final_demo')}
             className="rounded-full border border-[rgba(255,255,255,0.30)] bg-transparent px-8 py-4 text-sm font-bold text-white hover:bg-[rgba(255,255,255,0.05)] transition-colors duration-200"
