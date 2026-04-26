@@ -43,7 +43,7 @@ export default function Hero() {
         {/* Main content */}
         <div className="col-span-12 lg:col-span-9">
           <div className="hero-label translate-y-3 opacity-0 font-mono text-[11px] uppercase tracking-[0.14em] text-[rgba(17,17,17,0.40)]">
-            — AI Voice Agents · AI Content · AI Avatars
+            — AI Voice + AI Video for Builders
           </div>
 
           <h1 className="mt-6 flex flex-col font-black tracking-[-0.04em] text-[#111111]">

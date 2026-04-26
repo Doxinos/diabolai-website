@@ -101,8 +101,8 @@ export default function Philosophy() {
         <div className="mx-auto mt-20 max-w-[640px] text-center">
           <p className="text-[clamp(17px,2vw,20px)] leading-[1.65] text-[rgba(255,255,255,0.65)]">
             We built these systems because we ran out of hours before we ran out of ambition.
-            Voice agents that answer every call. Content engines that never sleep. Avatars that
-            show up when you can&apos;t. That&apos;s not automation — that&apos;s a second founder.
+            Voice agents that answer every call. AI video that shows up everywhere — UGC ads,
+            avatars of you on camera, hero commercials. That&apos;s not automation — that&apos;s a second founder.
           </p>
         </div>
       </div>

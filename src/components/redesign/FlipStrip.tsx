@@ -9,23 +9,16 @@ const tiles = [
   {
     number: '01',
     label: 'AI VOICE AGENTS',
-    name: 'Voice Agents',
+    name: 'AI Voice',
     back: 'Your phone answered 24/7. Every lead qualified. Every job booked — before they call your competitor.',
     href: '/ai-voice',
   },
   {
     number: '02',
-    label: 'AI CONTENT',
-    name: 'AI Content',
-    back: 'Scroll-stopping videos, ads, and posts. Produced while you sleep, at a pace no human team can match.',
+    label: 'AI VIDEO',
+    name: 'AI Video',
+    back: 'Volume video, UGC ads, and an AI avatar of you on camera — in any language, at a pace no human team can match.',
     href: '/ai-content',
-  },
-  {
-    number: '03',
-    label: 'AI AVATARS',
-    name: 'AI Avatars',
-    back: 'Your face. Your voice. Everywhere you need to be — without the hours it would take to actually be there.',
-    href: '/ai-avatars',
   },
 ]
 

@@ -27,7 +27,7 @@ export default function Footer() {
             Diabol.
           </Link>
           <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-[rgba(255,255,255,0.40)]">
-            AI Voice · AI Content · AI Avatars
+            AI Voice · AI Video
           </div>
           <div className="text-sm text-[rgba(255,255,255,0.30)]">
             © {new Date().getFullYear()} Diabol. All rights reserved.

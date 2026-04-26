@@ -11,28 +11,28 @@ if (typeof window !== 'undefined') {
 
 const faqItems = [
   {
-    q: 'What is AI transformation consulting and how can it help my business?',
-    a: 'AI transformation consulting helps businesses identify, prioritize, and implement AI solutions that drive measurable results. We analyze your operations, identify high-impact opportunities, redesign processes, and implement tailored solutions — typically delivering 20-40% cost reduction and 2-3x faster processes within 6 months.',
+    q: 'What does AI voice + AI video actually do for a Builder like me?',
+    a: 'AI voice agents answer every call 24/7 in your voice, qualify leads, and book meetings while you sleep. AI video puts you in front of your market every day — UGC ads on every feed, AI avatar videos in any language, hero commercials when it matters. Together they let you show up everywhere your customers look without scaling headcount.',
   },
   {
-    q: 'How fast can we start?',
-    a: 'Most businesses go live in days. We begin with a simple call flow and expand from there. More complex implementations with CRM integrations or custom workflows may take 3-4 weeks.',
+    q: 'How fast can we go live?',
+    a: 'A first AI voice agent typically launches in 1–2 weeks. AI video and UGC ad creative can ship within a week of brief. AI avatar setup takes about a day of training footage; the avatar is generating videos within a week. We start with one focused use case, prove it works, then expand.',
   },
   {
-    q: 'What can AI voice agents do for my business?',
-    a: 'AI voice agents handle customer support calls, qualify sales leads, schedule appointments, process orders, provide product information, and follow up with customers — all integrated with your existing CRM and business systems, 24/7.',
+    q: 'Will AI content actually sound like me, not generic AI?',
+    a: 'Yes — if you give it a brand voice framework. We capture your vocabulary, tone, sentence rhythm, examples you\'re proud of, and patterns to avoid, then constrain every generation to that voice. The output reads (and sounds) like you wrote it. Generic prompts make generic AI; constrained prompts make on-brand AI.',
   },
   {
-    q: 'Will this work with our CRM or booking tool?',
-    a: 'Yes. We integrate with popular CRMs (Salesforce, HubSpot, Pipedrive), calendaring tools (Calendly, Google Calendar), helpdesk software, and most business applications via APIs or webhooks.',
+    q: 'Will this integrate with my CRM, calendar, and existing tools?',
+    a: 'Yes. Voice agents integrate with Salesforce, HubSpot, Pipedrive, Calendly, Google Calendar, Zendesk, Freshdesk, and most business systems with an API. AI video and content publish into your CMS, ad platforms, and social schedulers. If your tool exposes an API or webhook, we can wire it.',
   },
   {
-    q: "What's the ROI of AI implementation?",
-    a: 'Most businesses see 300-500% ROI within the first year. Returns come from reduced labor costs (30-70% on automated tasks), 2-3x faster processes, 24/7 customer engagement, and the ability to scale without proportional cost increases.',
+    q: 'How is this different from hiring more staff?',
+    a: 'Different shape, same goal — capture more revenue without losing your weekends. Voice agents and AI video work 24/7, scale instantly with demand, never burn out, and keep quality consistent on the work humans find repetitive. Most Builders don\'t replace humans with AI; they let AI handle volume so humans focus on the conversations and creative judgment that actually need a person.',
   },
   {
-    q: 'Are AI voice agents secure and compliant?',
-    a: 'Yes. Our solutions are built with enterprise-grade security including data encryption, secure API connections, and compliance with GDPR, CCPA, and industry-specific regulations. Customer data is never shared with third parties.',
+    q: 'Is this secure and GDPR/HIPAA compliant?',
+    a: 'Yes — enterprise-grade security by default: encrypted transport, encrypted storage, role-based access, full audit logging. For regulated industries we configure GDPR-compliant deployments for EU-based businesses, HIPAA-aligned for U.S. healthcare, and CCPA-aligned for California. Compliance specifics are scoped during the audit.',
   },
 ]
 
