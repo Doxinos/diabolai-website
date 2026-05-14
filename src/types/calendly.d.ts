@@ -8,7 +8,14 @@ declare global {
         textColor: string;
         branding: boolean;
       }) => void;
-      initPopupWidget: (options: { url: string }) => void;
+      initPopupWidget: (options: {
+        url: string;
+        prefill?: {
+          name?: string;
+          email?: string;
+          customAnswers?: Record<string, string>;
+        };
+      }) => void;
     };
   }
 }

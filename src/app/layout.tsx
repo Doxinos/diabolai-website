@@ -9,6 +9,7 @@ import GoogleAnalytics from '@/components/analytics/GoogleAnalytics'
 import Footer from '@/components/redesign/Footer'
 import NoiseOverlay from '@/components/redesign/NoiseOverlay'
 import CalendlyLoader from '@/components/CalendlyLoader'
+import VoiceAgentWidget from '@/components/voice/VoiceAgentWidget'
 import ExternalResources from '@/components/ExternalResources'
 import CriticalCSS from '@/components/CriticalCSS'
 import DeferredCSS from '@/components/DeferredCSS'
@@ -197,6 +198,7 @@ export default function RootLayout({
               <DeferredCSS />
               <GoogleAnalytics />
               <CalendlyLoader />
+              <VoiceAgentWidget />
               {children}
               <Footer />
               <CookieBanner />
