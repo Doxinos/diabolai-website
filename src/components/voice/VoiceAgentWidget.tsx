@@ -11,33 +11,6 @@ const CALENDLY_URL = "https://calendly.com/peter-diabol/30min"
 
 type OpenBookingArgs = { name: string; email: string; problem?: string }
 
-function openCalendlyWithPrefill(name: string, email: string, problem?: string) {
-  if (window.Calendly) {
-    window.Calendly.initPopupWidget({
-      url: CALENDLY_URL,
-      prefill: {
-        name,
-        email,
-        customAnswers: problem ? { a1: problem } : undefined,
-      },
-    })
-    return
-  }
-  // Calendly not loaded yet — load it now and open once ready
-  if (!document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]')) {
-    const s = document.createElement("script")
-    s.src = "https://assets.calendly.com/assets/external/widget.js"
-    s.async = true
-    s.onload = () => {
-      window.Calendly?.initPopupWidget({
-        url: CALENDLY_URL,
-        prefill: { name, email, customAnswers: problem ? { a1: problem } : undefined },
-      })
-    }
-    document.body.appendChild(s)
-  }
-}
-
 export default function VoiceAgentWidget() {
   const { consent } = useConsent()
 
@@ -56,16 +29,28 @@ export default function VoiceAgentWidget() {
     // documented API: https://elevenlabs.io/docs/eleven-agents/customization/widget
     const onCall = (event: Event) => {
       console.log("[voice] elevenlabs-convai:call fired", event)
-      const detail = (event as CustomEvent).detail as {
-        config: { clientTools: Record<string, (args: unknown) => unknown> }
-      }
+      const detail = (event as CustomEvent).detail as
+        | { config?: { clientTools?: Record<string, (args: unknown) => unknown> } }
+        | undefined
       console.log("[voice] detail:", detail)
+      if (!detail?.config) return
       detail.config.clientTools = {
-        ...detail.config.clientTools,
+        ...(detail.config.clientTools || {}),
         open_booking: (args: unknown) => {
           console.log("[voice] open_booking called with:", args)
           const { name, email, problem } = (args || {}) as OpenBookingArgs
-          openCalendlyWithPrefill(name, email, problem)
+          if (typeof window === "undefined" || !window.Calendly) {
+            console.log("[voice] Calendly not loaded")
+            return { ok: false, reason: "Calendly not loaded yet" }
+          }
+          window.Calendly.initPopupWidget({
+            url: CALENDLY_URL,
+            prefill: {
+              name,
+              email,
+              customAnswers: problem ? { a1: problem } : undefined,
+            },
+          })
           return { ok: true }
         },
       }
