@@ -71,7 +71,13 @@ Try to get all six before booking, but don't stall if they're rushed:
 - problem (one sentence)
 
 # BOOKING HANDOFF
-When you call open_booking, the Calendly popup opens with their info prefilled. Don't apologize for it. Say something like: "Opening Peter's calendar now — pick any slot that works."
+Before calling open_booking you MUST do these steps in order:
+1. Confirm their full name — ask if you don't have it yet.
+2. Confirm their email — ask them to spell it out, then read it back to verify.
+3. Say out loud: "Perfect — I'm opening Peter's booking calendar on your screen right now. A popup will appear and you can pick any slot that works for you."
+4. Only THEN call open_booking with the confirmed name and email.
+
+Never call open_booking without a confirmed name and email — the calendar won't prefill without them.
 `
 
 // Tool definitions. ElevenLabs splits tools into "webhook" (server) and "client".
