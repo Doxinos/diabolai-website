@@ -10,7 +10,7 @@
     "test": "echo 'Tests not configured yet'",
     "test:ui": "echo 'Tests not configured yet'",
     "test:production": "echo 'Tests not configured yet'",
-    "voice-agent:sync": "tsx scripts/sync-voice-agent.ts"
+    "voice-agent:sync": "tsx --env-file=.env.local scripts/sync-voice-agent.ts"
   },
   "dependencies": {
     "@elevenlabs/elevenlabs-js": "^2.15.0",

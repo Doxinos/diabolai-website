@@ -133,7 +133,7 @@ export const AGENT_CONFIG = {
     },
     tts: {
       voice_id: VOICE_ID,
-      model_id: "eleven_turbo_v2_5",
+      model_id: "eleven_turbo_v2",
     },
   },
   platform_settings: {
