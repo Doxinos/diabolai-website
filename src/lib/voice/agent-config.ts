@@ -15,7 +15,7 @@ export const VOICE_ID = "EST9Ui6982FZPSi7gCHi" // Elise — Warm, Natural and En
 
 // LLM that drives the conversation. gpt-4o-mini is fast + cheap and behaves well
 // for short qualification flows. Bump to gpt-4o or claude-3-5-sonnet if quality slips.
-export const LLM = "gpt-4o-mini"
+export const LLM = "gpt-4o"
 
 // First thing the visitor hears when they open the widget.
 export const FIRST_MESSAGE =
