@@ -55,19 +55,24 @@ export default function VoiceAgentWidget() {
     // Register open_booking via the elevenlabs-convai:call event — this is the
     // documented API: https://elevenlabs.io/docs/eleven-agents/customization/widget
     const onCall = (event: Event) => {
+      console.log("[voice] elevenlabs-convai:call fired", event)
       const detail = (event as CustomEvent).detail as {
         config: { clientTools: Record<string, (args: unknown) => unknown> }
       }
+      console.log("[voice] detail:", detail)
       detail.config.clientTools = {
         ...detail.config.clientTools,
         open_booking: (args: unknown) => {
+          console.log("[voice] open_booking called with:", args)
           const { name, email, problem } = (args || {}) as OpenBookingArgs
           openCalendlyWithPrefill(name, email, problem)
           return { ok: true }
         },
       }
+      console.log("[voice] clientTools registered:", Object.keys(detail.config.clientTools))
     }
 
+    console.log("[voice] attaching elevenlabs-convai:call listener to", widgetEl)
     widgetEl.addEventListener("elevenlabs-convai:call", onCall)
 
     // Inject the embed script once.
