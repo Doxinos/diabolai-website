@@ -11,9 +11,31 @@ const CALENDLY_URL = "https://calendly.com/peter-diabol/30min"
 
 type OpenBookingArgs = { name: string; email: string; problem?: string }
 
-// ElevenLabs convai widget exposes clientTools as a direct property on the element.
-type ConvaiElement = HTMLElement & {
-  clientTools?: Record<string, (args: unknown) => unknown>
+function openCalendlyWithPrefill(name: string, email: string, problem?: string) {
+  if (window.Calendly) {
+    window.Calendly.initPopupWidget({
+      url: CALENDLY_URL,
+      prefill: {
+        name,
+        email,
+        customAnswers: problem ? { a1: problem } : undefined,
+      },
+    })
+    return
+  }
+  // Calendly not loaded yet — load it now and open once ready
+  if (!document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]')) {
+    const s = document.createElement("script")
+    s.src = "https://assets.calendly.com/assets/external/widget.js"
+    s.async = true
+    s.onload = () => {
+      window.Calendly?.initPopupWidget({
+        url: CALENDLY_URL,
+        prefill: { name, email, customAnswers: problem ? { a1: problem } : undefined },
+      })
+    }
+    document.body.appendChild(s)
+  }
 }
 
 export default function VoiceAgentWidget() {
@@ -23,54 +45,30 @@ export default function VoiceAgentWidget() {
     if (!consent.functional) return
 
     // Inject the convai web component once.
-    let widgetEl = document.querySelector("elevenlabs-convai") as ConvaiElement | null
+    let widgetEl = document.querySelector("elevenlabs-convai") as HTMLElement | null
     if (!widgetEl) {
-      widgetEl = document.createElement("elevenlabs-convai") as ConvaiElement
+      widgetEl = document.createElement("elevenlabs-convai")
       widgetEl.setAttribute("agent-id", AGENT_ID)
       document.body.appendChild(widgetEl)
     }
 
-    // Register client tools directly on the element — this is the supported API.
-    widgetEl.clientTools = {
-      ...(widgetEl.clientTools || {}),
-      open_booking: (args: unknown) => {
-        const { name, email, problem } = (args || {}) as OpenBookingArgs
-
-        if (typeof window === "undefined" || !window.Calendly) {
-          // Calendly not loaded yet — try loading it now and retry once
-          const script = document.querySelector(
-            'script[src="https://assets.calendly.com/assets/external/widget.js"]',
-          )
-          if (!script) {
-            const s = document.createElement("script")
-            s.src = "https://assets.calendly.com/assets/external/widget.js"
-            s.async = true
-            s.onload = () => {
-              window.Calendly?.initPopupWidget({
-                url: CALENDLY_URL,
-                prefill: {
-                  name,
-                  email,
-                  customAnswers: problem ? { a1: problem } : undefined,
-                },
-              })
-            }
-            document.body.appendChild(s)
-          }
-          return { ok: false, reason: "Calendly was loading — retry" }
-        }
-
-        window.Calendly.initPopupWidget({
-          url: CALENDLY_URL,
-          prefill: {
-            name,
-            email,
-            customAnswers: problem ? { a1: problem } : undefined,
-          },
-        })
-        return { ok: true }
-      },
+    // Register open_booking via the elevenlabs-convai:call event — this is the
+    // documented API: https://elevenlabs.io/docs/eleven-agents/customization/widget
+    const onCall = (event: Event) => {
+      const detail = (event as CustomEvent).detail as {
+        config: { clientTools: Record<string, (args: unknown) => unknown> }
+      }
+      detail.config.clientTools = {
+        ...detail.config.clientTools,
+        open_booking: (args: unknown) => {
+          const { name, email, problem } = (args || {}) as OpenBookingArgs
+          openCalendlyWithPrefill(name, email, problem)
+          return { ok: true }
+        },
+      }
     }
+
+    widgetEl.addEventListener("elevenlabs-convai:call", onCall)
 
     // Inject the embed script once.
     if (!document.querySelector(`script[src="${EMBED_SRC}"]`)) {
@@ -78,6 +76,10 @@ export default function VoiceAgentWidget() {
       s.src = EMBED_SRC
       s.async = true
       document.body.appendChild(s)
+    }
+
+    return () => {
+      widgetEl?.removeEventListener("elevenlabs-convai:call", onCall)
     }
   }, [consent.functional])
 
