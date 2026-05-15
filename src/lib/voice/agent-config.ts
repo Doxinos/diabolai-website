@@ -11,7 +11,7 @@ export const VOICE_AGENT_NAME = "Diabol Sales Qualifier"
 
 // ElevenLabs voice ID. "Aria" — professional female, works in Conversational AI.
 // Swap to a Peter voice clone once it exists; see docs/voice-agent.md for how.
-export const VOICE_ID = "9BWtsMINqrJLrRacOk9x"
+export const VOICE_ID = "EST9Ui6982FZPSi7gCHi" // Elise — Warm, Natural and Engaging
 
 // LLM that drives the conversation. gpt-4o-mini is fast + cheap and behaves well
 // for short qualification flows. Bump to gpt-4o or claude-3-5-sonnet if quality slips.
