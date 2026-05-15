@@ -11,11 +11,37 @@ const CALENDLY_URL = "https://calendly.com/peter-diabol/30min"
 
 type OpenBookingArgs = { name: string; email: string; problem?: string }
 
+declare global {
+  interface Window {
+    __voiceDebug?: string[]
+  }
+}
+
+function vlog(msg: string) {
+  window.__voiceDebug = window.__voiceDebug ?? []
+  window.__voiceDebug.push(`${new Date().toISOString()} ${msg}`)
+}
+
 export default function VoiceAgentWidget() {
   const { consent } = useConsent()
 
   useEffect(() => {
     if (!consent.functional) return
+
+    // Eagerly load Calendly so window.Calendly is ready before any booking attempt.
+    // CalendlyLoader is lazy (first interaction + 3s) — we can't rely on that timing.
+    if (!document.querySelector('link[href*="calendly.com"]')) {
+      const link = document.createElement("link")
+      link.href = "https://assets.calendly.com/assets/external/widget.css"
+      link.rel = "stylesheet"
+      document.head.appendChild(link)
+    }
+    if (!document.querySelector('script[src*="calendly.com"]')) {
+      const s = document.createElement("script")
+      s.src = "https://assets.calendly.com/assets/external/widget.js"
+      s.async = true
+      document.body.appendChild(s)
+    }
 
     // Inject the convai web component once.
     let widgetEl = document.querySelector("elevenlabs-convai") as HTMLElement | null
@@ -25,22 +51,23 @@ export default function VoiceAgentWidget() {
       document.body.appendChild(widgetEl)
     }
 
-    // Register open_booking via the elevenlabs-convai:call event — this is the
-    // documented API: https://elevenlabs.io/docs/eleven-agents/customization/widget
+    // Register open_booking via the elevenlabs-convai:call event.
+    // The event is dispatched with bubbles:true, composed:true so we listen on
+    // document — more resilient than the widget element in Chrome.
     const onCall = (event: Event) => {
-      console.log("[voice] elevenlabs-convai:call fired", event)
+      vlog("elevenlabs-convai:call fired")
       const detail = (event as CustomEvent).detail as
         | { config?: { clientTools?: Record<string, (args: unknown) => unknown> } }
         | undefined
-      console.log("[voice] detail:", detail)
+      vlog(`detail.config present: ${!!detail?.config}`)
       if (!detail?.config) return
       detail.config.clientTools = {
         ...(detail.config.clientTools || {}),
         open_booking: (args: unknown) => {
-          console.log("[voice] open_booking called with:", args)
+          vlog(`open_booking called: ${JSON.stringify(args)}`)
           const { name, email, problem } = (args || {}) as OpenBookingArgs
           if (typeof window === "undefined" || !window.Calendly) {
-            console.log("[voice] Calendly not loaded")
+            vlog("window.Calendly not loaded")
             return { ok: false, reason: "Calendly not loaded yet" }
           }
           window.Calendly.initPopupWidget({
@@ -51,14 +78,15 @@ export default function VoiceAgentWidget() {
               customAnswers: problem ? { a1: problem } : undefined,
             },
           })
+          vlog("Calendly.initPopupWidget called")
           return { ok: true }
         },
       }
-      console.log("[voice] clientTools registered:", Object.keys(detail.config.clientTools))
+      vlog(`clientTools registered: ${Object.keys(detail.config.clientTools).join(", ")}`)
     }
 
-    console.log("[voice] attaching elevenlabs-convai:call listener to", widgetEl)
-    widgetEl.addEventListener("elevenlabs-convai:call", onCall)
+    vlog("attaching elevenlabs-convai:call listener to document")
+    document.addEventListener("elevenlabs-convai:call", onCall)
 
     // Inject the embed script once.
     if (!document.querySelector(`script[src="${EMBED_SRC}"]`)) {
@@ -69,7 +97,7 @@ export default function VoiceAgentWidget() {
     }
 
     return () => {
-      widgetEl?.removeEventListener("elevenlabs-convai:call", onCall)
+      document.removeEventListener("elevenlabs-convai:call", onCall)
     }
   }, [consent.functional])
 
