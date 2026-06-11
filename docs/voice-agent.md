@@ -28,7 +28,7 @@ Visitor on diabolai.com
 | Path | Role |
 |---|---|
 | `src/lib/voice/agent-config.ts` | Single source of truth — system prompt, voice ID, LLM, tool definitions. Edit this, then run sync. |
-| `src/components/voice/VoiceAgentWidget.tsx` | Mounts the convai web component, registers `open_booking` client tool. |
+| `src/components/voice/VoiceAgentWidget.tsx` | Mounts the convai web component, registers `open_booking` client tool, catches the iOS mic-failure error class and renders the friendly fallback UI. |
 | `src/app/api/voice/qualify/route.ts` | Receives `qualify_lead` webhook, posts to Slack. |
 | `scripts/sync-voice-agent.ts` | Pushes the config to ElevenLabs. Run after editing the config. |
 
@@ -67,6 +67,15 @@ In the ElevenLabs dashboard for the agent:
 
 The widget is gated by `consent.functional` — it does not mount until the visitor accepts functional cookies. Disclosure is already in `src/components/consent/CookieSettingsModal.tsx`, `src/app/(legal)/privacy/page.tsx`, and `src/app/(legal)/cookies/page.tsx`.
 
+## Microphone-failure fallback UI (iOS Safari)
+
+When the mic never opens — stale `AVAudioSession`, denied permission, or another app holding the device — the widget no longer surfaces the raw error string. `VoiceAgentWidget.tsx` catches the failure class and renders a friendly inline card with a Calendly fallback instead.
+
+- **What it catches.** `isMicCaptureFailure()` matches the getUserMedia DOMException names (`NotAllowedError`, `NotReadableError`, `OverconstrainedError`, `NotFoundError`, `SecurityError`) plus Safari's internal `AVAudioSession` errors by message (incl. `No AVAudioSessionCaptureDevice device`).
+- **How it intercepts.** The convai widget **swallows the getUserMedia rejection and renders the raw error inside its own shadow DOM** — it does not re-emit it as a DOM event and adds no `window` error listeners (verified against embed `@elevenlabs/convai-widget-embed@0.14.0`). So `installMicErrorDetection()` wraps `navigator.mediaDevices.getUserMedia` instead — installed before the embed loads, so our wrapper sits *underneath* the widget's own adapter shim. On a matching rejection it fires an internal `diabol:voice-mic-error` event and **re-throws**, so the widget's normal flow is untouched; successful calls pass through unchanged. This is the only reliable hook, since the error never escapes the widget's shadow DOM.
+- **What it shows.** A dismissible card (brand Westar/Oxford styling) explaining the mic isn't available and what to try (close other audio apps, restart the browser), plus an `Or book a call directly →` button that opens the existing Calendly popup via `window.Calendly.initPopupWidget` (same URL the rest of the site uses — no new dependency). The visitor always has a non-voice path to a call.
+- **Tests.** `src/components/voice/VoiceAgentWidget.test.tsx` (Vitest + React Testing Library) covers the error branch and the Calendly CTA. Run with `npm test`.
+
 ## Known gotchas (learned in production — 2026-05-15)
 
 ### Use gpt-4o, not gpt-4o-mini
@@ -86,6 +95,30 @@ Chrome extensions (e.g. Element Cloner) can filter `console.log`. If you need to
 
 ### `clientTools` may be undefined on first call
 Always spread with a fallback: `...(detail.config.clientTools || {})`. Without the `|| {}`, Chrome throws a silent TypeError when `clientTools` is undefined, breaking the entire event handler.
+
+### iOS Safari: stale `AVAudioSession` → "No AVAudioSessionCaptureDevice device"
+
+**Error string the user sees:**
+> *An error occurred*
+> *No AVAudioSessionCaptureDevice device*
+
+**What it means.** This is **not** an ElevenLabs error and not a code regression — it is iOS's `AVAudioSession` (the Apple audio capture stack underneath Safari) refusing to bind a microphone capture device. The widget never reaches `getUserMedia` success, so no network call to ElevenLabs even occurs.
+
+**Top cause** (resolved 2026-06-10 for Peter, iPhone Safari):
+
+A **wedged `AVAudioSession`** carried over from a prior Safari tab / app / Siri activation / FaceTime / Voice Memo / etc. iOS does not share the mic across apps the way macOS does, and once a session gets stuck the only fix is to fully drop and rebuild it.
+
+**Resolution — try in order. Stop at whichever works:**
+
+1. **Hard-quit Safari** (swipe up from app switcher) → reopen → retry the widget. Resolves ~80% of cases.
+2. **Tap the `AA` menu in Safari → Website Settings → Microphone**: set to `Allow` (or `Ask`). If it was `Deny`, this is the cause.
+3. **Settings → Safari → Microphone**: set to `Ask` or `Allow`.
+4. **Settings → Privacy & Security → Microphone**: verify Safari is enabled.
+5. **Disconnect any active Bluetooth audio device** (AirPods especially — routing through another paired device can confuse `AVAudioSession`).
+6. **Confirm no other app is holding the mic** — active call, FaceTime, Voice Memos recording, Siri stuck active.
+7. **iOS 16+** — iOS 15 and earlier have known WebRTC `getUserMedia` issues in Safari that cannot be resolved by permission tweaking.
+
+**Friendly fallback is now in place (2026-06-10).** The widget catches this error class (`NotAllowedError` / `NotReadableError` / `OverconstrainedError` / `AVAudioSession*`) and swaps the raw string for a friendly inline card plus an `Or book a call directly →` Calendly CTA — so a visitor whose mic never opens still has a path to a call. See **Microphone-failure fallback UI (iOS Safari)** above. The resolution steps below still apply for visitors who want voice itself to work.
 
 ## Backlog
 
